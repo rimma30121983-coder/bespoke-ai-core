@@ -1,26 +1,62 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
+import { Header } from "@/components/landing/Header";
+import { Hero } from "@/components/landing/Hero";
+import {
+  Problems, Solution, Features, Industries, Comparison, AIBlock,
+  Process, Structure, Benefits, Includes, Trust,
+} from "@/components/landing/Sections";
+import { Pricing } from "@/components/landing/Pricing";
+import { FAQ } from "@/components/landing/FAQ";
+import { FinalCTA, ContactForm } from "@/components/landing/ContactForm";
+import { Footer } from "@/components/landing/Footer";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+function useReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>("section");
+    els.forEach((el) => el.classList.add("reveal"));
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: "0px 0px -40px 0px" }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
 }
 
 function Index() {
-  return <PlaceholderIndex />;
+  useReveal();
+  return (
+    <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <Header />
+      <Hero />
+      <Problems />
+      <Solution />
+      <Features />
+      <Industries />
+      <Comparison />
+      <AIBlock />
+      <Process />
+      <Structure />
+      <Benefits />
+      <Includes />
+      <Trust />
+      <Pricing />
+      <FAQ />
+      <FinalCTA />
+      <ContactForm />
+      <Footer />
+    </main>
+  );
 }
