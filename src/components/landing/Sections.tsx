@@ -103,7 +103,7 @@ export function Solution() {
   );
 }
 
-/* ---------------- FEATURES ---------------- */
+/* ---------------- FEATURES (с картой модулей) ---------------- */
 export function Features() {
   const items = [
     { i: <Gauge className="w-5 h-5" />, t: "Дашборд руководителя", d: "Ключевые метрики, задачи, продажи, эффективность команды и состояние бизнеса в одном экране." },
@@ -119,18 +119,97 @@ export function Features() {
     { i: <BookOpen className="w-5 h-5" />, t: "База знаний", d: "Инструкции, регламенты, документы, шаблоны и обучение сотрудников внутри системы." },
     { i: <Boxes className="w-5 h-5" />, t: "Индивидуальные модули", d: "Любые разделы под конкретную сферу: медицина, строительство, франшизы, производство." },
   ];
+
+  // Модули вокруг ядра — для desktop карты
+  const orbit = [
+    { i: <Gauge className="w-4 h-4" />, t: "Дашборд" },
+    { i: <Users className="w-4 h-4" />, t: "Клиенты" },
+    { i: <ListChecks className="w-4 h-4" />, t: "Задачи" },
+    { i: <Workflow className="w-4 h-4" />, t: "Продажи" },
+    { i: <Truck className="w-4 h-4" />, t: "Поставщики" },
+    { i: <Plug className="w-4 h-4" />, t: "Интеграции" },
+    { i: <ShieldCheck className="w-4 h-4" />, t: "Роли" },
+    { i: <FileBarChart className="w-4 h-4" />, t: "Отчёты" },
+    { i: <Bell className="w-4 h-4" />, t: "Уведомления" },
+    { i: <BookOpen className="w-4 h-4" />, t: "База знаний" },
+  ];
+
   return (
     <section id="features" className="relative py-20 lg:py-28">
       <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[500px] bg-radial-fade opacity-50 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Возможности"
-          title={<>Что может входить в вашу <span className="gradient-text">CRM / AI-систему</span></>}
-          subtitle="Система собирается из нужных модулей под вашу сферу, команду и бизнес-процессы."
+          title={<>Единая <span className="gradient-text">CRM / AI-система</span>, а не набор функций</>}
+          subtitle="В центре — CRM AI Core. Вокруг — модули, которые мы собираем под вашу сферу, команду и бизнес-процессы."
         />
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        {/* Карта модулей — только на десктопе */}
+        <div className="hidden lg:block mt-16">
+          <div className="relative mx-auto h-[480px] w-full max-w-[920px]">
+            {/* glow */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-brand-blue/15 blur-[100px] pointer-events-none" />
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-brand-violet/15 blur-[80px] pointer-events-none" />
+
+            {/* connecting lines */}
+            <svg viewBox="0 0 920 480" className="absolute inset-0 w-full h-full pointer-events-none">
+              <defs>
+                <linearGradient id="mlGrad" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0%" stopColor="oklch(0.78 0.14 210)" />
+                  <stop offset="100%" stopColor="oklch(0.62 0.24 295)" />
+                </linearGradient>
+              </defs>
+              {orbit.map((_, idx) => {
+                const angle = (Math.PI * 2 * idx) / orbit.length - Math.PI / 2;
+                const cx = 460, cy = 240, rx = 360, ry = 190;
+                const x = cx + Math.cos(angle) * rx;
+                const y = cy + Math.sin(angle) * ry;
+                return <line key={idx} x1={cx} y1={cy} x2={x} y2={y} className="module-link" />;
+              })}
+              {/* dashed orbit */}
+              <ellipse cx="460" cy="240" rx="360" ry="190" fill="none" stroke="url(#mlGrad)" strokeWidth="0.8" strokeDasharray="2 8" opacity="0.35" />
+              <ellipse cx="460" cy="240" rx="240" ry="130" fill="none" stroke="url(#mlGrad)" strokeWidth="0.8" strokeDasharray="2 10" opacity="0.25" />
+            </svg>
+
+            {/* center core */}
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <div className="relative">
+                <div className="absolute -inset-6 rounded-full bg-gradient-to-br from-brand-blue/40 to-brand-violet/40 blur-2xl animate-pulse-soft" />
+                <div className="relative w-44 h-44 rounded-full premium-card flex items-center justify-center text-center"
+                     style={{ background: "linear-gradient(135deg, oklch(0.66 0.2 265 / 0.25), oklch(0.62 0.24 295 / 0.2))" }}>
+                  <div>
+                    <div className="mx-auto h-10 w-10 rounded-xl gradient-brand inline-flex items-center justify-center">
+                      <Brain className="w-5 h-5 text-white" />
+                    </div>
+                    <div className="mt-2 text-sm font-semibold tracking-tight">CRM AI Core</div>
+                    <div className="text-[10px] text-muted-foreground mt-0.5">единое ядро системы</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* orbit nodes */}
+            {orbit.map((o, idx) => {
+              const angle = (Math.PI * 2 * idx) / orbit.length - Math.PI / 2;
+              const cx = 50, cy = 50, rx = 39.1, ry = 39.6; // в процентах
+              const x = cx + Math.cos(angle) * rx;
+              const y = cy + Math.sin(angle) * ry;
+              return (
+                <div key={o.t}
+                  className="absolute -translate-x-1/2 -translate-y-1/2 premium-card px-3 py-2 inline-flex items-center gap-2 text-xs whitespace-nowrap shine-overlay"
+                  style={{ left: `${x}%`, top: `${y}%` }}>
+                  <span className="icon-chip inline-flex h-7 w-7 items-center justify-center rounded-lg">{o.i}</span>
+                  <span className="font-medium">{o.t}</span>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Карточки */}
+        <div className="mt-12 lg:mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {items.map((it) => (
-            <Card key={it.t} className="group">
+            <Card key={it.t} className="group shine-overlay">
               <Icon>{it.i}</Icon>
               <h3 className="mt-4 text-base font-semibold">{it.t}</h3>
               <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{it.d}</p>
@@ -142,24 +221,45 @@ export function Features() {
   );
 }
 
-/* ---------------- INDUSTRIES ---------------- */
+/* ---------------- INDUSTRIES (по группам) ---------------- */
 export function Industries() {
-  const items = [
-    { i: <Network className="w-4 h-4" />, t: "Франшизы и управляющие компании" },
-    { i: <Briefcase className="w-4 h-4" />, t: "Отделы продаж" },
-    { i: <Factory className="w-4 h-4" />, t: "Производство" },
-    { i: <Wrench className="w-4 h-4" />, t: "Строительство и ремонт" },
-    { i: <Stethoscope className="w-4 h-4" />, t: "Медицина и клиники" },
-    { i: <GraduationCap className="w-4 h-4" />, t: "Образование и онлайн-школы" },
-    { i: <Truck className="w-4 h-4" />, t: "Логистика" },
-    { i: <Building2 className="w-4 h-4" />, t: "Недвижимость" },
-    { i: <Scale className="w-4 h-4" />, t: "Юридические и консалтинговые компании" },
-    { i: <Cog className="w-4 h-4" />, t: "Сервисные компании" },
-    { i: <Megaphone className="w-4 h-4" />, t: "Маркетинговые агентства" },
-    { i: <Briefcase className="w-4 h-4" />, t: "B2B-компании" },
-    { i: <ShoppingCart className="w-4 h-4" />, t: "E-commerce" },
-    { i: <Network className="w-4 h-4" />, t: "Дилерские и партнёрские сети" },
-    { i: <Warehouse className="w-4 h-4" />, t: "Складские и закупочные процессы" },
+  const groups = [
+    {
+      title: "Управление и продажи",
+      items: [
+        { i: <Briefcase className="w-3.5 h-3.5" />, t: "Отделы продаж" },
+        { i: <Network className="w-3.5 h-3.5" />, t: "Франшизы и УК" },
+        { i: <Briefcase className="w-3.5 h-3.5" />, t: "B2B-компании" },
+        { i: <Megaphone className="w-3.5 h-3.5" />, t: "Маркетинговые агентства" },
+      ],
+    },
+    {
+      title: "Производство и логистика",
+      items: [
+        { i: <Factory className="w-3.5 h-3.5" />, t: "Производство" },
+        { i: <Truck className="w-3.5 h-3.5" />, t: "Логистика" },
+        { i: <Warehouse className="w-3.5 h-3.5" />, t: "Склады и закупки" },
+        { i: <Network className="w-3.5 h-3.5" />, t: "Дилерские сети" },
+      ],
+    },
+    {
+      title: "Услуги и сервис",
+      items: [
+        { i: <Wrench className="w-3.5 h-3.5" />, t: "Строительство и ремонт" },
+        { i: <Cog className="w-3.5 h-3.5" />, t: "Сервисные компании" },
+        { i: <Building2 className="w-3.5 h-3.5" />, t: "Недвижимость" },
+        { i: <ShoppingCart className="w-3.5 h-3.5" />, t: "E-commerce" },
+      ],
+    },
+    {
+      title: "Образование и медицина",
+      items: [
+        { i: <Stethoscope className="w-3.5 h-3.5" />, t: "Медицина и клиники" },
+        { i: <GraduationCap className="w-3.5 h-3.5" />, t: "Образование" },
+        { i: <GraduationCap className="w-3.5 h-3.5" />, t: "Онлайн-школы" },
+        { i: <Scale className="w-3.5 h-3.5" />, t: "Юридические компании" },
+      ],
+    },
   ];
   return (
     <section id="industries" className="relative py-20 lg:py-28">
@@ -167,17 +267,27 @@ export function Industries() {
         <SectionTitle
           eyebrow="Для кого"
           title={<>Создаём системы для <span className="gradient-text">разных сфер бизнеса</span></>}
-          subtitle="Каждая система проектируется индивидуально — под процессы, роли, задачи и цели конкретной компании."
+          subtitle="Мы проектируем систему не под название ниши, а под реальные процессы вашей компании."
         />
-        <div className="mt-12 flex flex-wrap justify-center gap-3">
-          {items.map((it) => (
-            <div key={it.t} className="glass rounded-full px-4 py-2.5 inline-flex items-center gap-2 text-sm hover:border-white/20 transition">
-              <span className="text-brand-cyan">{it.i}</span>
-              <span>{it.t}</span>
-            </div>
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {groups.map((g) => (
+            <Card key={g.title}>
+              <div className="flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan" />
+                {g.title}
+              </div>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {g.items.map((it) => (
+                  <span key={it.t} className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[12.5px] bg-white/[0.035] border border-white/10 hover:border-brand-blue/40 hover:bg-white/[0.06] transition">
+                    <span className="text-brand-cyan">{it.i}</span>
+                    <span className="text-foreground/90">{it.t}</span>
+                  </span>
+                ))}
+              </div>
+            </Card>
           ))}
         </div>
-        <p className="mt-10 text-center text-muted-foreground">
+        <p className="mt-10 text-center text-muted-foreground max-w-2xl mx-auto">
           <MapPin className="inline w-4 h-4 mr-1 text-brand-violet" />
           Даже если вашей сферы нет в списке — мы спроектируем систему под вашу бизнес-логику.
         </p>
