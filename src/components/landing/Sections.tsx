@@ -12,24 +12,24 @@ import {
 const SectionTitle = ({ eyebrow, title, subtitle, center = true }: { eyebrow?: string; title: React.ReactNode; subtitle?: string; center?: boolean }) => (
   <div className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
     {eyebrow && (
-      <div className={`inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-xs text-muted-foreground ${center ? "" : ""}`}>
-        <span className="h-1.5 w-1.5 rounded-full bg-brand-violet" />
+      <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] uppercase tracking-[0.12em] text-foreground/70">
+        <span className="h-1.5 w-1.5 rounded-full bg-brand-violet animate-pulse" />
         {eyebrow}
       </div>
     )}
-    <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight leading-tight">
+    <h2 className="mt-5 text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold tracking-tight leading-[1.08]">
       {title}
     </h2>
-    {subtitle && <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">{subtitle}</p>}
+    {subtitle && <p className="mt-5 text-base sm:text-[17px] text-muted-foreground leading-relaxed max-w-2xl mx-auto">{subtitle}</p>}
   </div>
 );
 
 const Card = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
-  <div className={`glass rounded-2xl p-6 hover:border-white/20 transition-all duration-300 ${className}`}>{children}</div>
+  <div className={`premium-card p-6 sm:p-7 ${className}`}>{children}</div>
 );
 
 const Icon = ({ children }: { children: React.ReactNode }) => (
-  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl gradient-brand text-white shrink-0">
+  <div className="icon-chip inline-flex h-11 w-11 items-center justify-center rounded-xl shrink-0">
     {children}
   </div>
 );
