@@ -30,14 +30,14 @@ export function FAQ() {
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={f.q} className="glass rounded-xl overflow-hidden">
+              <div key={f.q} className="premium-card overflow-hidden">
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full text-left px-5 py-4 flex items-center justify-between gap-4"
+                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4"
                 >
-                  <span className="text-sm sm:text-base font-medium">{f.q}</span>
-                  <span className="h-7 w-7 rounded-full bg-white/5 inline-flex items-center justify-center shrink-0">
-                    {isOpen ? <Minus className="w-3.5 h-3.5" /> : <Plus className="w-3.5 h-3.5" />}
+                  <span className="text-sm sm:text-base font-medium pr-2">{f.q}</span>
+                  <span className={`h-8 w-8 rounded-full inline-flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen ? "bg-gradient-to-br from-brand-blue to-brand-violet rotate-180" : "bg-white/[0.04] border border-white/10"}`}>
+                    {isOpen ? <Minus className="w-3.5 h-3.5 text-white" /> : <Plus className="w-3.5 h-3.5" />}
                   </span>
                 </button>
                 <div
