@@ -36,7 +36,7 @@ export function Header() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <button onClick={() => go("#top")} className="group flex items-center" aria-label="CRM AI Systems">
-          <Logo height={36} className="sm:!h-[44px]" />
+          <Logo className="h-9 sm:h-11" />
         </button>
 
         <nav className="hidden lg:flex items-center gap-7">

@@ -32,7 +32,7 @@ export function Logo({ className = "", height = 40, compact = false }: LogoProps
     <img
       src={logoFull}
       alt="CRM AI Systems"
-      style={{ height }}
+      style={height ? { height } : undefined}
       className={`block w-auto shrink-0 select-none ${className}`}
       draggable={false}
     />
