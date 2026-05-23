@@ -6,6 +6,7 @@ import {
   Problems, Solution, Features, Industries, Comparison, AIBlock,
   Process, Structure, Benefits, Includes, Trust,
 } from "@/components/landing/Sections";
+import { Cases } from "@/components/landing/Cases";
 import { Pricing } from "@/components/landing/Pricing";
 import { FAQ } from "@/components/landing/FAQ";
 import { FinalCTA, ContactForm } from "@/components/landing/ContactForm";
