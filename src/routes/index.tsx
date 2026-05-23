@@ -48,6 +48,7 @@ function Index() {
       <Industries />
       <Comparison />
       <AIBlock />
+      <Cases />
       <Process />
       <Structure />
       <Benefits />
