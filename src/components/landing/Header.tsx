@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 
 const nav = [
   { href: "#features", label: "Возможности" },
   { href: "#industries", label: "Для кого" },
   { href: "#ai", label: "AI" },
+  { href: "#cases", label: "Кейсы" },
   { href: "#process", label: "Этапы" },
   { href: "#pricing", label: "Тарифы" },
   { href: "#faq", label: "FAQ" },
@@ -14,6 +16,8 @@ const nav = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -24,6 +28,10 @@ export function Header() {
 
   const go = (href: string) => {
     setOpen(false);
+    if (location.pathname !== "/") {
+      navigate({ to: "/", hash: href.replace("#", "") });
+      return;
+    }
     const el = document.querySelector(href);
     el?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
