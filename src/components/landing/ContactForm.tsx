@@ -1,13 +1,18 @@
 import { useState, FormEvent } from "react";
-import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2, Sparkles, Search, Layers, Brain } from "lucide-react";
 
 const go = () => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
 
 export function FinalCTA() {
+  const mini = [
+    { i: <Search className="w-4 h-4" />, t: "Диагностика", d: "Изучим процессы и узкие места" },
+    { i: <Layers className="w-4 h-4" />, t: "Структура", d: "Спроектируем архитектуру системы" },
+    { i: <Brain className="w-4 h-4" />, t: "AI-возможности", d: "Покажем, где встроить AI" },
+  ];
   return (
     <section className="relative py-20 lg:py-28">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2rem] glass-strong p-8 sm:p-16 text-center">
+        <div className="relative overflow-hidden rounded-[2rem] glass-strong p-8 sm:p-14 text-center">
           <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
           <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-brand-blue/20 blur-[120px] animate-pulse-soft" />
           <div className="absolute -bottom-32 right-0 w-[400px] h-[400px] rounded-full bg-brand-violet/15 blur-[120px] animate-pulse-soft" />
@@ -23,6 +28,19 @@ export function FinalCTA() {
             <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Оставьте заявку — обсудим ваши процессы и предложим структуру будущей CRM / AI-системы.
             </p>
+
+            <div className="mt-9 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto text-left">
+              {mini.map((m) => (
+                <div key={m.t} className="premium-card p-4 flex items-start gap-3">
+                  <div className="icon-chip h-9 w-9 rounded-lg inline-flex items-center justify-center shrink-0">{m.i}</div>
+                  <div>
+                    <div className="text-sm font-semibold">{m.t}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{m.d}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
             <div className="mt-9 flex flex-col sm:flex-row justify-center gap-3">
               <button onClick={go} className="btn-primary inline-flex items-center justify-center gap-2 rounded-full h-12 px-7 text-sm font-medium">
                 Обсудить проект <ArrowRight className="w-4 h-4" />

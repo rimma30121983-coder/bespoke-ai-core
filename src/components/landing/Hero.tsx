@@ -16,15 +16,9 @@ export function Hero() {
         <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
           {/* LEFT */}
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] sm:text-xs text-foreground/80 tracking-wide">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan animate-pulse" />
-              <span className="uppercase">CRM</span>
-              <span className="text-muted-foreground">•</span>
-              <span className="uppercase">AI</span>
-              <span className="text-muted-foreground">•</span>
-              <span className="uppercase">Автоматизация</span>
-              <span className="text-muted-foreground">•</span>
-              <span className="uppercase">Аналитика</span>
+            <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] sm:text-xs text-foreground/85 tracking-wide">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan ai-dot" />
+              <span className="uppercase tracking-[0.14em]">AI-powered система управления бизнесом</span>
             </div>
 
             <h1 className="mt-6 text-[2rem] sm:text-5xl lg:text-[3.75rem] font-semibold tracking-tight leading-[1.04]">
