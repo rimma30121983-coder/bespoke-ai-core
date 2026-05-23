@@ -6,10 +6,10 @@ import { Footer } from "@/components/landing/Footer";
 export const Route = createFileRoute("/cases/makovka")({
   head: () => ({
     meta: [
-      { title: "Кейс: CRM для сети пекарен «Маковка» — CRM AI Systems" },
-      { name: "description", content: "Индивидуальная CRM для управления сетью пекарен: задачи, сотрудники, поставщики, аналитика и операционные процессы." },
+      { title: "Кейс: CRM для сети пекарен «Маковка» — AI Systems" },
+      { name: "description", content: "Индивидуальная цифровая система управления сетью пекарен: задачи, сотрудники, поставщики, аналитика и операционные процессы." },
       { property: "og:title", content: "Кейс: CRM для сети пекарен «Маковка»" },
-      { property: "og:description", content: "Реальный кейс индивидуальной CRM-системы для сети пекарен." },
+      { property: "og:description", content: "Реальный кейс индивидуальной системы управления для сети пекарен." },
     ],
   }),
   component: CaseMakovka,
@@ -92,12 +92,12 @@ function CaseMakovka() {
             </ul>
           </Section>
 
-          <Section eyebrow="Решение" title="Индивидуальная CRM под процессы сети">
-            Была создана индивидуальная CRM-система под процессы сети пекарен, где ключевые разделы
+          <Section eyebrow="Решение" title="Индивидуальная система управления под процессы сети">
+            Была создана индивидуальная цифровая система управления под процессы сети пекарен, где ключевые разделы
             объединены в одном интерфейсе.
           </Section>
 
-          <Section eyebrow="Модули" title="Какие модули вошли в CRM">
+          <Section eyebrow="Модули" title="Какие модули вошли в систему">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {modules.map((m) => (
                 <div key={m} className="premium-card p-4 flex items-center gap-3">
@@ -121,7 +121,7 @@ function CaseMakovka() {
               <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-gradient-to-br from-brand-blue/15 via-brand-violet/10 to-transparent border border-white/10 flex items-center justify-center">
                 <div className="text-center">
                   <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-foreground/70">
-                    <Sparkles className="w-3.5 h-3.5 text-brand-cyan" /> Bakery CRM Dashboard
+                    <Sparkles className="w-3.5 h-3.5 text-brand-cyan" /> Bakery Operations Dashboard
                   </div>
                   <div className="mt-3 text-lg font-semibold">Единый интерфейс управления сетью</div>
                   <a
@@ -148,7 +148,7 @@ function CaseMakovka() {
             <div className="absolute -inset-4 rounded-[2rem] bg-[radial-gradient(60%_60%_at_50%_50%,color-mix(in_oklab,var(--brand-blue)_30%,transparent),transparent_70%)] blur-2xl pointer-events-none" />
             <div className="relative premium-card p-8 sm:p-12 rounded-[1.7rem] text-center">
               <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                Хотите похожую CRM под <span className="gradient-text">вашу сферу</span>?
+                Хотите похожую AI-систему под <span className="gradient-text">вашу сферу</span>?
               </h3>
               <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
                 Оставьте заявку — обсудим ваши процессы и предложим структуру будущей системы.

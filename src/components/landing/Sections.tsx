@@ -43,7 +43,7 @@ export function Problems() {
     { i: <Shuffle className="w-5 h-5" />, t: "Продажи, клиенты и поставщики ведутся хаотично" },
     { i: <BarChart3 className="w-5 h-5" />, t: "Нет единой аналитики и прозрачности" },
     { i: <Hand className="w-5 h-5" />, t: "Много ручной работы" },
-    { i: <Puzzle className="w-5 h-5" />, t: "Стандартные CRM не подходят под реальные процессы" },
+    { i: <Puzzle className="w-5 h-5" />, t: "Шаблонные решения не подходят под реальные процессы" },
     { i: <BotOff className="w-5 h-5" />, t: "AI не встроен в ежедневную работу команды" },
   ];
   return (
@@ -83,8 +83,8 @@ export function Solution() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Решение"
-          title={<>Разрабатываем CRM-систему <span className="gradient-text">именно под вашу бизнес-модель</span></>}
-          subtitle="Мы изучаем ваши процессы, роли сотрудников, этапы продаж, работу с клиентами, поставщиками, задачами и аналитикой — и на этой основе создаём индивидуальную систему."
+          title={<>Создаём AI-систему <span className="gradient-text">под процессы и логику вашего бизнеса</span></>}
+          subtitle="Изучаем ваши процессы, роли сотрудников, этапы продаж, работу с клиентами, поставщиками, задачами и аналитикой — и на этой основе создаём индивидуальную AI-систему."
         />
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {steps.map((s) => (
@@ -140,8 +140,8 @@ export function Features() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Возможности"
-          title={<>Единая <span className="gradient-text">CRM / AI-система</span>, а не набор функций</>}
-          subtitle="В центре — CRM AI Core. Вокруг — модули, которые мы собираем под вашу сферу, команду и бизнес-процессы."
+          title={<>Единая <span className="gradient-text">AI-система</span>, а не набор разрозненных функций</>}
+          subtitle="В центре — AI Core. Вокруг — модули, которые мы собираем под вашу сферу, команду и бизнес-процессы."
         />
 
         {/* Карта модулей — только на десктопе */}
@@ -181,7 +181,7 @@ export function Features() {
                     <div className="mx-auto h-10 w-10 rounded-xl gradient-brand inline-flex items-center justify-center">
                       <Brain className="w-5 h-5 text-white" />
                     </div>
-                    <div className="mt-2 text-sm font-semibold tracking-tight">CRM AI Core</div>
+                    <div className="mt-2 text-sm font-semibold tracking-tight">AI Core</div>
                     <div className="text-[10px] text-muted-foreground mt-0.5">единое ядро системы</div>
                   </div>
                 </div>
@@ -320,7 +320,7 @@ export function Comparison() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Сравнение"
-          title={<>Почему индивидуальная CRM <span className="gradient-text">лучше шаблонной</span></>}
+          title={<>Почему индивидуальная AI-система <span className="gradient-text">лучше шаблонного решения</span></>}
         />
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
@@ -332,7 +332,7 @@ export function Comparison() {
               </div>
               <div>
                 <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">Готовое решение</div>
-                <h3 className="text-lg font-semibold mt-0.5">Шаблонная CRM</h3>
+                <h3 className="text-lg font-semibold mt-0.5">Шаблонное решение</h3>
               </div>
             </div>
             <ul className="mt-6 space-y-3">
@@ -357,7 +357,7 @@ export function Comparison() {
               </div>
               <div>
                 <div className="text-[11px] uppercase tracking-[0.14em] text-brand-cyan">Под ваш бизнес</div>
-                <h3 className="text-lg font-semibold mt-0.5">Индивидуальная CRM</h3>
+                <h3 className="text-lg font-semibold mt-0.5">Индивидуальная AI-система</h3>
               </div>
             </div>
             <ul className="relative mt-6 space-y-3">
@@ -526,7 +526,7 @@ export function Structure() {
         <SectionTitle
           eyebrow="Структура"
           title={<>Пример <span className="gradient-text">структуры будущей системы</span></>}
-          subtitle="Структура может быть любой — мы создаём её под вашу логику, а не заставляем бизнес подстраиваться под готовую CRM."
+          subtitle="Структура может быть любой — мы создаём её под вашу логику, а не заставляем бизнес подстраиваться под коробочный продукт."
         />
 
         <div className="mt-12 glass-strong rounded-2xl p-5 sm:p-8 max-w-5xl mx-auto">
@@ -587,7 +587,7 @@ export function Benefits() {
 export function Includes() {
   const items = [
     "анализ бизнес-процессов",
-    "проектирование архитектуры CRM",
+    "проектирование архитектуры AI-системы",
     "разработка дизайна интерфейса",
     "создание пользовательских ролей",
     "разработка модулей и разделов",

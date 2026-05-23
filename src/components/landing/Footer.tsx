@@ -18,10 +18,11 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
-            <LogoLockup markSize={54} textSize={25} tagline="custom CRM • AI automation • business operating systems" />
+            <LogoLockup markSize={54} textSize={25} tagline="AI-ассистенты • автоматизация • цифровые системы для бизнеса" />
             <p className="mt-4 text-sm text-muted-foreground max-w-md leading-relaxed">
-              Индивидуальные CRM и AI-системы для управления бизнесом.
+              Индивидуальные AI-системы и AI-ассистенты для управления бизнесом.
             </p>
+            <p className="mt-2 text-xs text-muted-foreground/80">ai-assistens.company</p>
             <button onClick={() => go("#contact")} className="btn-primary mt-6 inline-flex items-center gap-2 rounded-full h-11 px-5 text-sm font-medium">
               Оставить заявку
             </button>
@@ -45,13 +46,13 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               <li><a href="#" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Send className="w-4 h-4 text-brand-cyan" /> Telegram</a></li>
               <li><a href="#" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><MessageCircle className="w-4 h-4 text-brand-cyan" /> WhatsApp</a></li>
-              <li><a href="mailto:hello@crm-ai.systems" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Mail className="w-4 h-4 text-brand-cyan" /> Email</a></li>
+              <li><a href="mailto:hello@ai-assistens.company" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Mail className="w-4 h-4 text-brand-cyan" /> Email</a></li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} CRM AI Systems. Все права защищены.</p>
+          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} AI Systems · ai-assistens.company. Все права защищены.</p>
           <p className="text-xs text-muted-foreground">Premium dark • AI-powered</p>
         </div>
       </div>

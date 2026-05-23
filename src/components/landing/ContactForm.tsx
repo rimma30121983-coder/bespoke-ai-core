@@ -27,7 +27,7 @@ export function FinalCTA() {
               <br className="hidden sm:block" /> а не наоборот?
             </h2>
             <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Оставьте заявку — обсудим ваши процессы и предложим структуру будущей CRM / AI-системы.
+              Оставьте заявку — обсудим ваши процессы и предложим структуру будущей AI-системы.
             </p>
 
             <div className="mt-9 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto text-left">

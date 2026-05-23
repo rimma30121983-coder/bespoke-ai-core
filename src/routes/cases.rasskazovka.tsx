@@ -7,9 +7,9 @@ import { RasskazovkaMockup } from "@/components/landing/Cases";
 export const Route = createFileRoute("/cases/rasskazovka")({
   head: () => ({
     meta: [
-      { title: "Кейс: CRM Control Center для Rasskazovka — CRM AI Systems" },
+      { title: "Кейс: Control Center для Rasskazovka — AI Systems" },
       { name: "description", content: "Индивидуальная внутренняя система управления бизнес-процессами, задачами, клиентами, сотрудниками и операционной аналитикой." },
-      { property: "og:title", content: "Кейс: CRM Control Center для Rasskazovka" },
+      { property: "og:title", content: "Кейс: Control Center для Rasskazovka" },
       { property: "og:description", content: "Реальный кейс индивидуальной системы Control Center для управления бизнес-процессами." },
     ],
   }),
@@ -58,7 +58,7 @@ function CaseRasskazovka() {
                 <Building2 className="w-3.5 h-3.5 text-brand-cyan" /> Реальный кейс
               </div>
               <h1 className="mt-5 text-3xl sm:text-4xl lg:text-[3rem] font-semibold tracking-tight leading-[1.08]">
-                CRM Control Center для <span className="gradient-text">Rasskazovka</span>
+                Control Center для <span className="gradient-text">Rasskazovka</span>
               </h1>
               <p className="mt-5 text-base sm:text-lg text-muted-foreground max-w-3xl leading-relaxed">
                 Индивидуальная внутренняя система управления бизнес-процессами, задачами, клиентами,

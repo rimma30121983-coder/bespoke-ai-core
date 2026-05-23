@@ -43,7 +43,7 @@ export function Header() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 lg:h-[88px] flex items-center justify-between gap-4">
-        <button onClick={() => go("#top")} className="group flex items-center shrink-0" aria-label="CRM AI Systems">
+        <button onClick={() => go("#top")} className="group flex items-center shrink-0" aria-label="AI Systems">
           <Logo compact />
         </button>
 
