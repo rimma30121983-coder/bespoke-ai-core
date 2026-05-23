@@ -357,7 +357,7 @@ export function Comparison() {
               </div>
               <div>
                 <div className="text-[11px] uppercase tracking-[0.14em] text-brand-cyan">Под ваш бизнес</div>
-                <h3 className="text-lg font-semibold mt-0.5">Индивидуальная CRM</h3>
+                <h3 className="text-lg font-semibold mt-0.5">Индивидуальная AI-система</h3>
               </div>
             </div>
             <ul className="relative mt-6 space-y-3">
