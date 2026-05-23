@@ -83,8 +83,8 @@ export function Solution() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Решение"
-          title={<>Разрабатываем CRM-систему <span className="gradient-text">именно под вашу бизнес-модель</span></>}
-          subtitle="Мы изучаем ваши процессы, роли сотрудников, этапы продаж, работу с клиентами, поставщиками, задачами и аналитикой — и на этой основе создаём индивидуальную систему."
+          title={<>Создаём AI-систему <span className="gradient-text">под процессы и логику вашего бизнеса</span></>}
+          subtitle="Изучаем ваши процессы, роли сотрудников, этапы продаж, работу с клиентами, поставщиками, задачами и аналитикой — и на этой основе создаём индивидуальную AI-систему."
         />
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {steps.map((s) => (
