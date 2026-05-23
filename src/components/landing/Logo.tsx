@@ -69,8 +69,8 @@ export function LogoLockup({
           className="font-bold leading-none whitespace-nowrap"
           style={{ fontSize: textSize, letterSpacing: "-0.02em", fontFamily: "Sora, Manrope, sans-serif" }}
         >
-          <span style={{ color: "#F8FAFC" }}>CRM</span>{" "}
-          <span className="gradient-text">AI Systems</span>
+          <span style={{ color: "#F8FAFC" }}>AI</span>{" "}
+          <span className="gradient-text">Systems</span>
         </span>
         {tagline && (
           <span
