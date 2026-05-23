@@ -75,11 +75,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "CRM AI Systems — Индивидуальные CRM и AI-системы под бизнес" },
       { name: "description", content: "Разрабатываем индивидуальные CRM и AI-системы под ключ: дашборды, задачи, клиенты, продажи, AI-анализ и рекомендации." },
       { name: "author", content: "CRM AI Systems" },
-      { property: "og:title", content: "CRM AI Systems — Индивидуальные CRM и AI-системы" },
-      { property: "og:description", content: "Цифровые системы управления бизнесом с AI-аналитикой под ваши процессы." },
+      { property: "og:title", content: "CRM AI Systems — Индивидуальные CRM и AI-системы под бизнес" },
+      { property: "og:description", content: "Разрабатываем индивидуальные CRM и AI-системы под ключ: дашборды, задачи, клиенты, продажи, AI-анализ и рекомендации." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "CRM AI Systems — Индивидуальные CRM и AI-системы под бизнес" },
+      { name: "twitter:description", content: "Разрабатываем индивидуальные CRM и AI-системы под ключ: дашборды, задачи, клиенты, продажи, AI-анализ и рекомендации." },
     ],
     links: [
       {
