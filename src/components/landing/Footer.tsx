@@ -46,7 +46,7 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               <li><a href="#" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Send className="w-4 h-4 text-brand-cyan" /> Telegram</a></li>
               <li><a href="#" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><MessageCircle className="w-4 h-4 text-brand-cyan" /> WhatsApp</a></li>
-              <li><a href="mailto:hello@crm-ai.systems" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Mail className="w-4 h-4 text-brand-cyan" /> Email</a></li>
+              <li><a href="mailto:hello@ai-assistens.company" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Mail className="w-4 h-4 text-brand-cyan" /> Email</a></li>
             </ul>
           </div>
         </div>
