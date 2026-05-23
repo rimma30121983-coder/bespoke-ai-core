@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, ArrowUpRight, Building2, Check } from "lucide-react";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
-import { RasskazovkaMockup } from "@/components/landing/Cases";
+import { MiniMockupRasskazovka as RasskazovkaMockup } from "@/components/landing/Cases";
 
 export const Route = createFileRoute("/cases/rasskazovka")({
   head: () => ({
