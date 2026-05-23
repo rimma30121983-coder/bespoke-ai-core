@@ -58,7 +58,7 @@ function CaseRasskazovka() {
                 <Building2 className="w-3.5 h-3.5 text-brand-cyan" /> Реальный кейс
               </div>
               <h1 className="mt-5 text-3xl sm:text-4xl lg:text-[3rem] font-semibold tracking-tight leading-[1.08]">
-                CRM Control Center для <span className="gradient-text">Rasskazovka</span>
+                Control Center для <span className="gradient-text">Rasskazovka</span>
               </h1>
               <p className="mt-5 text-base sm:text-lg text-muted-foreground max-w-3xl leading-relaxed">
                 Индивидуальная внутренняя система управления бизнес-процессами, задачами, клиентами,
