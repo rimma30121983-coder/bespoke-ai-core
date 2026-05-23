@@ -6,10 +6,10 @@ import { Footer } from "@/components/landing/Footer";
 export const Route = createFileRoute("/cases/makovka")({
   head: () => ({
     meta: [
-      { title: "Кейс: CRM для сети пекарен «Маковка» — CRM AI Systems" },
-      { name: "description", content: "Индивидуальная CRM для управления сетью пекарен: задачи, сотрудники, поставщики, аналитика и операционные процессы." },
+      { title: "Кейс: CRM для сети пекарен «Маковка» — AI Systems" },
+      { name: "description", content: "Индивидуальная цифровая система управления сетью пекарен: задачи, сотрудники, поставщики, аналитика и операционные процессы." },
       { property: "og:title", content: "Кейс: CRM для сети пекарен «Маковка»" },
-      { property: "og:description", content: "Реальный кейс индивидуальной CRM-системы для сети пекарен." },
+      { property: "og:description", content: "Реальный кейс индивидуальной системы управления для сети пекарен." },
     ],
   }),
   component: CaseMakovka,
