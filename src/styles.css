@@ -247,6 +247,28 @@
   }
   .no-scrollbar::-webkit-scrollbar { display: none; }
   .no-scrollbar { scrollbar-width: none; }
+
+  section[id] {
+    scroll-margin-top: 96px;
+  }
+  @media (min-width: 1024px) {
+    section[id] {
+      scroll-margin-top: 104px;
+    }
+  }
+
+  .section-flash {
+    animation: section-flash 700ms ease-out;
+  }
+}
+
+@keyframes section-flash {
+  0% {
+    box-shadow: inset 0 80px 120px -40px color-mix(in oklab, oklch(0.72 0.18 230) 22%, transparent);
+  }
+  100% {
+    box-shadow: inset 0 80px 120px -40px transparent;
+  }
 }
 
 @keyframes float-slow {
