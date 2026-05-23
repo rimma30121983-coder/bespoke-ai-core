@@ -140,8 +140,8 @@ export function Features() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Возможности"
-          title={<>Единая <span className="gradient-text">CRM / AI-система</span>, а не набор функций</>}
-          subtitle="В центре — CRM AI Core. Вокруг — модули, которые мы собираем под вашу сферу, команду и бизнес-процессы."
+          title={<>Единая <span className="gradient-text">AI-система</span>, а не набор разрозненных функций</>}
+          subtitle="В центре — AI Core. Вокруг — модули, которые мы собираем под вашу сферу, команду и бизнес-процессы."
         />
 
         {/* Карта модулей — только на десктопе */}
