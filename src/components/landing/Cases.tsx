@@ -60,7 +60,7 @@ function MiniMockupBakery() {
   );
 }
 
-function MiniMockupRasskazovka() {
+export function MiniMockupRasskazovka() {
   return (
     <div className="relative w-full rounded-xl border border-white/10 bg-white/[0.03] p-3 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(60%_80%_at_70%_20%,color-mix(in_oklab,var(--brand-blue)_18%,transparent),transparent_70%)] pointer-events-none" />
