@@ -9,7 +9,7 @@ type LogoProps = {
   compact?: boolean;
 };
 
-export function Logo({ className = "", height = 40, compact = false }: LogoProps) {
+export function Logo({ className = "", height, compact = false }: LogoProps) {
   if (compact) {
     return (
       <span className={`inline-flex items-center gap-2.5 ${className}`}>
