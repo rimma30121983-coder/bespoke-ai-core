@@ -21,11 +21,11 @@ export function Logo({ className = "", height, compact = false }: LogoProps) {
           draggable={false}
         />
         <span
-          className="font-bold leading-none text-[17px] sm:text-[20px] lg:text-[23px] whitespace-nowrap"
+          className="font-bold leading-none text-[18px] sm:text-[22px] lg:text-[25px] whitespace-nowrap"
           style={{ letterSpacing: "-0.02em", fontFamily: "Sora, Manrope, sans-serif" }}
         >
-          <span style={{ color: "#F8FAFC" }}>CRM</span>{" "}
-          <span className="gradient-text">AI Systems</span>
+          <span style={{ color: "#F8FAFC" }}>AI</span>{" "}
+          <span className="gradient-text">Systems</span>
         </span>
       </span>
     );
@@ -34,7 +34,7 @@ export function Logo({ className = "", height, compact = false }: LogoProps) {
   return (
     <img
       src={logoFull}
-      alt="CRM AI Systems"
+      alt="AI Systems"
       style={height ? { height } : undefined}
       className={`block w-auto shrink-0 select-none ${className}`}
       draggable={false}
