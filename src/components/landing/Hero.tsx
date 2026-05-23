@@ -18,17 +18,17 @@ export function Hero() {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] sm:text-xs text-foreground/85 tracking-wide">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan ai-dot" />
-              <span className="uppercase tracking-[0.14em]">AI-powered система управления бизнесом</span>
+              <span className="uppercase tracking-[0.14em]">AI-системы • Ассистенты • Управление бизнесом</span>
             </div>
 
             <h1 className="mt-6 text-[2rem] sm:text-5xl lg:text-[3.75rem] font-semibold tracking-tight leading-[1.04]">
               Индивидуальные{" "}
-              <span className="gradient-text">CRM и AI-системы</span>,
+              <span className="gradient-text">AI-системы и AI-ассистенты</span>,
               <br className="hidden sm:block" /> которые работают под ваш бизнес
             </h1>
 
             <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
-              Проектируем и разрабатываем цифровые системы управления, где в одном интерфейсе собраны клиенты, продажи, задачи, сотрудники, поставщики, аналитика и AI-рекомендации.
+              Проектируем и разрабатываем цифровые системы управления, AI-ассистентов и внутренние бизнес-платформы: процессы, задачи, клиенты, сотрудники, аналитика и интеллектуальная автоматизация рутины в одном удобном интерфейсе.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
