@@ -106,7 +106,8 @@
     z-index: 0;
   }
   body > * { position: relative; z-index: 1; }
-  h1, h2, h3 { letter-spacing: -0.02em; }
+  h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: -0.022em; font-weight: 600; }
+  h1 { letter-spacing: -0.028em; }
   ::selection { background: oklch(0.66 0.2 265 / 0.4); }
 }
 
