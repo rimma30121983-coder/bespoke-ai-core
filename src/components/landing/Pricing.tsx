@@ -41,29 +41,30 @@ export function Pricing() {
           </h2>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-5 lg:items-stretch">
+        <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5 lg:items-stretch">
           {tiers.map((t) => (
             <div
               key={t.name}
-              className={`relative rounded-2xl p-6 sm:p-7 flex flex-col ${
-                t.featured
-                  ? "glass-strong glow"
-                  : "glass"
-              }`}
-              style={t.featured ? { background: "linear-gradient(180deg, oklch(0.65 0.21 265 / 0.12), oklch(0.6 0.24 295 / 0.08))", border: "1px solid oklch(0.65 0.21 265 / 0.4)" } : undefined}
+              className={`relative rounded-3xl p-7 sm:p-8 flex flex-col premium-card ${t.featured ? "ring-gradient lg:-translate-y-2 lg:scale-[1.02]" : ""}`}
+              style={t.featured ? { background: "linear-gradient(180deg, oklch(0.66 0.2 265 / 0.14), oklch(0.62 0.24 295 / 0.06))" } : undefined}
             >
               {t.featured && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full gradient-brand px-3 py-1 text-[10px] font-medium text-white">
-                  <Star className="w-3 h-3" /> Популярный
-                </div>
+                <>
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[10px] font-semibold tracking-wide text-white uppercase" style={{ background: "linear-gradient(135deg, oklch(0.78 0.14 210), oklch(0.66 0.2 265) 50%, oklch(0.62 0.24 295))", boxShadow: "0 8px 24px -6px oklch(0.62 0.24 295 / 0.6)" }}>
+                    <Star className="w-3 h-3" /> Популярный формат
+                  </div>
+                  <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-brand-blue/20 blur-3xl pointer-events-none" />
+                </>
               )}
-              <h3 className="text-lg font-semibold">{t.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{t.desc}</p>
+              <h3 className="relative text-xl font-semibold tracking-tight">{t.name}</h3>
+              <p className="relative mt-2.5 text-sm text-muted-foreground leading-relaxed">{t.desc}</p>
 
-              <ul className="mt-6 space-y-2.5 flex-1">
+              <ul className="relative mt-7 space-y-3 flex-1">
                 {t.features.map((f) => (
-                  <li key={f} className="flex items-start gap-2.5 text-sm">
-                    <Check className="w-4 h-4 text-brand-cyan mt-0.5 shrink-0" />
+                  <li key={f} className="flex items-start gap-2.5 text-[14px]">
+                    <span className="mt-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center shrink-0" style={{ background: "linear-gradient(135deg, oklch(0.66 0.2 265 / 0.25), oklch(0.62 0.24 295 / 0.25))", border: "1px solid oklch(1 0 0 / 0.1)" }}>
+                      <Check className="w-2.5 h-2.5 text-brand-cyan" />
+                    </span>
                     <span className="text-foreground/90">{f}</span>
                   </li>
                 ))}
@@ -71,7 +72,7 @@ export function Pricing() {
 
               <button
                 onClick={go}
-                className={`mt-7 inline-flex items-center justify-center gap-2 rounded-full h-11 px-5 text-sm font-medium ${
+                className={`relative mt-8 inline-flex items-center justify-center gap-2 rounded-full h-12 px-6 text-sm font-medium ${
                   t.featured ? "btn-primary" : "btn-ghost"
                 }`}
               >
