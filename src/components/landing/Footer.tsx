@@ -52,7 +52,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} CRM AI Systems. Все права защищены.</p>
+          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} AI Systems · ai-assistens.company. Все права защищены.</p>
           <p className="text-xs text-muted-foreground">Premium dark • AI-powered</p>
         </div>
       </div>
