@@ -1,5 +1,6 @@
 import { useState, FormEvent } from "react";
 import { ArrowRight, CheckCircle2, Sparkles, Search, Layers, Brain } from "lucide-react";
+import { trackLeadSubmit } from "@/lib/analytics";
 
 const go = () => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
 
@@ -61,6 +62,8 @@ export function ContactForm() {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const fd = new FormData(e.currentTarget);
+    trackLeadSubmit({ industry: String(fd.get("industry") ?? "") });
     setSubmitted(true);
   };
 
