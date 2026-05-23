@@ -526,7 +526,7 @@ export function Structure() {
         <SectionTitle
           eyebrow="Структура"
           title={<>Пример <span className="gradient-text">структуры будущей системы</span></>}
-          subtitle="Структура может быть любой — мы создаём её под вашу логику, а не заставляем бизнес подстраиваться под готовую CRM."
+          subtitle="Структура может быть любой — мы создаём её под вашу логику, а не заставляем бизнес подстраиваться под коробочный продукт."
         />
 
         <div className="mt-12 glass-strong rounded-2xl p-5 sm:p-8 max-w-5xl mx-auto">
