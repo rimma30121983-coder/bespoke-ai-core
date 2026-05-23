@@ -89,7 +89,7 @@ export function LogoMarkImg({ size = 40, className = "" }: { size?: number; clas
   return (
     <img
       src={logoMark}
-      alt="CRM AI Systems"
+      alt="AI Systems"
       style={{ height: size, width: size }}
       className={`block shrink-0 ${className}`}
       draggable={false}
