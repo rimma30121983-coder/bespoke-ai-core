@@ -332,7 +332,7 @@ export function Comparison() {
               </div>
               <div>
                 <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">Готовое решение</div>
-                <h3 className="text-lg font-semibold mt-0.5">Шаблонная CRM</h3>
+                <h3 className="text-lg font-semibold mt-0.5">Шаблонное решение</h3>
               </div>
             </div>
             <ul className="mt-6 space-y-3">
