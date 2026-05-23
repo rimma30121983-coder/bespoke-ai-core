@@ -1,4 +1,4 @@
-import { Check, ArrowRight, Star } from "lucide-react";
+import { Check, ArrowRight, Star, Compass, Layers, Sparkles } from "lucide-react";
 
 const go = () => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
 
@@ -6,6 +6,8 @@ const tiers = [
   {
     name: "Аудит и проектирование",
     desc: "Для компаний, которым нужно сначала понять структуру будущей системы.",
+    result: "Структура будущей системы и техническое задание.",
+    badge: { label: "Старт", icon: <Compass className="w-3 h-3" /> },
     features: ["анализ процессов", "карта модулей", "логика ролей", "структура CRM", "техническое задание"],
     cta: "Обсудить аудит",
     featured: false,
@@ -13,6 +15,8 @@ const tiers = [
   {
     name: "Разработка CRM под ключ",
     desc: "Для бизнеса, которому нужна готовая рабочая система управления процессами.",
+    result: "Рабочая система управления бизнесом.",
+    badge: { label: "Оптимальный формат", icon: <Star className="w-3 h-3" /> },
     features: ["проектирование", "дизайн", "разработка", "база данных", "роли", "дашборды", "задачи", "клиенты", "аналитика", "тестирование"],
     cta: "Заказать систему",
     featured: true,
@@ -20,6 +24,8 @@ const tiers = [
   {
     name: "CRM + AI-автоматизация",
     desc: "Для компаний, которым нужна система с AI-анализом, рекомендациями и автоматизацией.",
+    result: "CRM с AI-анализом, рекомендациями и автоматизацией.",
+    badge: { label: "AI-powered", icon: <Sparkles className="w-3 h-3" /> },
     features: ["всё из разработки CRM", "AI-анализ данных", "AI-помощник", "рекомендации", "автоматические выводы", "интеллектуальные сценарии", "расширенная аналитика"],
     cta: "Обсудить AI-систему",
     featured: false,
@@ -39,9 +45,10 @@ export function Pricing() {
           <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
             Форматы <span className="gradient-text">работы</span>
           </h2>
+          <p className="mt-4 text-base text-muted-foreground">Выберите формат, который подходит вашей задаче — от аудита до полноценной AI-системы.</p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5 lg:items-stretch">
+        <div className="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-5 lg:items-stretch">
           {tiers.map((t) => (
             <div
               key={t.name}
@@ -49,17 +56,33 @@ export function Pricing() {
               style={t.featured ? { background: "linear-gradient(180deg, oklch(0.66 0.2 265 / 0.14), oklch(0.62 0.24 295 / 0.06))" } : undefined}
             >
               {t.featured && (
-                <>
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full px-3.5 py-1.5 text-[10px] font-semibold tracking-wide text-white uppercase" style={{ background: "linear-gradient(135deg, oklch(0.78 0.14 210), oklch(0.66 0.2 265) 50%, oklch(0.62 0.24 295))", boxShadow: "0 8px 24px -6px oklch(0.62 0.24 295 / 0.6)" }}>
-                    <Star className="w-3 h-3" /> Популярный формат
-                  </div>
-                  <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-brand-blue/20 blur-3xl pointer-events-none" />
-                </>
+                <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-brand-blue/20 blur-3xl pointer-events-none" />
               )}
+
+              {/* badge */}
+              <div className="relative -mt-1 mb-4">
+                <span
+                  className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10.5px] font-semibold tracking-wide uppercase ${
+                    t.featured
+                      ? "text-white"
+                      : "text-foreground/85 bg-white/[0.05] border border-white/10"
+                  }`}
+                  style={t.featured ? { background: "linear-gradient(135deg, oklch(0.78 0.14 210), oklch(0.66 0.2 265) 50%, oklch(0.62 0.24 295))", boxShadow: "0 8px 20px -6px oklch(0.62 0.24 295 / 0.55)" } : undefined}
+                >
+                  {t.badge.icon}
+                  {t.badge.label}
+                </span>
+              </div>
+
               <h3 className="relative text-xl font-semibold tracking-tight">{t.name}</h3>
               <p className="relative mt-2.5 text-sm text-muted-foreground leading-relaxed">{t.desc}</p>
 
-              <ul className="relative mt-7 space-y-3 flex-1">
+              <div className="relative mt-4 rounded-xl bg-white/[0.03] border border-white/10 px-4 py-3">
+                <div className="text-[10px] uppercase tracking-[0.14em] text-brand-cyan flex items-center gap-1.5"><Layers className="w-3 h-3" /> Результат</div>
+                <div className="text-[13.5px] text-foreground/95 mt-1 leading-snug">{t.result}</div>
+              </div>
+
+              <ul className="relative mt-6 space-y-3 flex-1">
                 {t.features.map((f) => (
                   <li key={f} className="flex items-start gap-2.5 text-[14px]">
                     <span className="mt-0.5 h-4 w-4 rounded-full inline-flex items-center justify-center shrink-0" style={{ background: "linear-gradient(135deg, oklch(0.66 0.2 265 / 0.25), oklch(0.62 0.24 295 / 0.25))", border: "1px solid oklch(1 0 0 / 0.1)" }}>
