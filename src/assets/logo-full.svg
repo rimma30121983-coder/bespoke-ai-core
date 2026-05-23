@@ -1,0 +1,65 @@
+<svg width="920" height="220" viewBox="0 0 920 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title id="title">CRM AI Systems logo</title>
+<desc id="desc">Premium dark AI SaaS logo with digital core mark and CRM AI Systems wordmark</desc>
+<defs>
+  <linearGradient id="g1" x1="18" y1="25" x2="164" y2="172" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#06B6D4"/>
+    <stop offset="0.48" stop-color="#3B82F6"/>
+    <stop offset="1" stop-color="#8B5CF6"/>
+  </linearGradient>
+  <linearGradient id="g2" x1="226" y1="72" x2="554" y2="130" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#F8FAFC"/>
+    <stop offset="1" stop-color="#CBD5E1"/>
+  </linearGradient>
+  <linearGradient id="g3" x1="454" y1="70" x2="760" y2="134" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#06B6D4"/>
+    <stop offset="0.46" stop-color="#3B82F6"/>
+    <stop offset="1" stop-color="#8B5CF6"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(93 104) rotate(90) scale(96)">
+    <stop stop-color="#60A5FA" stop-opacity="0.65"/>
+    <stop offset="0.55" stop-color="#8B5CF6" stop-opacity="0.22"/>
+    <stop offset="1" stop-color="#0B0F17" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%">
+    <feGaussianBlur stdDeviation="6" result="blur"/>
+    <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.231 0 0 0 0 0.510 0 0 0 0 0.965 0 0 0 0.55 0"/>
+    <feBlend mode="screen" in2="SourceGraphic"/>
+  </filter>
+  <filter id="textGlow" x="-10%" y="-40%" width="120%" height="180%">
+    <feGaussianBlur stdDeviation="2" result="blur"/>
+    <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.054 0 0 0 0 0.705 0 0 0 0 0.831 0 0 0 0.25 0"/>
+    <feBlend mode="screen" in2="SourceGraphic"/>
+  </filter>
+</defs>
+
+<circle cx="93" cy="104" r="110" fill="url(#glow)" opacity="0.82"/>
+
+<!-- Brand mark container -->
+<rect x="35" y="42" width="136" height="136" rx="36" fill="#0F172A" stroke="url(#g1)" stroke-width="2.2"/>
+<rect x="45" y="52" width="116" height="116" rx="30" fill="url(#g1)" opacity="0.14"/>
+
+<!-- Abstract C / AI Core architecture -->
+<g filter="url(#softGlow)">
+  <path d="M124.5 75.8C116.4 69.6 106.5 66.6 95.9 67.4C74.9 69.1 58.5 86.2 58.5 107.6C58.5 129.9 76.6 148 98.9 148C110.7 148 121.3 143 128.7 134.9" 
+        stroke="url(#g1)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M90 88H122C130.8 88 138 95.2 138 104C138 112.8 130.8 120 122 120H91" 
+        stroke="#F8FAFC" stroke-opacity="0.92" stroke-width="6.5" stroke-linecap="round"/>
+  <path d="M84 104H112" stroke="#06B6D4" stroke-width="5" stroke-linecap="round"/>
+  <path d="M74 122L95 122L112 138" stroke="#8B5CF6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M76 91L96 91L113 75" stroke="#3B82F6" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="76" cy="91" r="6.2" fill="#06B6D4"/>
+  <circle cx="84" cy="104" r="6.2" fill="#F8FAFC"/>
+  <circle cx="74" cy="122" r="6.2" fill="#8B5CF6"/>
+  <circle cx="113" cy="75" r="6.2" fill="#3B82F6"/>
+  <circle cx="112" cy="138" r="6.2" fill="#8B5CF6"/>
+  <circle cx="138" cy="104" r="6.2" fill="#06B6D4"/>
+</g>
+
+<!-- Wordmark -->
+<g>
+  <text x="218" y="106" font-family="Sora, Manrope, Inter, Arial, sans-serif" font-size="54" font-weight="750" letter-spacing="-2.2" fill="url(#g2)">CRM</text>
+  <text x="356" y="106" font-family="Sora, Manrope, Inter, Arial, sans-serif" font-size="54" font-weight="750" letter-spacing="-2.2" fill="url(#g3)" filter="url(#textGlow)">AI Systems</text>
+  <text x="222" y="144" font-family="Manrope, Inter, Arial, sans-serif" font-size="20" font-weight="500" letter-spacing="0.2" fill="#94A3B8">custom CRM • AI automation • business operating systems</text>
+</g>
+</svg>
