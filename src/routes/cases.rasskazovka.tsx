@@ -7,9 +7,9 @@ import { RasskazovkaMockup } from "@/components/landing/Cases";
 export const Route = createFileRoute("/cases/rasskazovka")({
   head: () => ({
     meta: [
-      { title: "Кейс: CRM Control Center для Rasskazovka — CRM AI Systems" },
+      { title: "Кейс: Control Center для Rasskazovka — AI Systems" },
       { name: "description", content: "Индивидуальная внутренняя система управления бизнес-процессами, задачами, клиентами, сотрудниками и операционной аналитикой." },
-      { property: "og:title", content: "Кейс: CRM Control Center для Rasskazovka" },
+      { property: "og:title", content: "Кейс: Control Center для Rasskazovka" },
       { property: "og:description", content: "Реальный кейс индивидуальной системы Control Center для управления бизнес-процессами." },
     ],
   }),
