@@ -181,7 +181,7 @@ export function Features() {
                     <div className="mx-auto h-10 w-10 rounded-xl gradient-brand inline-flex items-center justify-center">
                       <Brain className="w-5 h-5 text-white" />
                     </div>
-                    <div className="mt-2 text-sm font-semibold tracking-tight">CRM AI Core</div>
+                    <div className="mt-2 text-sm font-semibold tracking-tight">AI Core</div>
                     <div className="text-[10px] text-muted-foreground mt-0.5">единое ядро системы</div>
                   </div>
                 </div>
