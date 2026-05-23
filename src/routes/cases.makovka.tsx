@@ -121,7 +121,7 @@ function CaseMakovka() {
               <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-gradient-to-br from-brand-blue/15 via-brand-violet/10 to-transparent border border-white/10 flex items-center justify-center">
                 <div className="text-center">
                   <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-foreground/70">
-                    <Sparkles className="w-3.5 h-3.5 text-brand-cyan" /> Bakery CRM Dashboard
+                    <Sparkles className="w-3.5 h-3.5 text-brand-cyan" /> Bakery Operations Dashboard
                   </div>
                   <div className="mt-3 text-lg font-semibold">Единый интерфейс управления сетью</div>
                   <a
