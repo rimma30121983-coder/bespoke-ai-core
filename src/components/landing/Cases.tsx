@@ -34,7 +34,7 @@ function MakovkaMockup() {
 
         <div className="mt-3 flex items-end justify-between gap-2">
           <div className="min-w-0">
-            <div className="text-[10px] text-muted-foreground">Bakery CRM Dashboard</div>
+            <div className="text-[10px] text-muted-foreground">Bakery Operations Dashboard</div>
             <div className="text-sm sm:text-base font-semibold truncate">Сеть пекарен «Маковка»</div>
           </div>
         </div>
