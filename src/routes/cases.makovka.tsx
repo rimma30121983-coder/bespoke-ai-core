@@ -92,12 +92,12 @@ function CaseMakovka() {
             </ul>
           </Section>
 
-          <Section eyebrow="Решение" title="Индивидуальная CRM под процессы сети">
-            Была создана индивидуальная CRM-система под процессы сети пекарен, где ключевые разделы
+          <Section eyebrow="Решение" title="Индивидуальная система управления под процессы сети">
+            Была создана индивидуальная цифровая система управления под процессы сети пекарен, где ключевые разделы
             объединены в одном интерфейсе.
           </Section>
 
-          <Section eyebrow="Модули" title="Какие модули вошли в CRM">
+          <Section eyebrow="Модули" title="Какие модули вошли в систему">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {modules.map((m) => (
                 <div key={m} className="premium-card p-4 flex items-center gap-3">
