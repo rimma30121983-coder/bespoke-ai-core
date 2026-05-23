@@ -46,7 +46,7 @@ export function FAQ() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 pb-5 text-sm text-muted-foreground leading-relaxed">{f.a}</p>
+                    <p className="px-6 pb-6 text-sm sm:text-[15px] text-muted-foreground leading-relaxed">{f.a}</p>
                   </div>
                 </div>
               </div>
