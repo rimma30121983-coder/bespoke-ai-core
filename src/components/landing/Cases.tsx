@@ -127,7 +127,7 @@ function MakovkaMockup() {
   );
 }
 
-function RasskazovkaMockup() {
+export function RasskazovkaMockup() {
   return (
     <div className="relative w-full">
       <div className="absolute -inset-4 rounded-[1.6rem] bg-[radial-gradient(60%_60%_at_50%_50%,color-mix(in_oklab,var(--brand-blue)_30%,transparent),transparent_70%)] blur-2xl opacity-70 pointer-events-none" />
