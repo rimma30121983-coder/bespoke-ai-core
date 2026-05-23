@@ -297,14 +297,23 @@ export function Industries() {
 }
 
 /* ---------------- COMPARISON ---------------- */
+/* ---------------- COMPARISON (две большие карточки) ---------------- */
 export function Comparison() {
-  const rows = [
-    ["Нужно подстраиваться под чужую логику", "Система строится под ваши процессы"],
-    ["Много лишних функций", "Только нужные модули"],
-    ["Команде сложно внедриться", "Интерфейс понятен сотрудникам"],
-    ["Ограниченная кастомизация", "Можно развивать под рост бизнеса"],
-    ["AI часто отсутствует", "AI можно встроить в ключевые процессы"],
-    ["Разрозненные сервисы", "Всё собрано в одной системе"],
+  const cons = [
+    "Нужно подстраиваться под чужую логику",
+    "Много лишних функций",
+    "Команде сложно внедриться",
+    "Ограниченная кастомизация",
+    "AI часто отсутствует",
+    "Сервисы остаются разрозненными",
+  ];
+  const pros = [
+    "Система строится под ваши процессы",
+    "Только нужные модули",
+    "Интерфейс понятен сотрудникам",
+    "Можно развивать под рост бизнеса",
+    "AI встроен в ключевые процессы",
+    "Всё собрано в одной системе",
   ];
   return (
     <section className="relative py-20 lg:py-28">
@@ -314,50 +323,66 @@ export function Comparison() {
           title={<>Почему индивидуальная CRM <span className="gradient-text">лучше шаблонной</span></>}
         />
 
-        <div className="mt-12 max-w-5xl mx-auto">
-          {/* Desktop header */}
-          <div className="hidden md:grid grid-cols-2 gap-4 mb-3">
-            <div className="glass rounded-xl px-5 py-3 flex items-center gap-2 text-sm">
-              <X className="w-4 h-4 text-destructive" />
-              <span className="font-medium">Шаблонная CRM</span>
-            </div>
-            <div className="rounded-xl px-5 py-3 flex items-center gap-2 text-sm gradient-brand text-white">
-              <Check className="w-4 h-4" />
-              <span className="font-medium">Индивидуальная CRM</span>
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            {rows.map(([a, b], idx) => (
-              <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div className="glass rounded-xl px-5 py-4 flex items-start gap-3">
-                  <X className="w-4 h-4 text-destructive mt-0.5 shrink-0" />
-                  <div>
-                    <div className="md:hidden text-[11px] uppercase tracking-wide text-muted-foreground mb-1">Шаблонная</div>
-                    <p className="text-sm text-muted-foreground">{a}</p>
-                  </div>
-                </div>
-                <div className="rounded-xl px-5 py-4 flex items-start gap-3" style={{ background: "linear-gradient(135deg, oklch(0.65 0.21 265 / 0.15), oklch(0.6 0.24 295 / 0.12))", border: "1px solid oklch(1 0 0 / 0.1)" }}>
-                  <Check className="w-4 h-4 text-brand-cyan mt-0.5 shrink-0" />
-                  <div>
-                    <div className="md:hidden text-[11px] uppercase tracking-wide text-brand-cyan mb-1">Индивидуальная</div>
-                    <p className="text-sm text-foreground/90">{b}</p>
-                  </div>
-                </div>
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
+          {/* Шаблонная */}
+          <div className="premium-card p-7 sm:p-8 relative" style={{ background: "linear-gradient(180deg, oklch(0.22 0.02 25 / 0.35), oklch(0.18 0.015 25 / 0.18))" }}>
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl inline-flex items-center justify-center bg-destructive/15 border border-destructive/25 text-destructive">
+                <X className="w-5 h-5" />
               </div>
-            ))}
+              <div>
+                <div className="text-[11px] uppercase tracking-[0.14em] text-muted-foreground">Готовое решение</div>
+                <h3 className="text-lg font-semibold mt-0.5">Шаблонная CRM</h3>
+              </div>
+            </div>
+            <ul className="mt-6 space-y-3">
+              {cons.map((c) => (
+                <li key={c} className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <span className="mt-0.5 h-5 w-5 rounded-full inline-flex items-center justify-center bg-destructive/15 border border-destructive/25 shrink-0">
+                    <X className="w-3 h-3 text-destructive" />
+                  </span>
+                  <span>{c}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <p className="mt-10 text-center text-lg sm:text-xl font-medium">
-            Индивидуальная система становится <span className="gradient-text">цифровым центром управления бизнесом</span>.
-          </p>
+          {/* Индивидуальная */}
+          <div className="premium-card ring-gradient p-7 sm:p-8 relative overflow-hidden"
+               style={{ background: "linear-gradient(180deg, oklch(0.66 0.2 265 / 0.16), oklch(0.62 0.24 295 / 0.08))" }}>
+            <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full bg-brand-violet/25 blur-3xl pointer-events-none" />
+            <div className="relative flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl gradient-brand inline-flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <div className="text-[11px] uppercase tracking-[0.14em] text-brand-cyan">Под ваш бизнес</div>
+                <h3 className="text-lg font-semibold mt-0.5">Индивидуальная CRM</h3>
+              </div>
+            </div>
+            <ul className="relative mt-6 space-y-3">
+              {pros.map((p) => (
+                <li key={p} className="flex items-start gap-3 text-sm text-foreground/95">
+                  <span className="mt-0.5 h-5 w-5 rounded-full inline-flex items-center justify-center shrink-0"
+                        style={{ background: "linear-gradient(135deg, oklch(0.66 0.2 265 / 0.35), oklch(0.62 0.24 295 / 0.35))", border: "1px solid oklch(1 0 0 / 0.15)" }}>
+                    <Check className="w-3 h-3 text-brand-cyan" />
+                  </span>
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+
+        <p className="mt-12 text-center text-lg sm:text-xl font-medium">
+          Индивидуальная система становится <span className="gradient-text">цифровым центром управления бизнесом</span>.
+        </p>
       </div>
     </section>
   );
 }
 
-/* ---------------- AI BLOCK ---------------- */
+/* ---------------- AI BLOCK (расширенный) ---------------- */
 export function AIBlock() {
   const items = [
     { i: <AlertOctagon className="w-4 h-4" />, t: "Анализирует данные и находит слабые места" },
@@ -382,8 +407,8 @@ export function AIBlock() {
         <div className="mt-12 grid lg:grid-cols-2 gap-6 items-start">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {items.map((it) => (
-              <div key={it.t} className="glass rounded-xl p-4 flex items-start gap-3">
-                <div className="h-8 w-8 rounded-lg gradient-brand inline-flex items-center justify-center text-white shrink-0">
+              <div key={it.t} className="premium-card p-4 flex items-start gap-3 shine-overlay">
+                <div className="h-9 w-9 rounded-lg gradient-brand inline-flex items-center justify-center text-white shrink-0 shadow-[0_8px_20px_-6px_oklch(0.62_0.24_295_/_0.55)]">
                   {it.i}
                 </div>
                 <p className="text-sm text-foreground/90 leading-relaxed">{it.t}</p>
@@ -392,39 +417,44 @@ export function AIBlock() {
           </div>
 
           <div className="relative">
-            <div className="absolute -inset-6 bg-gradient-to-br from-brand-violet/30 to-brand-blue/20 blur-2xl rounded-3xl" />
-            <div className="relative glass-strong rounded-2xl p-6">
+            <div className="absolute -inset-6 bg-gradient-to-br from-brand-violet/30 to-brand-blue/25 blur-3xl rounded-3xl" />
+            <div className="relative premium-card ring-gradient p-6 overflow-hidden">
+              {/* scan line */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-cyan/70 to-transparent animate-scan" />
+
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-xl gradient-brand inline-flex items-center justify-center">
+                <div className="relative h-10 w-10 rounded-xl gradient-brand inline-flex items-center justify-center">
                   <Brain className="w-5 h-5 text-white" />
+                  <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-brand-cyan ai-dot" />
                 </div>
                 <div>
                   <div className="text-sm font-semibold">AI Assistant</div>
                   <div className="text-xs text-muted-foreground">Анализ за последние 14 дней</div>
                 </div>
-                <span className="ml-auto inline-flex items-center gap-1.5 text-[10px] text-brand-cyan">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan animate-pulse" /> active
+                <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/25 px-2.5 py-1 text-[10px] text-brand-cyan">
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan ai-dot" /> AI analysis active
                 </span>
               </div>
 
-              <div className="mt-5 rounded-xl bg-white/[0.03] border border-white/5 p-4">
-                <p className="text-sm leading-relaxed text-foreground/90">
-                  В отделе продаж снизилась конверсия на этапе переговоров. Рекомендуется проверить скрипты, скорость ответа и причины отказов за последние 14 дней.
+              <div className="mt-5 rounded-xl bg-white/[0.03] border border-white/10 p-4">
+                <div className="text-[10px] uppercase tracking-[0.14em] text-brand-violet mb-1.5">Next recommended action</div>
+                <p className="text-sm leading-relaxed text-foreground/95">
+                  AI обнаружил снижение конверсии на этапе переговоров. Проверьте скорость ответа менеджеров, скрипты и причины отказов за последние 14 дней.
                 </p>
               </div>
 
               <div className="mt-4 grid grid-cols-3 gap-2">
-                <div className="rounded-lg bg-white/[0.03] border border-white/5 p-3">
+                <div className="rounded-lg bg-white/[0.03] border border-white/10 p-3">
                   <div className="text-[10px] text-muted-foreground flex items-center gap-1"><TrendingDown className="w-3 h-3" />Риск</div>
                   <div className="text-sm font-semibold text-destructive mt-1">Высокий</div>
                 </div>
-                <div className="rounded-lg bg-white/[0.03] border border-white/5 p-3">
+                <div className="rounded-lg bg-white/[0.03] border border-white/10 p-3">
                   <div className="text-[10px] text-muted-foreground">Зона</div>
                   <div className="text-sm font-semibold mt-1">Продажи</div>
                 </div>
-                <div className="rounded-lg bg-white/[0.03] border border-white/5 p-3">
+                <div className="rounded-lg bg-white/[0.03] border border-white/10 p-3">
                   <div className="text-[10px] text-muted-foreground">Действие</div>
-                  <div className="text-sm font-semibold mt-1">Этап переговоров</div>
+                  <div className="text-sm font-semibold mt-1 leading-tight">Проверить переговоры</div>
                 </div>
               </div>
             </div>
@@ -435,11 +465,11 @@ export function AIBlock() {
   );
 }
 
-/* ---------------- PROCESS ---------------- */
+/* ---------------- PROCESS (premium timeline) ---------------- */
 export function Process() {
   const steps = [
     { i: <Microscope className="w-5 h-5" />, t: "Диагностика", d: "Изучаем бизнес, процессы, роли, задачи, текущие проблемы и цели." },
-    { i: <FileEdit className="w-5 h-5" />, t: "Проектирование", d: "Создаём структуру будущей системы: разделы, логику, связи, права доступа и сценарии пользователей." },
+    { i: <FileEdit className="w-5 h-5" />, t: "Проектирование", d: "Создаём структуру будущей системы: разделы, логику, связи, права доступа и сценарии." },
     { i: <Eye className="w-5 h-5" />, t: "Прототип", d: "Показываем визуальную и функциональную модель системы, чтобы согласовать логику до разработки." },
     { i: <Code2 className="w-5 h-5" />, t: "Разработка", d: "Создаём интерфейс, модули, базу данных, интеграции, AI-функции и внутреннюю механику." },
     { i: <FlaskConical className="w-5 h-5" />, t: "Тестирование", d: "Проверяем сценарии, адаптивность, удобство, корректность данных и логику переходов." },
@@ -449,24 +479,39 @@ export function Process() {
     <section id="process" className="relative py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle eyebrow="Процесс" title={<>Как мы <span className="gradient-text">создаём систему</span></>} />
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {steps.map((s, i) => (
-            <Card key={s.t}>
-              <div className="flex items-center justify-between">
-                <Icon>{s.i}</Icon>
-                <span className="text-xs font-mono text-muted-foreground">0{i + 1}</span>
-              </div>
-              <h3 className="mt-4 text-base font-semibold">{s.t}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
-            </Card>
-          ))}
+
+        <div className="relative mt-14 max-w-3xl mx-auto">
+          {/* glowing vertical line */}
+          <div className="absolute left-5 sm:left-6 top-2 bottom-2 w-px"
+               style={{ background: "linear-gradient(180deg, transparent, oklch(0.78 0.14 210 / 0.6), oklch(0.66 0.2 265 / 0.7) 40%, oklch(0.62 0.24 295 / 0.7) 70%, transparent)" }} />
+          <div className="absolute left-5 sm:left-6 top-2 bottom-2 w-px blur-[3px] opacity-60"
+               style={{ background: "linear-gradient(180deg, transparent, oklch(0.66 0.2 265), oklch(0.62 0.24 295), transparent)" }} />
+
+          <ol className="space-y-5">
+            {steps.map((s, i) => (
+              <li key={s.t} className="relative pl-14 sm:pl-16">
+                {/* node */}
+                <div className="absolute left-0 top-1">
+                  <div className="relative h-10 w-10 sm:h-11 sm:w-11 rounded-full gradient-brand flex items-center justify-center text-white text-xs font-semibold shadow-[0_0_24px_-4px_oklch(0.66_0.2_265_/_0.7)]">
+                    0{i + 1}
+                    <span className="absolute inset-0 rounded-full ring-1 ring-white/20" />
+                  </div>
+                </div>
+                <div className="premium-card p-5 sm:p-6 shine-overlay">
+                  <div className="flex items-center gap-3">
+                    <Icon>{s.i}</Icon>
+                    <h3 className="text-base sm:text-lg font-semibold">{s.t}</h3>
+                  </div>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
       </div>
     </section>
   );
 }
-
-/* ---------------- STRUCTURE ---------------- */
 export function Structure() {
   const sections = [
     "Дашборд", "Задачи", "Клиенты", "Контрагенты", "Поставщики",
