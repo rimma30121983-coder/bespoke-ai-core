@@ -148,7 +148,7 @@ function CaseMakovka() {
             <div className="absolute -inset-4 rounded-[2rem] bg-[radial-gradient(60%_60%_at_50%_50%,color-mix(in_oklab,var(--brand-blue)_30%,transparent),transparent_70%)] blur-2xl pointer-events-none" />
             <div className="relative premium-card p-8 sm:p-12 rounded-[1.7rem] text-center">
               <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight">
-                Хотите похожую CRM под <span className="gradient-text">вашу сферу</span>?
+                Хотите похожую AI-систему под <span className="gradient-text">вашу сферу</span>?
               </h3>
               <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
                 Оставьте заявку — обсудим ваши процессы и предложим структуру будущей системы.
