@@ -43,7 +43,7 @@ export function Problems() {
     { i: <Shuffle className="w-5 h-5" />, t: "Продажи, клиенты и поставщики ведутся хаотично" },
     { i: <BarChart3 className="w-5 h-5" />, t: "Нет единой аналитики и прозрачности" },
     { i: <Hand className="w-5 h-5" />, t: "Много ручной работы" },
-    { i: <Puzzle className="w-5 h-5" />, t: "Стандартные CRM не подходят под реальные процессы" },
+    { i: <Puzzle className="w-5 h-5" />, t: "Шаблонные решения не подходят под реальные процессы" },
     { i: <BotOff className="w-5 h-5" />, t: "AI не встроен в ежедневную работу команды" },
   ];
   return (
