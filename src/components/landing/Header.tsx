@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { Logo } from "./Logo";
 
 const nav = [
   { href: "#features", label: "Возможности" },
@@ -34,13 +35,8 @@ export function Header() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <button onClick={() => go("#top")} className="flex items-center gap-2 group">
-          <span className="relative inline-flex h-8 w-8 items-center justify-center rounded-lg gradient-brand">
-            <Sparkles className="w-4 h-4 text-white" />
-          </span>
-          <span className="text-base font-semibold tracking-tight">
-            CRM <span className="gradient-text">AI Systems</span>
-          </span>
+        <button onClick={() => go("#top")} className="group" aria-label="CRM AI Systems">
+          <Logo markSize={32} textClassName="text-base sm:text-base" />
         </button>
 
         <nav className="hidden lg:flex items-center gap-7">

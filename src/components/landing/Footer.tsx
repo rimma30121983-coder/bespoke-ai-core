@@ -1,4 +1,5 @@
-import { Sparkles, Send, MessageCircle, Mail } from "lucide-react";
+import { Send, MessageCircle, Mail } from "lucide-react";
+import { Logo } from "./Logo";
 
 const go = (href: string) => document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
 
@@ -17,14 +18,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-10">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2">
-              <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg gradient-brand">
-                <Sparkles className="w-4 h-4 text-white" />
-              </span>
-              <span className="text-base font-semibold tracking-tight">
-                CRM <span className="gradient-text">AI Systems</span>
-              </span>
-            </div>
+            <Logo markSize={40} textClassName="text-lg" />
             <p className="mt-4 text-sm text-muted-foreground max-w-md leading-relaxed">
               Индивидуальные CRM и AI-системы для управления бизнесом.
             </p>
