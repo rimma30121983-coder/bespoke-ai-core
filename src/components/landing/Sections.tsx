@@ -428,7 +428,7 @@ export function AIBlock() {
                   <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-brand-cyan ai-dot" />
                 </div>
                 <div>
-                  <div className="text-sm font-semibold">AI Assistant</div>
+                  <div className="text-sm font-semibold">AI Insights</div>
                   <div className="text-xs text-muted-foreground">Анализ за последние 14 дней</div>
                 </div>
                 <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-brand-cyan/10 border border-brand-cyan/25 px-2.5 py-1 text-[10px] text-brand-cyan">

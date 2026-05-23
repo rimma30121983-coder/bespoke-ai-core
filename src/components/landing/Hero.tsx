@@ -154,7 +154,7 @@ export function Hero() {
                       <div className="h-5 w-5 rounded-md bg-gradient-to-br from-brand-blue to-brand-violet flex items-center justify-center">
                         <Bot className="w-3 h-3 text-white" />
                       </div>
-                      <span className="font-semibold">AI Assistant</span>
+                      <span className="font-semibold">AI Insights</span>
                       <span className="ml-auto text-[9px] text-brand-cyan">insight</span>
                     </div>
                     <p className="relative mt-2 text-[10.5px] sm:text-[11px] text-foreground/90 leading-relaxed">
