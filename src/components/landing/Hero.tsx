@@ -1,6 +1,7 @@
 import { ArrowRight, Sparkles, TrendingUp, Bot, Bell, Users, Briefcase, ListChecks, Percent, CheckCircle2 } from "lucide-react";
+import { handleNavigateToSection } from "@/lib/section-navigation";
 
-const scrollTo = (id: string) => document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
+const scrollTo = (id: string) => handleNavigateToSection(id);
 
 export function Hero() {
   return (
