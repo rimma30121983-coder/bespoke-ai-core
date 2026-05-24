@@ -3,6 +3,7 @@ import {
   Sparkles, Network, Briefcase, ShoppingCart,
   Building2, CheckCircle2, MessageSquare, Activity,
 } from "lucide-react";
+import { handleNavigateToSection } from "@/lib/section-navigation";
 
 const SectionTitle = ({ eyebrow, title, subtitle }: { eyebrow: string; title: React.ReactNode; subtitle: string }) => (
   <div className="max-w-3xl mx-auto text-center">
@@ -218,10 +219,7 @@ const formats: Format[] = [
 ];
 
 function FormatCard({ f }: { f: Format }) {
-  const goToForm = () => {
-    const el = document.querySelector("#contact");
-    el?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const goToForm = () => handleNavigateToSection("contact");
   return (
     <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5 sm:p-6 flex flex-col h-full hover:bg-white/[0.04] transition-colors">
       <div className="flex items-center justify-between gap-2">
@@ -254,10 +252,7 @@ function FormatCard({ f }: { f: Format }) {
 }
 
 export function Cases() {
-  const goToContact = () => {
-    const el = document.querySelector("#contact");
-    el?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const goToContact = () => handleNavigateToSection("contact");
 
   return (
     <section id="cases" className="relative py-20 lg:py-28">
