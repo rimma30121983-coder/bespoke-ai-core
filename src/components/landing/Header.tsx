@@ -5,13 +5,13 @@ import { Logo } from "./Logo";
 import { handleNavigateToSection, normalizeSectionId } from "@/lib/section-navigation";
 
 const nav = [
-  { href: "#capabilities", sectionId: "features", label: "Возможности" },
-  { href: "#audience", sectionId: "industries", label: "Для кого" },
-  { href: "#ai", label: "AI" },
-  { href: "#cases", label: "Кейсы" },
-  { href: "#process", label: "Этапы" },
-  { href: "#pricing", label: "Тарифы" },
-  { href: "#faq", label: "FAQ" },
+  { id: "capabilities", label: "Возможности" },
+  { id: "audience", label: "Для кого" },
+  { id: "ai", label: "AI" },
+  { id: "cases", label: "Кейсы" },
+  { id: "process", label: "Этапы" },
+  { id: "pricing", label: "Тарифы" },
+  { id: "faq", label: "FAQ" },
 ];
 
 export function Header() {
@@ -33,7 +33,7 @@ export function Header() {
       setActiveId("");
       return;
     }
-    const ids = nav.map((n) => n.sectionId ?? normalizeSectionId(n.href));
+    const ids = nav.map((n) => n.id);
     const sections = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => !!el);
@@ -52,9 +52,9 @@ export function Header() {
     return () => observer.disconnect();
   }, [location.pathname]);
 
-  const go = (href: string) => {
+  const go = (sectionId: string) => {
     setOpen(false);
-    const id = nav.find((item) => item.href === href)?.sectionId ?? normalizeSectionId(href);
+    const id = normalizeSectionId(sectionId);
     if (location.pathname !== "/") {
       navigate({ to: "/", hash: id });
       return;
@@ -76,12 +76,12 @@ export function Header() {
 
         <nav className="hidden lg:flex items-center gap-7">
           {nav.map((n) => {
-            const id = n.sectionId ?? normalizeSectionId(n.href);
+            const id = n.id;
             const isActive = activeId === id;
             return (
               <button
-                key={n.href}
-                onClick={() => go(n.href)}
+                key={n.id}
+                onClick={() => go(n.id)}
                 className={`relative text-sm transition-colors ${
                   isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
@@ -123,12 +123,12 @@ export function Header() {
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
           <div className="px-4 py-4 flex flex-col gap-1">
             {nav.map((n) => {
-              const id = n.sectionId ?? normalizeSectionId(n.href);
+              const id = n.id;
               const isActive = activeId === id;
               return (
                 <button
-                  key={n.href}
-                  onClick={() => go(n.href)}
+                  key={n.id}
+                  onClick={() => go(n.id)}
                   className={`text-left px-3 py-3 rounded-lg text-sm transition-colors ${
                     isActive
                       ? "text-foreground bg-white/5"
