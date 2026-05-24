@@ -36,7 +36,7 @@ export function Hero() {
               <button onClick={() => scrollTo("#contact")} className="btn-primary inline-flex items-center justify-center gap-2 rounded-full h-12 px-6 text-sm font-medium">
                 Обсудить проект <ArrowRight className="w-4 h-4" />
               </button>
-              <button onClick={() => scrollTo("#features")} className="btn-ghost inline-flex items-center justify-center rounded-full h-12 px-6 text-sm font-medium">
+              <button onClick={() => scrollTo("capabilities")} className="btn-ghost inline-flex items-center justify-center rounded-full h-12 px-6 text-sm font-medium">
                 Посмотреть возможности
               </button>
             </div>
