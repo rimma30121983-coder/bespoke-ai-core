@@ -135,7 +135,7 @@ export function Features() {
   ];
 
   return (
-    <section id="features" className="relative py-20 lg:py-28">
+    <section id="capabilities" className="relative py-20 lg:py-28">
       <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[500px] bg-radial-fade opacity-50 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
@@ -262,7 +262,7 @@ export function Industries() {
     },
   ];
   return (
-    <section id="industries" className="relative py-20 lg:py-28">
+    <section id="audience" className="relative py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Для кого"
