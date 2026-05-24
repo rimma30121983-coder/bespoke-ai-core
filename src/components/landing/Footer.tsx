@@ -6,8 +6,8 @@ const go = (sectionId: string) => handleNavigateToSection(sectionId);
 
 export function Footer() {
   const nav = [
-    { id: "features", label: "Возможности" },
-    { id: "industries", label: "Для кого" },
+    { id: "capabilities", label: "Возможности" },
+    { id: "audience", label: "Для кого" },
     { id: "ai", label: "AI" },
     { id: "cases", label: "Кейсы" },
     { id: "process", label: "Этапы" },
