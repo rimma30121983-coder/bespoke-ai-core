@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
+import { handleNavigateToSection } from "@/lib/section-navigation";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
 import {
@@ -38,6 +39,11 @@ function useReveal() {
 
 function Index() {
   useReveal();
+  useEffect(() => {
+    if (!window.location.hash) return;
+    requestAnimationFrame(() => handleNavigateToSection(window.location.hash));
+  }, []);
+
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header />

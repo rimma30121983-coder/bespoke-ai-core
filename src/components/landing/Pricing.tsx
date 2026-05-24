@@ -1,6 +1,7 @@
 import { Check, ArrowRight, Star, Compass, Layers, Sparkles } from "lucide-react";
+import { handleNavigateToSection } from "@/lib/section-navigation";
 
-const go = () => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+const go = () => handleNavigateToSection("contact");
 
 const tiers = [
   {

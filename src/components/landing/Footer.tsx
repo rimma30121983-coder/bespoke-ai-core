@@ -1,16 +1,18 @@
 import { Send, MessageCircle, Mail } from "lucide-react";
 import { LogoLockup } from "./Logo";
+import { handleNavigateToSection } from "@/lib/section-navigation";
 
-const go = (href: string) => document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
+const go = (sectionId: string) => handleNavigateToSection(sectionId);
 
 export function Footer() {
   const nav = [
-    { href: "#features", label: "Возможности" },
-    { href: "#industries", label: "Для кого" },
-    { href: "#ai", label: "AI" },
-    { href: "#process", label: "Этапы" },
-    { href: "#pricing", label: "Тарифы" },
-    { href: "#faq", label: "FAQ" },
+    { id: "capabilities", label: "Возможности" },
+    { id: "audience", label: "Для кого" },
+    { id: "ai", label: "AI" },
+    { id: "cases", label: "Кейсы" },
+    { id: "process", label: "Этапы" },
+    { id: "pricing", label: "Тарифы" },
+    { id: "faq", label: "FAQ" },
   ];
 
   return (
@@ -24,7 +26,7 @@ export function Footer() {
 
             </p>
             <p className="mt-2 text-xs text-muted-foreground/80">ai-assistens.company</p>
-            <button onClick={() => go("#contact")} className="btn-primary mt-6 inline-flex items-center gap-2 rounded-full h-11 px-5 text-sm font-medium">
+            <button onClick={() => go("contact")} className="btn-primary mt-6 inline-flex items-center gap-2 rounded-full h-11 px-5 text-sm font-medium">
               Оставить заявку
             </button>
           </div>
@@ -33,8 +35,8 @@ export function Footer() {
             <div className="text-xs uppercase tracking-wider text-muted-foreground">Навигация</div>
             <ul className="mt-4 space-y-2.5">
               {nav.map((n) => (
-                <li key={n.href}>
-                  <button onClick={() => go(n.href)} className="text-sm text-foreground/80 hover:text-foreground transition">
+                <li key={n.id}>
+                  <button onClick={() => go(n.id)} className="text-sm text-foreground/80 hover:text-foreground transition">
                     {n.label}
                   </button>
                 </li>

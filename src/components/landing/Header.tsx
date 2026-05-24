@@ -2,15 +2,16 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useNavigate, useLocation } from "@tanstack/react-router";
 import { Logo } from "./Logo";
+import { handleNavigateToSection, normalizeSectionId } from "@/lib/section-navigation";
 
 const nav = [
-  { href: "#features", label: "Возможности" },
-  { href: "#industries", label: "Для кого" },
-  { href: "#ai", label: "AI" },
-  { href: "#cases", label: "Кейсы" },
-  { href: "#process", label: "Этапы" },
-  { href: "#pricing", label: "Тарифы" },
-  { href: "#faq", label: "FAQ" },
+  { id: "capabilities", label: "Возможности" },
+  { id: "audience", label: "Для кого" },
+  { id: "ai", label: "AI" },
+  { id: "cases", label: "Кейсы" },
+  { id: "process", label: "Этапы" },
+  { id: "pricing", label: "Тарифы" },
+  { id: "faq", label: "FAQ" },
 ];
 
 export function Header() {
@@ -32,7 +33,7 @@ export function Header() {
       setActiveId("");
       return;
     }
-    const ids = nav.map((n) => n.href.replace("#", ""));
+    const ids = nav.map((n) => n.id);
     const sections = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => !!el);
@@ -51,23 +52,15 @@ export function Header() {
     return () => observer.disconnect();
   }, [location.pathname]);
 
-  const highlight = (el: Element) => {
-    el.classList.add("section-flash");
-    window.setTimeout(() => el.classList.remove("section-flash"), 800);
-  };
-
-  const go = (href: string) => {
+  const go = (sectionId: string) => {
     setOpen(false);
+    const id = normalizeSectionId(sectionId);
     if (location.pathname !== "/") {
-      navigate({ to: "/", hash: href.replace("#", "") });
+      navigate({ to: "/", hash: id });
       return;
     }
-    const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.scrollIntoView({ behavior: "auto", block: "start" });
+    if (!handleNavigateToSection(id)) return;
     setActiveId(id);
-    highlight(el);
   };
 
   return (
@@ -83,12 +76,12 @@ export function Header() {
 
         <nav className="hidden lg:flex items-center gap-7">
           {nav.map((n) => {
-            const id = n.href.replace("#", "");
+            const id = n.id;
             const isActive = activeId === id;
             return (
               <button
-                key={n.href}
-                onClick={() => go(n.href)}
+                key={n.id}
+                onClick={() => go(n.id)}
                 className={`relative text-sm transition-colors ${
                   isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
@@ -130,12 +123,12 @@ export function Header() {
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
           <div className="px-4 py-4 flex flex-col gap-1">
             {nav.map((n) => {
-              const id = n.href.replace("#", "");
+              const id = n.id;
               const isActive = activeId === id;
               return (
                 <button
-                  key={n.href}
-                  onClick={() => go(n.href)}
+                  key={n.id}
+                  onClick={() => go(n.id)}
                   className={`text-left px-3 py-3 rounded-lg text-sm transition-colors ${
                     isActive
                       ? "text-foreground bg-white/5"
