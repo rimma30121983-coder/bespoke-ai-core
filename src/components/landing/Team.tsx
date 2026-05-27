@@ -91,9 +91,9 @@ export function Team() {
         </div>
 
         {/* Карточки сотрудников */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
           {members.map((m, i) => (
-            <article key={i} className="premium-card p-5 group shine-overlay flex flex-col">
+            <article key={i} className="premium-card p-5 group shine-overlay flex flex-col h-full">
               <div
                 className="relative aspect-[4/5] rounded-[20px] overflow-hidden border border-white/10"
                 style={{
@@ -107,14 +107,14 @@ export function Team() {
                   </div>
                 </div>
               </div>
-              <div className="mt-4 flex items-center gap-2">
-                <span className="icon-chip inline-flex h-8 w-8 items-center justify-center rounded-lg">
+              <h3 className="mt-5 text-lg sm:text-xl font-semibold text-white leading-snug">{m.name}</h3>
+              <div className="mt-1.5 flex items-center gap-2">
+                <span className="icon-chip inline-flex h-7 w-7 items-center justify-center rounded-lg shrink-0">
                   {m.icon}
                 </span>
-                <div className="text-xs uppercase tracking-[0.12em] text-brand-cyan">{m.role}</div>
+                <div className="text-[13px] font-medium gradient-text">{m.role}</div>
               </div>
-              <h3 className="mt-2 text-base font-semibold">{m.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
             </article>
           ))}
         </div>
