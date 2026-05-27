@@ -76,7 +76,7 @@ export function Team() {
                 alt="Команда AI Systems"
                 loading="lazy"
                 className="absolute inset-0 w-full h-full object-cover"
-                style={{ objectPosition: "50% 35%", transform: "scale(0.92)" }}
+                style={{ objectPosition: "50% 38%" }}
               />
               <div className="pointer-events-none absolute -inset-px rounded-[20px] ring-1 ring-inset ring-white/10" />
             </div>
