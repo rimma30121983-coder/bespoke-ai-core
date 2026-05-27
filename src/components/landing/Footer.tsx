@@ -62,7 +62,16 @@ export function Footer() {
             © {new Date().getFullYear()} AI Systems. Все права защищены.
           </p>
           <p className="text-xs text-muted-foreground">
-            ООО «ИИ Стратегия» · ИНН 1650437696 · ОГРН 1241600041968
+            <span className="whitespace-nowrap">
+              AI Systems by{" "}
+              <a href="https://aistrategiya.ru/" target="_blank" rel="noopener noreferrer" className="hover:text-brand-cyan transition">AI Strategiya</a>
+            </span>
+            <span className="mx-2 text-muted-foreground/50">·</span>
+            <span className="whitespace-nowrap">ООО «ИИ Стратегия»</span>
+            <span className="mx-2 text-muted-foreground/50">·</span>
+            <span className="whitespace-nowrap">ИНН 1650437696</span>
+            <span className="mx-2 text-muted-foreground/50">·</span>
+            <span className="whitespace-nowrap">ОГРН 1241600041968</span>
           </p>
           <p className="text-xs text-muted-foreground">
             <Link to="/privacy-policy" className="hover:text-brand-cyan transition">Политика конфиденциальности</Link>
