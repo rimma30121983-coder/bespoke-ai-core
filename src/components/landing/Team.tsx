@@ -93,6 +93,16 @@ export function Team() {
           </div>
         </div>
 
+        {/* Контекст про проектную команду */}
+        <div className="mt-10 flex items-start gap-3 rounded-2xl glass border border-white/10 p-4 sm:p-5 max-w-4xl mx-auto">
+          <span className="icon-chip inline-flex h-8 w-8 items-center justify-center rounded-lg shrink-0 mt-0.5">
+            <ClipboardCheck className="w-4 h-4" />
+          </span>
+          <p className="text-sm sm:text-[15px] text-foreground/85 leading-relaxed">
+            Проектные менеджеры сопровождают клиента от первых требований до запуска системы: помогают собрать информацию, согласовать структуру, контролируют задачи, сроки и коммуникацию команды.
+          </p>
+        </div>
+
         {/* Карточки сотрудников */}
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
           {members.map((m, i) => (
