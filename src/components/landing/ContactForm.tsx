@@ -1,9 +1,25 @@
 import { useState, FormEvent } from "react";
 import { ArrowRight, CheckCircle2, Sparkles, Search, Layers, Brain } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { trackLeadSubmit } from "@/lib/analytics";
 import { handleNavigateToSection } from "@/lib/section-navigation";
 
 const go = () => handleNavigateToSection("contact");
+
+function ConsentNote({ className = "" }: { className?: string }) {
+  return (
+    <p className={`text-[11px] leading-relaxed text-muted-foreground ${className}`}>
+      Нажимая кнопку, вы соглашаетесь с{" "}
+      <Link to="/privacy-policy" className="text-brand-cyan hover:text-brand-violet transition underline-offset-2 hover:underline">
+        Политикой конфиденциальности
+      </Link>{" "}
+      и{" "}
+      <Link to="/terms" className="text-brand-cyan hover:text-brand-violet transition underline-offset-2 hover:underline">
+        Пользовательским соглашением
+      </Link>.
+    </p>
+  );
+}
 
 export function FinalCTA() {
   const mini = [
