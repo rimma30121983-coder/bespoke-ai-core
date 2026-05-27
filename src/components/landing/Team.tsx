@@ -24,16 +24,16 @@ const members = [
   },
   {
     name: "Римма Сметанкина",
-    role: "Руководитель внедрения",
-    desc: "Ведёт проект от согласования структуры до запуска, контролирует задачи, сроки и коммуникацию.",
+    role: "Project Manager",
+    desc: "Координирует проектную работу, коммуникацию с клиентом, задачи команды и согласование этапов разработки.",
     icon: <ClipboardCheck className="w-5 h-5" />,
     photo: photoRimma,
     objectPosition: "50% 25%",
   },
   {
     name: "Надежда Гришакова",
-    role: "Бизнес-аналитик / Project Manager",
-    desc: "Помогает собрать требования, описать процессы и адаптировать систему под ежедневную работу команды.",
+    role: "Project Manager",
+    desc: "Помогает структурировать требования, фиксировать бизнес-процессы, контролировать задачи и адаптировать систему под работу команды.",
     icon: <LineChart className="w-5 h-5" />,
     photo: photoNadezhda,
     objectPosition: "50% 25%",
@@ -91,6 +91,16 @@ export function Team() {
               </p>
             </div>
           </div>
+        </div>
+
+        {/* Контекст про проектную команду */}
+        <div className="mt-10 flex items-start gap-3 rounded-2xl glass border border-white/10 p-4 sm:p-5 max-w-4xl mx-auto">
+          <span className="icon-chip inline-flex h-8 w-8 items-center justify-center rounded-lg shrink-0 mt-0.5">
+            <ClipboardCheck className="w-4 h-4" />
+          </span>
+          <p className="text-sm sm:text-[15px] text-foreground/85 leading-relaxed">
+            Проектные менеджеры сопровождают клиента от первых требований до запуска системы: помогают собрать информацию, согласовать структуру, контролируют задачи, сроки и коммуникацию команды.
+          </p>
         </div>
 
         {/* Карточки сотрудников */}
