@@ -1,29 +1,29 @@
-import { User, Brain, Palette, Code2, Sparkles, Layers, Rocket } from "lucide-react";
+import { User, Briefcase, Cpu, ClipboardCheck, LineChart, Sparkles, Rocket } from "lucide-react";
 
 const members = [
   {
-    name: "Имя сотрудника",
-    role: "Бизнес-архитектор",
-    desc: "Изучает процессы компании и проектирует логику будущей AI-системы под реальные задачи бизнеса.",
-    icon: <Layers className="w-5 h-5" />,
+    name: "Евгений Мамонтов",
+    role: "CEO / Архитектор AI-систем",
+    desc: "Отвечает за стратегию, бизнес-логику и итоговую ценность AI-системы для клиента.",
+    icon: <Briefcase className="w-5 h-5" />,
   },
   {
-    name: "Имя сотрудника",
-    role: "AI и автоматизация",
-    desc: "Отвечает за сценарии автоматизации, AI-рекомендации, аналитику и интеллектуальные функции системы.",
-    icon: <Brain className="w-5 h-5" />,
+    name: "Антон Борисенко",
+    role: "Технический директор",
+    desc: "Проектирует техническую архитектуру, интеграции и внутреннюю механику AI-системы.",
+    icon: <Cpu className="w-5 h-5" />,
   },
   {
-    name: "Имя сотрудника",
-    role: "UX/UI-дизайн",
-    desc: "Создаёт понятный интерфейс, чтобы руководителю и команде было удобно работать в системе каждый день.",
-    icon: <Palette className="w-5 h-5" />,
+    name: "Римма Сметанкина",
+    role: "Руководитель внедрения",
+    desc: "Ведёт проект от согласования структуры до запуска, контролирует задачи, сроки и коммуникацию.",
+    icon: <ClipboardCheck className="w-5 h-5" />,
   },
   {
-    name: "Имя сотрудника",
-    role: "Разработка и интеграции",
-    desc: "Собирает систему, настраивает роли, модули, интеграции и техническую логику проекта.",
-    icon: <Code2 className="w-5 h-5" />,
+    name: "Надежда Гришакова",
+    role: "Бизнес-аналитик / Project Manager",
+    desc: "Помогает собрать требования, описать процессы и адаптировать систему под ежедневную работу команды.",
+    icon: <LineChart className="w-5 h-5" />,
   },
 ];
 
@@ -47,7 +47,10 @@ export function Team() {
             Команда, которая создаёт <span className="gradient-text">AI-системы</span> под бизнес
           </h2>
           <p className="mt-5 text-base sm:text-[17px] text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Над проектами работают специалисты, которые соединяют бизнес-логику, интерфейс, автоматизацию и AI-инструменты в единую систему управления.
+            Мы объединяем бизнес-экспертизу, техническую архитектуру и проектное управление, чтобы AI-система была не просто красивой, а реально работала в бизнесе.
+          </p>
+          <p className="mt-3 text-sm sm:text-base text-muted-foreground/90 leading-relaxed max-w-2xl mx-auto">
+            4 специалиста закрывают весь цикл: от бизнес-логики и архитектуры до разработки, внедрения и сопровождения.
           </p>
         </div>
 
@@ -88,9 +91,9 @@ export function Team() {
         </div>
 
         {/* Карточки сотрудников */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
           {members.map((m, i) => (
-            <article key={i} className="premium-card p-5 group shine-overlay flex flex-col">
+            <article key={i} className="premium-card p-5 group shine-overlay flex flex-col h-full">
               <div
                 className="relative aspect-[4/5] rounded-[20px] overflow-hidden border border-white/10"
                 style={{
@@ -104,14 +107,14 @@ export function Team() {
                   </div>
                 </div>
               </div>
-              <div className="mt-4 flex items-center gap-2">
-                <span className="icon-chip inline-flex h-8 w-8 items-center justify-center rounded-lg">
+              <h3 className="mt-5 text-lg sm:text-xl font-semibold text-white leading-snug">{m.name}</h3>
+              <div className="mt-1.5 flex items-center gap-2">
+                <span className="icon-chip inline-flex h-7 w-7 items-center justify-center rounded-lg shrink-0">
                   {m.icon}
                 </span>
-                <div className="text-xs uppercase tracking-[0.12em] text-brand-cyan">{m.role}</div>
+                <div className="text-[13px] font-medium gradient-text">{m.role}</div>
               </div>
-              <h3 className="mt-2 text-base font-semibold">{m.name}</h3>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
+              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
             </article>
           ))}
         </div>
