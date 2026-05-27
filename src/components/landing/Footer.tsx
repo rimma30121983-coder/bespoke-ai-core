@@ -1,4 +1,5 @@
-import { Send, MessageCircle, Mail } from "lucide-react";
+import { Send, MessageCircle, Mail, Phone } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { LogoLockup } from "./Logo";
 import { handleNavigateToSection } from "@/lib/section-navigation";
 
@@ -48,16 +49,26 @@ export function Footer() {
           <div>
             <div className="text-xs uppercase tracking-wider text-muted-foreground">Контакты</div>
             <ul className="mt-4 space-y-2.5">
+              <li><a href="mailto:aistrategiy@bk.ru" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Mail className="w-4 h-4 text-brand-cyan" /> aistrategiy@bk.ru</a></li>
+              <li><a href="tel:+79871861200" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Phone className="w-4 h-4 text-brand-cyan" /> +7 (987) 186-12-00</a></li>
               <li><a href="#" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Send className="w-4 h-4 text-brand-cyan" /> Telegram</a></li>
               <li><a href="#" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><MessageCircle className="w-4 h-4 text-brand-cyan" /> WhatsApp</a></li>
-              <li><a href="mailto:hello@ai-assistens.company" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Mail className="w-4 h-4 text-brand-cyan" /> Email</a></li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} AI Systems · ai-assistens.company. Все права защищены.</p>
-          <p className="text-xs text-muted-foreground">Premium dark • AI-powered</p>
+        <div className="mt-12 pt-6 border-t border-border flex flex-col gap-2 text-center sm:text-left">
+          <p className="text-xs text-muted-foreground">
+            © {new Date().getFullYear()} AI Systems. Все права защищены.
+          </p>
+          <p className="text-xs text-muted-foreground">
+            ООО «ИИ Стратегия» · ИНН 1650437696 · ОГРН 1241600041968
+          </p>
+          <p className="text-xs text-muted-foreground">
+            <Link to="/privacy-policy" className="hover:text-brand-cyan transition">Политика конфиденциальности</Link>
+            <span className="mx-2 text-muted-foreground/50">·</span>
+            <Link to="/terms" className="hover:text-brand-violet transition">Пользовательское соглашение</Link>
+          </p>
         </div>
       </div>
     </footer>
