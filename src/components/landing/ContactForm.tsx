@@ -67,6 +67,7 @@ export function FinalCTA() {
                 Получить консультацию
               </button>
             </div>
+            <ConsentNote className="mt-4 text-center max-w-md mx-auto" />
           </div>
         </div>
       </div>
