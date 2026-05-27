@@ -128,9 +128,7 @@ export function ContactForm() {
                 <button type="submit" className="btn-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full h-12 px-7 text-sm font-medium">
                   Отправить заявку <ArrowRight className="w-4 h-4" />
                 </button>
-                <p className="mt-3 text-xs text-muted-foreground">
-                  Нажимая кнопку, вы соглашаетесь на обработку персональных данных.
-                </p>
+                <ConsentNote className="mt-3" />
               </div>
             </form>
           )}
