@@ -10,6 +10,7 @@ export function Footer() {
     { id: "audience", label: "Для кого" },
     { id: "ai", label: "AI" },
     { id: "cases", label: "Кейсы" },
+    { id: "team", label: "Команда" },
     { id: "process", label: "Этапы" },
     { id: "pricing", label: "Тарифы" },
     { id: "faq", label: "FAQ" },

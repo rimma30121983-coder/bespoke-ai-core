@@ -8,6 +8,7 @@ import {
   Process, Structure, Benefits, Includes, Trust,
 } from "@/components/landing/Sections";
 import { Cases } from "@/components/landing/Cases";
+import { Team } from "@/components/landing/Team";
 import { Pricing } from "@/components/landing/Pricing";
 import { FAQ } from "@/components/landing/FAQ";
 import { FinalCTA, ContactForm } from "@/components/landing/ContactForm";
@@ -54,8 +55,9 @@ function Index() {
       <Industries />
       <Comparison />
       <AIBlock />
-      <Cases />
-      <Process />
+        <Cases />
+        <Team />
+        <Process />
       <Structure />
       <Benefits />
       <Includes />
