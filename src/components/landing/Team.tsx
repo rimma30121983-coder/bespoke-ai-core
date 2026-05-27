@@ -70,13 +70,19 @@ export function Team() {
         {/* Общее фото команды */}
         <div className="mt-12 lg:mt-16 premium-card overflow-hidden p-2 sm:p-3">
           <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-2 sm:gap-3">
-            <div className="relative aspect-[16/11] lg:aspect-auto lg:min-h-[420px] rounded-[20px] overflow-hidden border border-white/10 bg-black/30">
+            <div
+              className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-auto lg:min-h-[520px] rounded-[20px] overflow-hidden border border-white/10"
+              style={{
+                background:
+                  "radial-gradient(120% 80% at 50% 0%, hsl(var(--brand-cyan) / 0.10), transparent 60%), linear-gradient(180deg, #0b1220 0%, #060a14 100%)",
+              }}
+            >
               <img
                 src={teamGroup}
                 alt="Команда AI Systems"
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ objectPosition: "50% 38%" }}
+                className="absolute inset-0 w-full h-full object-contain"
+                style={{ objectPosition: "50% 50%" }}
               />
               <div className="pointer-events-none absolute -inset-px rounded-[20px] ring-1 ring-inset ring-white/10" />
             </div>
