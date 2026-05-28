@@ -1,4 +1,4 @@
-import { Briefcase, Cpu, ClipboardCheck, LineChart, Rocket } from "lucide-react";
+import { Briefcase, Cpu, ClipboardCheck, LineChart } from "lucide-react";
 import teamGroup from "@/assets/team-group.jpg";
 import photoEvgeniy from "@/assets/team-evgeniy-mamontov.jpg";
 import photoAnton from "@/assets/team-anton-borisenko.jpg";
@@ -40,11 +40,8 @@ const members = [
   },
 ];
 
-const reasons = [
-  "Понимаем бизнес-процессы, а не просто рисуем интерфейсы",
-  "Проектируем систему под роли, задачи и реальные сценарии работы",
-  "Думаем о внедрении, удобстве команды и развитии системы после запуска",
-];
+
+
 
 export function Team() {
   return (
@@ -62,9 +59,8 @@ export function Team() {
           <p className="mt-5 text-base sm:text-[17px] text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             Мы объединяем бизнес-экспертизу, техническую архитектуру и проектное управление, чтобы AI-система была не просто красивой, а реально работала в бизнесе.
           </p>
-          <p className="mt-3 text-sm sm:text-base text-muted-foreground/90 leading-relaxed max-w-2xl mx-auto">
-            4 специалиста закрывают весь цикл: от бизнес-логики и архитектуры до разработки, внедрения и сопровождения.
-          </p>
+
+
         </div>
 
         {/* Общее фото команды */}
@@ -99,18 +95,8 @@ export function Team() {
           </div>
         </div>
 
-        {/* Контекст про проектную команду */}
-        <div className="mt-10 flex items-start gap-3 rounded-2xl glass border border-white/10 p-4 sm:p-5 max-w-4xl mx-auto">
-          <span className="icon-chip inline-flex h-8 w-8 items-center justify-center rounded-lg shrink-0 mt-0.5">
-            <ClipboardCheck className="w-4 h-4" />
-          </span>
-          <p className="text-sm sm:text-[15px] text-foreground/85 leading-relaxed">
-            Проектные менеджеры сопровождают клиента от первых требований до запуска системы: помогают собрать информацию, согласовать структуру, контролируют задачи, сроки и коммуникацию команды.
-          </p>
-        </div>
-
         {/* Карточки сотрудников */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
           {members.map((m, i) => (
             <article key={i} className="premium-card p-5 group shine-overlay flex flex-col h-full">
               <div className="relative aspect-[4/5] rounded-[20px] overflow-hidden border border-white/10">
@@ -135,23 +121,9 @@ export function Team() {
           ))}
         </div>
 
-        {/* Почему команда важна */}
-        <div className="mt-10 premium-card p-6 sm:p-8">
-          <div className="flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-violet" />
-            Почему команда важна
-          </div>
-          <div className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {reasons.map((r, i) => (
-              <div key={i} className="flex items-start gap-3 rounded-2xl bg-white/[0.035] border border-white/10 p-4">
-                <span className="icon-chip inline-flex h-8 w-8 items-center justify-center rounded-lg shrink-0">
-                  <Rocket className="w-4 h-4" />
-                </span>
-                <p className="text-sm text-foreground/90 leading-relaxed">{r}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        <p className="mt-8 text-center text-sm sm:text-[15px] text-muted-foreground max-w-3xl mx-auto">
+          Команда закрывает весь цикл: бизнес-логика, архитектура, разработка, внедрение и сопровождение.
+        </p>
       </div>
     </section>
   );

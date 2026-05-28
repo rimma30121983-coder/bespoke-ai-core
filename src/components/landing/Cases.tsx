@@ -200,21 +200,21 @@ type Format = {
 const formats: Format[] = [
   {
     icon: <Briefcase className="w-5 h-5" />,
-    title: "AI-система для отдела продаж",
-    description: "Помогает менеджерам работать с лидами, сделками, задачами и следующими действиями по клиентам.",
-    modules: ["Воронка продаж", "Клиенты", "Задачи менеджеров", "AI-рекомендации", "Аналитика конверсии"],
+    title: "AI-система для продаж",
+    description: "Лиды, сделки, задачи и следующие действия по клиентам.",
+    modules: ["Воронка", "Клиенты", "AI-рекомендации"],
   },
   {
     icon: <Network className="w-5 h-5" />,
-    title: "Система управления франшизой",
-    description: "Единый центр контроля партнёров, заявок, обучения, стандартов, задач и развития сети.",
-    modules: ["Партнёры", "Заявки", "База знаний", "Задачи", "Контроль стандартов", "Отчёты"],
+    title: "Управление франшизой",
+    description: "Контроль партнёров, заявок, стандартов и развития сети.",
+    modules: ["Партнёры", "Заявки", "Отчёты"],
   },
   {
     icon: <ShoppingCart className="w-5 h-5" />,
-    title: "Панель контроля поставщиков и закупок",
-    description: "Система для контроля поставщиков, заказов, условий, сроков, документов и операционных рисков.",
-    modules: ["Поставщики", "Заказы", "Документы", "Сроки", "Статусы", "Уведомления"],
+    title: "Поставщики и закупки",
+    description: "Контроль заказов, условий, сроков и документов.",
+    modules: ["Поставщики", "Заказы", "Документы"],
   },
 ];
 
@@ -281,28 +281,23 @@ export function Cases() {
         </div>
 
         {/* Formats */}
-        <div className="mt-20">
-          <div className="flex items-end justify-between flex-wrap gap-4">
-            <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] bg-white/[0.04] border border-white/10 text-foreground/70">
-                Возможные форматы
-              </span>
-              <h3 className="mt-3 text-2xl sm:text-[1.85rem] font-semibold tracking-tight leading-tight">
-                Какие системы ещё <span className="gradient-text">можно разработать</span>
-              </h3>
-              <p className="mt-3 text-sm sm:text-[15px] text-muted-foreground leading-relaxed">
-                На основе похожей архитектуры можно создать AI-систему под разные задачи бизнеса —
-                от продаж и франшиз до поставщиков и внутреннего контроля.
-              </p>
-            </div>
+        <div className="mt-16">
+          <div className="max-w-2xl">
+            <span className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] bg-white/[0.04] border border-white/10 text-foreground/70">
+              Возможные форматы
+            </span>
+            <h3 className="mt-3 text-2xl sm:text-[1.85rem] font-semibold tracking-tight leading-tight">
+              Что ещё <span className="gradient-text">можно разработать</span>
+            </h3>
           </div>
 
-          <div className="mt-7 grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
             {formats.map((f) => (
               <FormatCard key={f.title} f={f} />
             ))}
           </div>
         </div>
+
 
         {/* CTA */}
         <div className="mt-16 relative">
