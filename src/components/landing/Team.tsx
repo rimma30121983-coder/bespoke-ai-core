@@ -59,9 +59,8 @@ export function Team() {
           <p className="mt-5 text-base sm:text-[17px] text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             Мы объединяем бизнес-экспертизу, техническую архитектуру и проектное управление, чтобы AI-система была не просто красивой, а реально работала в бизнесе.
           </p>
-          <p className="mt-3 text-sm sm:text-base text-muted-foreground/90 leading-relaxed max-w-2xl mx-auto">
-            4 специалиста закрывают весь цикл: от бизнес-логики и архитектуры до разработки, внедрения и сопровождения.
-          </p>
+
+
         </div>
 
         {/* Общее фото команды */}
