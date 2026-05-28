@@ -52,15 +52,10 @@ function Index() {
       <Solution />
       <Features />
       <Industries />
-      <Comparison />
       <AIBlock />
-        <Cases />
-        <Team />
-        <Process />
-      <Structure />
-      <Benefits />
-      <Includes />
-      <Trust />
+      <Cases />
+      <Team />
+      <Process />
       <Pricing />
       <FAQ />
       <FinalCTA />
