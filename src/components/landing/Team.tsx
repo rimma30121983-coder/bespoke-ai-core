@@ -1,4 +1,4 @@
-import { Briefcase, Cpu, ClipboardCheck, LineChart, Rocket } from "lucide-react";
+import { Briefcase, Cpu, ClipboardCheck, LineChart } from "lucide-react";
 import teamGroup from "@/assets/team-group.jpg";
 import photoEvgeniy from "@/assets/team-evgeniy-mamontov.jpg";
 import photoAnton from "@/assets/team-anton-borisenko.jpg";
