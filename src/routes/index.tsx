@@ -4,8 +4,7 @@ import { handleNavigateToSection } from "@/lib/section-navigation";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
 import {
-  Problems, Solution, Features, Industries, Comparison, AIBlock,
-  Process, Structure, Benefits, Includes, Trust,
+  Problems, Solution, Features, Industries, AIBlock, Process,
 } from "@/components/landing/Sections";
 import { Cases } from "@/components/landing/Cases";
 import { Team } from "@/components/landing/Team";
