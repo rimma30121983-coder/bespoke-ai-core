@@ -68,7 +68,7 @@ export function Hero() {
                 <div className="h-2.5 w-2.5 rounded-full bg-white/15" />
                 <div className="h-2.5 w-2.5 rounded-full bg-white/15" />
                 <div className="h-2.5 w-2.5 rounded-full bg-white/15" />
-                <div className="ml-3 text-[10px] text-muted-foreground tracking-wide truncate">crm.aisystems.app / dashboard</div>
+                <div className="ml-3 text-[10px] text-muted-foreground tracking-wide truncate">core.aisystems.app / dashboard</div>
               </div>
 
               <div className="rounded-xl bg-background/70 border border-white/5 p-3.5 sm:p-4 space-y-3.5">

@@ -115,18 +115,20 @@ type RealCase = {
   result: string;
   liveUrl: string;
   mockup: React.ReactNode;
+  formatTag?: string;
 };
 
 const realCases: RealCase[] = [
   {
     domainIcon: <Store className="w-3.5 h-3.5 text-brand-cyan" />,
     domain: "Сеть пекарен / общепит",
-    title: <>CRM для сети пекарен <span className="gradient-text">«Маковка»</span></>,
+    title: <>Система управления сетью пекарен <span className="gradient-text">«Маковка»</span></>,
     description: "Система управления задачами, поставщиками, сотрудниками и аналитикой сети.",
     tags: ["Дашборд", "Задачи", "Поставщики", "Сотрудники", "Аналитика"],
     result: "Единый центр управления сетью.",
     liveUrl: "https://makovkacrm.xyz/",
     mockup: <MiniMockupBakery />,
+    formatTag: "CRM / операционное управление",
   },
   {
     domainIcon: <Building2 className="w-3.5 h-3.5 text-brand-cyan" />,
@@ -152,9 +154,16 @@ function RealCaseCard({ c }: { c: RealCase }) {
             {c.domainIcon}
             <span className="truncate max-w-[14rem]">{c.domain}</span>
           </div>
-          <span className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10px] uppercase tracking-[0.16em] font-medium bg-gradient-to-r from-brand-blue/25 to-brand-violet/25 border border-brand-blue/40 text-foreground">
-            <CheckCircle2 className="w-3 h-3 text-brand-cyan" /> Реальный проект
-          </span>
+          <div className="flex items-center gap-2">
+            {c.formatTag && (
+              <span className="rounded-full bg-white/[0.04] border border-white/10 px-2 py-0.5 text-[10px] text-foreground/60">
+                {c.formatTag}
+              </span>
+            )}
+            <span className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10px] uppercase tracking-[0.16em] font-medium bg-gradient-to-r from-brand-blue/25 to-brand-violet/25 border border-brand-blue/40 text-foreground">
+              <CheckCircle2 className="w-3 h-3 text-brand-cyan" /> Реальный проект
+            </span>
+          </div>
         </div>
 
         <h3 className="relative mt-3 text-xl sm:text-[1.4rem] font-semibold tracking-tight leading-snug break-words">
