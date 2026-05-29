@@ -32,54 +32,69 @@ const Icon = ({ children }: { children: React.ReactNode }) => (
   </div>
 );
 
-/* ---------------- PROBLEMS ---------------- */
+/* ---------------- PROBLEMS → SOLUTION ---------------- */
 export function Problems() {
-  const items = [
-    { i: <AlertTriangle className="w-5 h-5" />, t: "Данные разбросаны по таблицам, чатам и сервисам" },
-    { i: <ClipboardX className="w-5 h-5" />, t: "Задачи и договорённости теряются" },
-    { i: <EyeOff className="w-5 h-5" />, t: "Руководитель не видит полную картину бизнеса" },
-    { i: <Hand className="w-5 h-5" />, t: "Много ручного контроля и повторяющихся действий" },
+  const before = [
+    { i: <AlertTriangle className="w-4 h-4" />, t: "Данные в таблицах, чатах и сервисах" },
+    { i: <ClipboardX className="w-4 h-4" />, t: "Задачи теряются" },
+    { i: <EyeOff className="w-4 h-4" />, t: "Нет единой картины" },
+    { i: <Hand className="w-4 h-4" />, t: "Много ручного контроля" },
+  ];
+  const after = [
+    { i: <LayoutDashboard className="w-4 h-4" />, t: "Единая система управления" },
+    { i: <CheckCircle2 className="w-4 h-4" />, t: "Задачи и процессы под контролем" },
+    { i: <Gauge className="w-4 h-4" />, t: "Дашборд для руководителя" },
+    { i: <Sparkles className="w-4 h-4" />, t: "AI-рекомендации и автоматизация" },
   ];
   return (
     <section className="relative py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
-          eyebrow="Проблема"
-          title={<>Когда бизнес растёт, таблиц и чатов <span className="gradient-text">уже недостаточно</span></>}
+          eyebrow="Проблема → Решение"
+          title={<>От разрозненных процессов — к&nbsp;<span className="gradient-text">единой AI-системе</span></>}
         />
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {items.map((it) => (
-            <Card key={it.t}>
-              <Icon>{it.i}</Icon>
-              <p className="mt-4 text-sm text-foreground/85 leading-relaxed">{it.t}</p>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- SOLUTION ---------------- */
-export function Solution() {
-  return (
-    <section className="relative py-16 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative max-w-4xl mx-auto premium-card ring-gradient p-8 sm:p-12 overflow-hidden"
-             style={{ background: "linear-gradient(180deg, oklch(0.66 0.2 265 / 0.14), oklch(0.62 0.24 295 / 0.06))" }}>
-          <div className="absolute -top-24 -right-20 w-72 h-72 rounded-full bg-brand-violet/25 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -left-20 w-72 h-72 rounded-full bg-brand-blue/25 blur-3xl pointer-events-none" />
-          <div className="relative">
-            <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] uppercase tracking-[0.12em] text-foreground/70">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan animate-pulse" />
-              Решение
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-4 items-stretch">
+          <div className="premium-card p-6 sm:p-7">
+            <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+              <span className="h-1.5 w-1.5 rounded-full bg-destructive/80" />
+              Сейчас
             </div>
-            <h2 className="mt-5 text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold tracking-tight leading-[1.1]">
-              Собираем процессы бизнеса в <span className="gradient-text">единую AI-систему</span>
-            </h2>
-            <p className="mt-5 text-base sm:text-[17px] text-foreground/85 leading-relaxed max-w-2xl">
-              Проектируем систему под вашу логику: задачи, клиенты, сотрудники, аналитика, роли, уведомления и автоматизация — в одном рабочем интерфейсе.
-            </p>
+            <ul className="mt-5 space-y-3">
+              {before.map((it) => (
+                <li key={it.t} className="flex items-start gap-3 rounded-xl bg-white/[0.02] border border-white/5 px-4 py-3">
+                  <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-destructive/10 text-destructive shrink-0">
+                    {it.i}
+                  </span>
+                  <span className="text-sm text-foreground/85 leading-relaxed">{it.t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="hidden lg:flex items-center justify-center px-2">
+            <div className="h-10 w-10 rounded-full gradient-brand flex items-center justify-center shadow-[0_0_24px_-4px_oklch(0.66_0.2_265_/_0.7)]">
+              <ArrowRight className="w-5 h-5 text-white" />
+            </div>
+          </div>
+
+          <div className="premium-card ring-gradient p-6 sm:p-7 relative overflow-hidden">
+            <div className="absolute -top-16 -right-16 w-48 h-48 rounded-full bg-brand-violet/20 blur-3xl pointer-events-none" />
+            <div className="relative">
+              <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] text-brand-cyan">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan animate-pulse" />
+                После внедрения
+              </div>
+              <ul className="mt-5 space-y-3">
+                {after.map((it) => (
+                  <li key={it.t} className="flex items-start gap-3 rounded-xl bg-white/[0.03] border border-white/10 px-4 py-3">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg gradient-brand text-white shrink-0">
+                      {it.i}
+                    </span>
+                    <span className="text-sm text-foreground/90 leading-relaxed">{it.t}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
