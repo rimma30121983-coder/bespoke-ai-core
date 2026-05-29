@@ -49,8 +49,8 @@ function Index() {
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header />
       <Hero />
+      <AICore />
       <Problems />
-      <Solution />
       <Features />
       <Industries />
       <AIBlock />
