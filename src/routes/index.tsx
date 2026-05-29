@@ -52,8 +52,8 @@ function Index() {
       <AICore />
       <Problems />
       <Features />
-      <Industries />
       <AIBlock />
+      <Industries />
       <Cases />
       <Team />
       <Process />
