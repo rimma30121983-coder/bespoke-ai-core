@@ -132,9 +132,14 @@ export function Features() {
           ))}
         </div>
 
-        <p className="mt-8 text-center text-sm text-muted-foreground max-w-3xl mx-auto">
-          <span className="text-foreground/80 font-medium">Дополнительно:</span> поставщики, документы, финансы, база знаний, уведомления, роли и индивидуальные модули.
-        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 max-w-3xl mx-auto">
+          <span className="text-[13px] text-muted-foreground">Дополнительно:</span>
+          {["Поставщики", "Документы", "Финансы", "База знаний", "Уведомления", "Роли", "Индивидуальные модули"].map((t) => (
+            <span key={t} className="rounded-full bg-white/[0.04] border border-white/10 px-2.5 py-1 text-[11px] text-foreground/75">
+              {t}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );
