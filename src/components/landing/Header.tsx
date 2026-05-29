@@ -5,9 +5,8 @@ import { Logo } from "./Logo";
 import { handleNavigateToSection, normalizeSectionId } from "@/lib/section-navigation";
 
 const nav = [
+  { id: "ai-core", label: "AI Core" },
   { id: "capabilities", label: "Возможности" },
-  { id: "audience", label: "Для кого" },
-  { id: "ai", label: "AI" },
   { id: "cases", label: "Кейсы" },
   { id: "team", label: "Команда" },
   { id: "process", label: "Этапы" },
