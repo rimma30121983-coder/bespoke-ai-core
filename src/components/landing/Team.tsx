@@ -57,41 +57,27 @@ export function Team() {
             Команда, которая создаёт <span className="gradient-text">AI-системы</span> под бизнес
           </h2>
           <p className="mt-5 text-base sm:text-[17px] text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Мы объединяем бизнес-экспертизу, техническую архитектуру и проектное управление, чтобы AI-система была не просто красивой, а реально работала в бизнесе.
+            Команда закрывает весь цикл: бизнес-логика, архитектура, разработка, внедрение и сопровождение.
           </p>
-
-
         </div>
 
         {/* Общее фото команды */}
-        <div className="mt-12 lg:mt-16 premium-card overflow-hidden p-2 sm:p-3">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1fr] gap-2 sm:gap-3">
-            <div
-              className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-auto lg:min-h-[520px] rounded-[20px] overflow-hidden border border-white/10"
-              style={{
-                background:
-                  "radial-gradient(120% 80% at 50% 0%, hsl(var(--brand-cyan) / 0.10), transparent 60%), linear-gradient(180deg, #0b1220 0%, #060a14 100%)",
-              }}
-            >
-              <img
-                src={teamGroup}
-                alt="Команда AI Systems"
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-contain"
-                style={{ objectPosition: "50% 50%" }}
-              />
-              <div className="pointer-events-none absolute -inset-px rounded-[20px] ring-1 ring-inset ring-white/10" />
-            </div>
-
-            <div className="flex flex-col justify-center p-5 sm:p-7">
-              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-muted-foreground">
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan" />
-                О команде
-              </div>
-              <p className="mt-4 text-lg sm:text-xl leading-relaxed">
-                Мы проектируем не просто интерфейсы, а <span className="gradient-text">рабочие системы</span>, которыми ежедневно пользуются руководители и команды.
-              </p>
-            </div>
+        <div className="mt-10 lg:mt-12 premium-card overflow-hidden p-2 sm:p-3">
+          <div
+            className="relative aspect-[4/3] sm:aspect-[16/11] lg:aspect-[21/9] rounded-[20px] overflow-hidden border border-white/10"
+            style={{
+              background:
+                "radial-gradient(120% 80% at 50% 0%, hsl(var(--brand-cyan) / 0.10), transparent 60%), linear-gradient(180deg, #0b1220 0%, #060a14 100%)",
+            }}
+          >
+            <img
+              src={teamGroup}
+              alt="Команда AI Systems"
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-contain"
+              style={{ objectPosition: "50% 50%" }}
+            />
+            <div className="pointer-events-none absolute -inset-px rounded-[20px] ring-1 ring-inset ring-white/10" />
           </div>
         </div>
 
@@ -120,10 +106,6 @@ export function Team() {
             </article>
           ))}
         </div>
-
-        <p className="mt-8 text-center text-sm sm:text-[15px] text-muted-foreground max-w-3xl mx-auto">
-          Команда закрывает весь цикл: бизнес-логика, архитектура, разработка, внедрение и сопровождение.
-        </p>
       </div>
     </section>
   );

@@ -7,6 +7,7 @@ import { handleNavigateToSection, normalizeSectionId } from "@/lib/section-navig
 const nav = [
   { id: "ai-core", label: "AI Core" },
   { id: "capabilities", label: "Возможности" },
+  { id: "audience", label: "Для кого" },
   { id: "cases", label: "Кейсы" },
   { id: "team", label: "Команда" },
   { id: "process", label: "Этапы" },
