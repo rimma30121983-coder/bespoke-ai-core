@@ -4,7 +4,7 @@ import {
   Briefcase, Network, Factory, Truck, Wrench, Stethoscope,
   AlertOctagon, Lightbulb, ShieldAlert,
   Microscope, FileEdit, Code2, RefreshCw,
-  TrendingDown, MapPin,
+  TrendingDown, MapPin, CheckCircle2, LayoutDashboard, Sparkles, ArrowRight,
 } from "lucide-react";
 
 const SectionTitle = ({ eyebrow, title, subtitle, center = true }: { eyebrow?: string; title: React.ReactNode; subtitle?: string; center?: boolean }) => (
