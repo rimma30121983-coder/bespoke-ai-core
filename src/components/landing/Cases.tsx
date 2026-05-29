@@ -280,23 +280,8 @@ export function Cases() {
           </div>
         </div>
 
-        {/* Formats */}
-        <div className="mt-16">
-          <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] uppercase tracking-[0.16em] bg-white/[0.04] border border-white/10 text-foreground/70">
-              Возможные форматы
-            </span>
-            <h3 className="mt-3 text-2xl sm:text-[1.85rem] font-semibold tracking-tight leading-tight">
-              Что ещё <span className="gradient-text">можно разработать</span>
-            </h3>
-          </div>
 
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {formats.map((f) => (
-              <FormatCard key={f.title} f={f} />
-            ))}
-          </div>
-        </div>
+
 
 
         {/* CTA */}
