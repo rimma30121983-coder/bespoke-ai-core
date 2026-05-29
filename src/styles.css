@@ -329,3 +329,27 @@
   50% { box-shadow: 0 0 0 8px oklch(0.78 0.14 210 / 0); }
 }
 .ai-dot { animation: ai-pulse 2.2s ease-in-out infinite; }
+
+/* AI Core */
+@keyframes pulse-slow {
+  0%, 100% { opacity: .5; transform: scale(1); }
+  50% { opacity: .9; transform: scale(1.08); }
+}
+.animate-pulse-slow { animation: pulse-slow 5s ease-in-out infinite; }
+
+@keyframes core-ring {
+  0% { transform: scale(1); opacity: .6; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+.ai-core-ring   { animation: core-ring 3.6s ease-out infinite; }
+.ai-core-ring-2 { animation: core-ring 3.6s ease-out infinite; animation-delay: 1.2s; }
+
+@keyframes line-flow {
+  0%   { stroke-dashoffset: 24; opacity: .45; }
+  50%  { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: .45; }
+}
+.ai-core-line {
+  stroke-dasharray: 4 6;
+  animation: line-flow 3.2s linear infinite;
+}
