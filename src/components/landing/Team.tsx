@@ -57,8 +57,18 @@ export function Team() {
             Команда, которая создаёт <span className="gradient-text">AI-системы</span> под бизнес
           </h2>
           <p className="mt-5 text-base sm:text-[17px] text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Команда закрывает весь цикл: бизнес-логика, архитектура, разработка, внедрение и сопровождение.
+            Команда закрывает весь цикл:
           </p>
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto">
+            {["Бизнес-логика", "Архитектура", "Разработка", "Внедрение", "Сопровождение"].map((label) => (
+              <span
+                key={label}
+                className="inline-flex items-center rounded-full bg-white/[0.04] border border-white/10 px-2.5 py-1 text-[11px] text-foreground/75 hover:bg-white/[0.08] hover:border-white/20 transition-colors"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* Общее фото команды */}
