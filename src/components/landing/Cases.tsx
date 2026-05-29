@@ -1,9 +1,10 @@
 import {
-  ArrowUpRight, Store, BarChart3, ListChecks,
-  Sparkles, Network, Briefcase, ShoppingCart,
-  Building2, CheckCircle2, MessageSquare, Activity,
+  ArrowUpRight, Store, BarChart3,
+  Sparkles,
+  Building2, CheckCircle2, Activity,
 } from "lucide-react";
 import { handleNavigateToSection } from "@/lib/section-navigation";
+
 
 const SectionTitle = ({ eyebrow, title, subtitle }: { eyebrow: string; title: React.ReactNode; subtitle: string }) => (
   <div className="max-w-3xl mx-auto text-center">
