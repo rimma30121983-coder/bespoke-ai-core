@@ -190,66 +190,8 @@ function RealCaseCard({ c }: { c: RealCase }) {
   );
 }
 
-type Format = {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  modules: string[];
-};
 
-const formats: Format[] = [
-  {
-    icon: <Briefcase className="w-5 h-5" />,
-    title: "AI-система для продаж",
-    description: "Лиды, сделки, задачи и следующие действия по клиентам.",
-    modules: ["Воронка", "Клиенты", "AI-рекомендации"],
-  },
-  {
-    icon: <Network className="w-5 h-5" />,
-    title: "Управление франшизой",
-    description: "Контроль партнёров, заявок, стандартов и развития сети.",
-    modules: ["Партнёры", "Заявки", "Отчёты"],
-  },
-  {
-    icon: <ShoppingCart className="w-5 h-5" />,
-    title: "Поставщики и закупки",
-    description: "Контроль заказов, условий, сроков и документов.",
-    modules: ["Поставщики", "Заказы", "Документы"],
-  },
-];
 
-function FormatCard({ f }: { f: Format }) {
-  const goToForm = () => handleNavigateToSection("contact");
-  return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.025] p-5 sm:p-6 flex flex-col h-full hover:bg-white/[0.04] transition-colors">
-      <div className="flex items-center justify-between gap-2">
-        <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.04] border border-white/10 text-foreground/80">
-          {f.icon}
-        </div>
-        <span className="text-[10px] uppercase tracking-[0.14em] text-foreground/55 rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1">
-          Формат системы
-        </span>
-      </div>
-      <h4 className="mt-4 text-base sm:text-lg font-semibold leading-snug">{f.title}</h4>
-      <p className="mt-2 text-[13.5px] text-muted-foreground leading-relaxed">{f.description}</p>
-
-      <div className="mt-4 flex flex-wrap gap-1.5">
-        {f.modules.map((m) => (
-          <span key={m} className="rounded-md bg-white/[0.03] border border-white/10 px-2 py-0.5 text-[10.5px] text-foreground/70">{m}</span>
-        ))}
-      </div>
-
-      <div className="mt-auto pt-5">
-        <button
-          onClick={goToForm}
-          className="inline-flex items-center gap-1.5 text-sm text-foreground/85 hover:text-foreground border border-white/15 hover:bg-white/5 rounded-full px-4 h-10 transition-colors"
-        >
-          <MessageSquare className="w-4 h-4" /> Обсудить похожую систему
-        </button>
-      </div>
-    </div>
-  );
-}
 
 export function Cases() {
   const goToContact = () => handleNavigateToSection("contact");
