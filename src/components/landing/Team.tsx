@@ -106,10 +106,6 @@ export function Team() {
             </article>
           ))}
         </div>
-
-        <p className="mt-8 text-center text-sm sm:text-[15px] text-muted-foreground max-w-3xl mx-auto">
-          Команда закрывает весь цикл: бизнес-логика, архитектура, разработка, внедрение и сопровождение.
-        </p>
       </div>
     </section>
   );
