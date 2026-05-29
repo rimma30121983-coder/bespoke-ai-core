@@ -230,11 +230,17 @@ export function Cases() {
               <RealCaseCard key={i} c={c} />
             ))}
           </div>
+
+          {/* Compact formats line */}
+          <div className="mt-8 flex flex-wrap items-center gap-2">
+            <span className="text-[13px] text-muted-foreground">Также разрабатываем:</span>
+            {["AI-системы для продаж", "франшиз", "закупок", "сервиса", "логистики"].map((t) => (
+              <span key={t} className="rounded-full bg-white/[0.04] border border-white/10 px-2.5 py-1 text-[11px] text-foreground/75">
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
-
-
-
-
 
         {/* CTA */}
         <div className="mt-16 relative">
