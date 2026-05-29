@@ -4,8 +4,9 @@ import { handleNavigateToSection } from "@/lib/section-navigation";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
 import {
-  Problems, Solution, Features, Industries, AIBlock, Process,
+  Problems, Features, Industries, AIBlock, Process,
 } from "@/components/landing/Sections";
+import { AICore } from "@/components/landing/AICore";
 import { Cases } from "@/components/landing/Cases";
 import { Team } from "@/components/landing/Team";
 import { Pricing } from "@/components/landing/Pricing";
@@ -48,8 +49,8 @@ function Index() {
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header />
       <Hero />
+      <AICore />
       <Problems />
-      <Solution />
       <Features />
       <Industries />
       <AIBlock />
