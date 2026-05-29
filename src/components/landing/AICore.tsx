@@ -17,6 +17,7 @@ const sources: ItemDef[] = [
   { id: "wa",      label: "WhatsApp",    icon: <MessageCircle className="w-4 h-4" /> },
   { id: "site",    label: "Сайт / формы", icon: <Globe className="w-4 h-4" /> },
   { id: "mail",    label: "Email",       icon: <Mail className="w-4 h-4" /> },
+  { id: "erp",     label: "Склад / ERP", icon: <Boxes className="w-4 h-4" /> },
 ];
 
 const outputs: ItemDef[] = [
