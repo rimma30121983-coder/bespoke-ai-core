@@ -297,3 +297,99 @@ export function Process() {
     </section>
   );
 }
+
+/* ---------------- PAIN POINTS ---------------- */
+export function PainPoints() {
+  const cards = [
+    { i: <Database className="w-5 h-5" />, t: "Разрозненные данные",
+      p: "информация хранится в 1С, таблицах, чатах, CRM и мессенджерах.",
+      s: "AI Core собирает данные в единое управленческое ядро.",
+      e: "меньше ошибок, быстрее отчёты, выше точность решений." },
+    { i: <ClipboardX className="w-5 h-5" />, t: "Потерянные задачи",
+      p: "задачи ставятся в чатах, забываются и теряются между сотрудниками.",
+      s: "система фиксирует ответственных, сроки, статусы и напоминания.",
+      e: "меньше просрочек и выше контроль исполнения." },
+    { i: <Hand className="w-5 h-5" />, t: "Ручной контроль",
+      p: "руководитель тратит время на проверки, уточнения и ручные отчёты.",
+      s: "дашборд показывает состояние процессов в одном интерфейсе.",
+      e: "быстрее управление и меньше операционной рутины." },
+    { i: <BarChart3 className="w-5 h-5" />, t: "Слабая аналитика",
+      p: "цифры есть, но непонятно, какие решения принимать.",
+      s: "AI-анализ подсвечивает риски, отклонения и следующие действия.",
+      e: "решения принимаются на данных, а не на ощущениях." },
+    { i: <ShoppingCart className="w-5 h-5" />, t: "Потери в продажах",
+      p: "сделки застревают, причины отказов не фиксируются, менеджеры работают по-разному.",
+      s: "система показывает этапы, конверсию, задачи и узкие места.",
+      e: "выше прозрачность продаж и управляемость воронки." },
+    { i: <Expand className="w-5 h-5" />, t: "Сложность масштабирования",
+      p: "при росте бизнеса хаос увеличивается, процессы становятся сложнее.",
+      s: "единая система задаёт роли, правила, процессы и аналитику.",
+      e: "легче масштабировать сеть, отделы и новые направления." },
+  ];
+  const story = [
+    { label: "Было", dot: "bg-destructive/80",
+      t: "руководитель видел задачи, заявки и отчёты в разных местах — часть данных была в таблицах, часть в чатах, часть в отдельных сервисах. Из-за этого было сложно быстро понять, где просрочки, кто отвечает за процесс и какие задачи требуют внимания." },
+    { label: "Внедрили", dot: "bg-brand-violet",
+      t: "собрали ключевые процессы в единую AI-систему: дашборд, задачи, клиенты, статусы, ответственные, аналитика и AI-рекомендации." },
+    { label: "Стало", dot: "bg-brand-cyan",
+      t: "руководитель получил единый центр контроля, команда — понятные задачи и статусы, а повторяющиеся действия стали прозрачнее и быстрее." },
+  ];
+  return (
+    <section id="pain-points" className="relative py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionTitle
+          eyebrow="Боли и решения"
+          title={<>Где бизнес теряет&nbsp;<span className="gradient-text">деньги и управляемость</span></>}
+          subtitle="AI-система помогает найти слабые места в процессах, убрать ручной контроль и собрать управление бизнесом в единую прозрачную систему."
+        />
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {cards.map((c, i) => (
+            <div key={i} className="premium-card p-6 group">
+              <div className="flex items-center gap-3">
+                <Icon>{c.i}</Icon>
+                <h3 className="text-base sm:text-lg font-semibold leading-tight">{c.t}</h3>
+              </div>
+              <div className="mt-4 space-y-2.5 text-sm leading-relaxed">
+                <div className="flex gap-2">
+                  <span className="shrink-0 rounded-full bg-destructive/15 text-destructive/90 px-2 py-0.5 text-[10px] uppercase tracking-wider font-medium h-fit mt-0.5">Боль</span>
+                  <span className="text-muted-foreground">{c.p}</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="shrink-0 rounded-full bg-brand-violet/15 text-brand-violet px-2 py-0.5 text-[10px] uppercase tracking-wider font-medium h-fit mt-0.5">Решение</span>
+                  <span className="text-muted-foreground">{c.s}</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="shrink-0 rounded-full bg-brand-cyan/15 text-brand-cyan px-2 py-0.5 text-[10px] uppercase tracking-wider font-medium h-fit mt-0.5">Эффект</span>
+                  <span className="text-foreground/85">{c.e}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16">
+          <div className="max-w-2xl mx-auto text-center">
+            <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight">Как это выглядит на практике</h3>
+          </div>
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-5">
+            {story.map((s, i) => (
+              <div key={i} className="premium-card p-6 relative">
+                <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                  <span className={`h-1.5 w-1.5 rounded-full ${s.dot}`} />
+                  {s.label}
+                </div>
+                <p className="mt-3 text-sm text-foreground/80 leading-relaxed">{s.t}</p>
+                {i < story.length - 1 && (
+                  <ArrowRight className="hidden md:block absolute -right-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-foreground/30" />
+                )}
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-center text-xs sm:text-sm text-muted-foreground max-w-3xl mx-auto">
+            Точный экономический эффект рассчитывается после аудита процессов и фиксации исходных показателей.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
