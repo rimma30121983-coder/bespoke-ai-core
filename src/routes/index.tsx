@@ -12,7 +12,7 @@ import { Cases } from "@/components/landing/Cases";
 import { Team } from "@/components/landing/Team";
 import { Pricing } from "@/components/landing/Pricing";
 import { FAQ } from "@/components/landing/FAQ";
-import { FinalCTA, ContactForm } from "@/components/landing/ContactForm";
+import { ContactForm } from "@/components/landing/ContactForm";
 import { Footer } from "@/components/landing/Footer";
 
 export const Route = createFileRoute("/")({
