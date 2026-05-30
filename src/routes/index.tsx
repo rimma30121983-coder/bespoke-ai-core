@@ -61,7 +61,6 @@ function Index() {
       <Process />
       <Pricing />
       <FAQ />
-      <FinalCTA />
       <ContactForm />
       <Footer />
     </main>
