@@ -51,7 +51,7 @@ function Index() {
       <Header />
       <Hero />
       <AICore />
-      <PainPoints />
+
       <Problems />
       <Features />
       <AIBlock />
