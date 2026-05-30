@@ -85,7 +85,7 @@ export function ContactForm() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={onSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <form onSubmit={onSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full content-start">
                   <Field label="Имя" name="name" required />
                   <Field label="Телефон" name="phone" type="tel" required />
                   <Field label="Telegram / WhatsApp" name="messenger" />
