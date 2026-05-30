@@ -75,6 +75,10 @@ export function ContactForm() {
 
             <div className="glass rounded-2xl p-5 sm:p-7 h-full flex flex-col">
               {submitted ? (
+                <div className="m-auto w-full">
+                </div>
+              ) : null}
+              {submitted ? (
                 <div className="text-center py-10">
                   <div className="mx-auto h-14 w-14 rounded-full gradient-brand inline-flex items-center justify-center">
                     <CheckCircle2 className="w-7 h-7 text-white" />
