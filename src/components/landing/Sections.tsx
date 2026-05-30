@@ -5,7 +5,7 @@ import {
   AlertOctagon, Lightbulb, ShieldAlert,
   Microscope, FileEdit, Code2, RefreshCw,
   TrendingDown, MapPin, CheckCircle2, LayoutDashboard, Sparkles, ArrowRight,
-  Database, BarChart3, ShoppingCart, Expand,
+  Database, BarChart3, ShoppingCart, Expand, Layers,
 } from "lucide-react";
 
 const SectionTitle = ({ eyebrow, title, subtitle, center = true }: { eyebrow?: string; title: React.ReactNode; subtitle?: string; center?: boolean }) => (
@@ -127,6 +127,55 @@ export function Problems() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* История внедрения */}
+        <div className="mt-14">
+          <div className="text-center mb-6">
+            <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-[11px] uppercase tracking-[0.12em] text-foreground/70">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-violet" />
+              История внедрения
+            </div>
+            <h3 className="mt-5 text-xl sm:text-2xl font-semibold tracking-tight">Как система возвращает управляемость</h3>
+            <p className="mt-3 text-sm text-muted-foreground max-w-2xl mx-auto">
+              Показываем эффект честно: без выдуманных обещаний, с расчётом по исходным показателям бизнеса.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            <Card className="shine-overlay">
+              <Icon><AlertTriangle className="w-5 h-5" /></Icon>
+              <h4 className="mt-4 text-sm font-semibold">Было</h4>
+              <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed">
+                Руководитель видел задачи, заявки, статусы и отчёты в разных местах: часть данных в таблицах, часть в чатах, часть в отдельных сервисах.
+              </p>
+            </Card>
+            <Card className="shine-overlay">
+              <Icon><Layers className="w-5 h-5" /></Icon>
+              <h4 className="mt-4 text-sm font-semibold">Внедрили</h4>
+              <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed">
+                Собрали ключевые процессы в единую AI-систему: дашборд, задачи, клиенты, статусы, аналитика, уведомления и AI-рекомендации.
+              </p>
+            </Card>
+            <Card className="shine-overlay">
+              <Icon><CheckCircle2 className="w-5 h-5" /></Icon>
+              <h4 className="mt-4 text-sm font-semibold">Стало</h4>
+              <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed">
+                Руководитель получил единый центр контроля, команда — понятные задачи и статусы, а повторяющиеся действия стали прозрачнее.
+              </p>
+            </Card>
+            <Card className="shine-overlay">
+              <Icon><BarChart3 className="w-5 h-5" /></Icon>
+              <h4 className="mt-4 text-sm font-semibold">Потенциальный эффект</h4>
+              <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed">
+                В похожих проектах автоматизация может снижать ручной труд и операционные затраты на десятки процентов. Точный результат рассчитывается после аудита.
+              </p>
+            </Card>
+          </div>
+          <div className="mt-6 text-center">
+            <p className="inline-block text-[11px] text-muted-foreground bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 max-w-3xl leading-relaxed">
+              Ориентиры по рынку: до 20–35% экономии затрат в релевантных процессах, до 25% экономии рабочего времени в автоматизированных сценариях и до 50–60% сокращения времени отдельных сквозных процессов. Фактический результат зависит от исходных процессов и считается после аудита.
+            </p>
           </div>
         </div>
       </div>
