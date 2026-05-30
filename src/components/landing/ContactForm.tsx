@@ -40,33 +40,33 @@ export function ContactForm() {
   ];
 
   return (
-    <section id="contact" className="relative py-20 lg:py-28">
+    <section id="contact" className="relative py-16 lg:py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2rem] glass-strong p-6 sm:p-10 lg:p-14">
+        <div className="relative overflow-hidden rounded-[2rem] glass-strong p-6 sm:p-8 lg:p-10">
           <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_70%)]" />
           <div className="absolute -top-32 left-1/4 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-brand-blue/20 blur-[120px] animate-pulse-soft" />
           <div className="absolute -bottom-32 right-0 w-[400px] h-[400px] rounded-full bg-brand-violet/15 blur-[120px] animate-pulse-soft" />
 
-          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] uppercase tracking-[0.12em] text-foreground/70">
                 <Sparkles className="w-3 h-3 text-brand-violet" />
                 Готовы начать?
               </div>
-              <h2 className="mt-6 text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold tracking-tight leading-[1.08]">
-                Хотите систему, которая работает <span className="gradient-text">под ваш бизнес</span>, а не наоборот?
+              <h2 className="mt-5 text-[2rem] sm:text-[2.25rem] lg:text-[2.5rem] font-semibold tracking-tight leading-[1.1]">
+                Хотите <span className="gradient-text">AI-систему</span> под ваш бизнес?
               </h2>
-              <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
-                Оставьте заявку — обсудим ваши процессы и предложим структуру будущей AI-системы.
+              <p className="mt-4 text-sm sm:text-base text-muted-foreground leading-relaxed">
+                Оставьте заявку — обсудим процессы и предложим структуру будущей системы.
               </p>
 
-              <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-3">
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2.5">
                 {mini.map((m) => (
-                  <div key={m.t} className="premium-card p-4 flex items-start gap-3">
-                    <div className="icon-chip h-9 w-9 rounded-lg inline-flex items-center justify-center shrink-0">{m.i}</div>
+                  <div key={m.t} className="premium-card p-3 flex items-start gap-2.5">
+                    <div className="icon-chip h-8 w-8 rounded-lg inline-flex items-center justify-center shrink-0">{m.i}</div>
                     <div>
-                      <div className="text-sm font-semibold">{m.t}</div>
-                      <div className="text-xs text-muted-foreground mt-0.5">{m.d}</div>
+                      <div className="text-sm font-semibold leading-tight">{m.t}</div>
+                      <div className="text-xs text-muted-foreground mt-0.5 leading-snug">{m.d}</div>
                     </div>
                   </div>
                 ))}
