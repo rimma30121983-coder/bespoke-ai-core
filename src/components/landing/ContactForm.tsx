@@ -47,9 +47,9 @@ export function ContactForm() {
           <div className="absolute -top-32 left-1/4 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-brand-blue/20 blur-[120px] animate-pulse-soft" />
           <div className="absolute -bottom-32 right-0 w-[400px] h-[400px] rounded-full bg-brand-violet/15 blur-[120px] animate-pulse-soft" />
 
-          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] uppercase tracking-[0.12em] text-foreground/70">
+          <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+            <div className="glass rounded-2xl p-5 sm:p-7 h-full flex flex-col">
+              <div className="inline-flex w-fit items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] uppercase tracking-[0.12em] text-foreground/70">
                 <Sparkles className="w-3 h-3 text-brand-violet" />
                 Готовы начать?
               </div>
@@ -60,7 +60,7 @@ export function ContactForm() {
                 Оставьте заявку — обсудим процессы и предложим структуру будущей системы.
               </p>
 
-              <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2.5">
+              <div className="mt-auto pt-6 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2.5">
                 {mini.map((m) => (
                   <div key={m.t} className="premium-card p-3 flex items-start gap-2.5">
                     <div className="icon-chip h-8 w-8 rounded-lg inline-flex items-center justify-center shrink-0">{m.i}</div>
@@ -73,7 +73,7 @@ export function ContactForm() {
               </div>
             </div>
 
-            <div className="glass rounded-2xl p-5 sm:p-7">
+            <div className="glass rounded-2xl p-5 sm:p-7 h-full flex flex-col">
               {submitted ? (
                 <div className="text-center py-10">
                   <div className="mx-auto h-14 w-14 rounded-full gradient-brand inline-flex items-center justify-center">
