@@ -47,12 +47,21 @@ export function Problems() {
     { i: <Gauge className="w-4 h-4" />, t: "Дашборд для руководителя" },
     { i: <Sparkles className="w-4 h-4" />, t: "AI-рекомендации и автоматизация" },
   ];
+  const pains = [
+    { i: <Database className="w-4 h-4" />, t: "Разрозненные данные", d: "1С, таблицы и чаты собираются в единое ядро." },
+    { i: <ClipboardX className="w-4 h-4" />, t: "Потерянные задачи", d: "Ответственные, сроки и статусы становятся прозрачными." },
+    { i: <Hand className="w-4 h-4" />, t: "Ручной контроль", d: "Руководитель видит процессы без постоянных уточнений." },
+    { i: <BarChart3 className="w-4 h-4" />, t: "Слабая аналитика", d: "AI подсвечивает риски, отклонения и следующие действия." },
+    { i: <ShoppingCart className="w-4 h-4" />, t: "Потери в продажах", d: "Воронка, конверсия и причины отказов становятся видимыми." },
+    { i: <Expand className="w-4 h-4" />, t: "Сложность масштабирования", d: "Роли, процессы и правила легче переносить на новые отделы и точки." },
+  ];
   return (
     <section className="relative py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionTitle
           eyebrow="Проблема → Решение"
           title={<>От разрозненных процессов — к&nbsp;<span className="gradient-text">единой AI-системе</span></>}
+          subtitle="AI-система собирает данные, задачи и аналитику в один центр управления, чтобы руководитель видел риски, просрочки и точки роста без ручного контроля."
         />
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-6 lg:gap-4 items-stretch">
           <div className="premium-card p-6 sm:p-7">
@@ -98,10 +107,33 @@ export function Problems() {
             </div>
           </div>
         </div>
+
+        <div className="mt-12">
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-[11px] uppercase tracking-[0.12em] text-foreground/70">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan" />
+              Какие боли закрываем
+            </div>
+          </div>
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {pains.map((p) => (
+              <div key={p.t} className="premium-card p-4 flex items-start gap-3">
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg gradient-brand text-white shrink-0">
+                  {p.i}
+                </span>
+                <div>
+                  <div className="text-sm font-semibold leading-tight">{p.t}</div>
+                  <p className="mt-1 text-[13px] text-muted-foreground leading-relaxed">{p.d}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
 }
+
 
 /* ---------------- FEATURES ---------------- */
 export function Features() {
