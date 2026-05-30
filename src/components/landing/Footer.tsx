@@ -50,7 +50,8 @@ export function Footer() {
             <div className="text-xs uppercase tracking-wider text-muted-foreground">Контакты</div>
             <ul className="mt-4 space-y-2.5">
               <li><a href="mailto:aistrategiy@bk.ru" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Mail className="w-4 h-4 text-brand-cyan" /> aistrategiy@bk.ru</a></li>
-              <li><a href="tel:+79871861200" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Phone className="w-4 h-4 text-brand-cyan" /> +7 (987) 186-12-00</a></li>
+              <li><a href="tel:+79164244141" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Phone className="w-4 h-4 text-brand-cyan" /> +7 916 424 41 41</a></li>
+              <li><a href="tel:+79774386966" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Phone className="w-4 h-4 text-brand-cyan" /> +7 977 438 69 66</a></li>
               <li><a href="#" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Send className="w-4 h-4 text-brand-cyan" /> Telegram</a></li>
               <li><a href="#" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><MessageCircle className="w-4 h-4 text-brand-cyan" /> WhatsApp</a></li>
             </ul>
