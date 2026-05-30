@@ -5,7 +5,7 @@ import {
   AlertOctagon, Lightbulb, ShieldAlert,
   Microscope, FileEdit, Code2, RefreshCw,
   TrendingDown, MapPin, CheckCircle2, LayoutDashboard, Sparkles, ArrowRight,
-  Database, Layers, BarChart3, ShoppingCart, Expand,
+  Database, BarChart3, ShoppingCart, Expand,
 } from "lucide-react";
 
 const SectionTitle = ({ eyebrow, title, subtitle, center = true }: { eyebrow?: string; title: React.ReactNode; subtitle?: string; center?: boolean }) => (
