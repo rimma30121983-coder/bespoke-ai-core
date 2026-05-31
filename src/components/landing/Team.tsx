@@ -24,16 +24,16 @@ const members = [
   },
   {
     name: "Римма Сметанкина",
-    role: "Project Manager",
-    desc: "Координирует проектную работу, коммуникацию с клиентом, задачи команды и согласование этапов разработки.",
+    role: "Project Manager / Руководитель внедрения",
+    desc: "Ведёт проект от согласования структуры до запуска, контролирует задачи, сроки и коммуникацию между клиентом и командой.",
     icon: <ClipboardCheck className="w-5 h-5" />,
     photo: photoRimma,
     objectPosition: "50% 25%",
   },
   {
     name: "Надежда Гришакова",
-    role: "Project Manager",
-    desc: "Помогает структурировать требования, фиксировать бизнес-процессы, контролировать задачи и адаптировать систему под работу команды.",
+    role: "Project Manager / Руководитель по развитию",
+    desc: "Отвечает за развитие проектных решений, помогает выявлять новые точки автоматизации, структурирует требования клиента и сопровождает развитие системы после запуска.",
     icon: <LineChart className="w-5 h-5" />,
     photo: photoNadezhda,
     objectPosition: "50% 25%",
@@ -115,6 +115,42 @@ export function Team() {
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
             </article>
           ))}
+        </div>
+
+        {/* Расширенная команда */}
+        <div className="mt-6">
+          <div className="premium-card p-5 sm:p-6">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+              <div className="flex-1 min-w-0">
+                <h3 className="text-base sm:text-lg font-semibold text-white leading-snug">
+                  Расширенная команда
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                  В расширенной команде — 20+ специалистов разработки и внедрения: frontend, backend, AI-интеграции, базы данных, тестирование, UX/UI и техническая поддержка.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "20+ специалистов",
+                  "Frontend",
+                  "Backend",
+                  "AI-интеграции",
+                  "Базы данных",
+                  "QA-тестирование",
+                  "UX/UI",
+                  "Интеграции",
+                  "Техническая поддержка",
+                ].map((chip) => (
+                  <span
+                    key={chip}
+                    className="inline-flex items-center rounded-full bg-white/[0.04] border border-white/10 px-2.5 py-1 text-[11px] text-foreground/75 hover:bg-white/[0.08] hover:border-white/20 transition-colors"
+                  >
+                    {chip}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
