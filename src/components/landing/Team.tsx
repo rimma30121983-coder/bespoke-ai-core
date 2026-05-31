@@ -120,15 +120,13 @@ export function Team() {
         {/* Расширенная команда */}
         <div className="mt-6">
           <div className="premium-card p-5 sm:p-6">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
-              <div className="flex-1 min-w-0">
-                <h3 className="text-base sm:text-lg font-semibold text-white leading-snug">
-                  Расширенная команда
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                  В расширенной команде — 20+ специалистов разработки и внедрения: frontend, backend, AI-интеграции, базы данных, тестирование, UX/UI и техническая поддержка.
-                </p>
-              </div>
+            <div className="flex flex-col gap-3">
+              <h3 className="text-base sm:text-lg font-semibold text-white leading-snug">
+                Расширенная команда
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                Остальная команда проекта:
+              </p>
               <div className="flex flex-wrap gap-2">
                 {[
                   "20+ специалистов",
