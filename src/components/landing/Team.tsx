@@ -33,7 +33,7 @@ const members = [
   {
     name: "Надежда Гришакова",
     role: "Project Manager / Руководитель развития продаж",
-    desc: "Отвечает за развитие продаж, выявляет точки роста, помогает структурировать требования клиента и сопровождает развитие системы после запуска.",
+    desc: "Отвечает за развитие продаж, выявляет точки роста, помогает структурировать требования клиента.",
     icon: <LineChart className="w-5 h-5" />,
     photo: photoNadezhda,
     objectPosition: "50% 25%",
@@ -124,9 +124,6 @@ export function Team() {
               <h3 className="text-base sm:text-lg font-semibold text-white leading-snug">
                 Расширенная команда
               </h3>
-              <p className="text-sm text-muted-foreground">
-                Остальная команда проекта:
-              </p>
               <div className="flex flex-wrap gap-2">
                 {[
                   "20+ специалистов",
