@@ -42,7 +42,7 @@ export function Hero() {
             </div>
 
             <p className="mt-4 text-xs sm:text-[13px] text-muted-foreground max-w-md leading-relaxed">
-              Первая консультация — разберём ваши процессы и предложим структуру будущей системы.
+              Бесплатная консультация — разберём ваши процессы и предложим структуру будущей системы.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
