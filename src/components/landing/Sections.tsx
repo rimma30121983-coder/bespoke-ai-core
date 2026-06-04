@@ -6,7 +6,7 @@ import {
   Microscope, FileEdit, Code2, RefreshCw,
   TrendingDown, MapPin, CheckCircle2, LayoutDashboard, Sparkles, ArrowRight,
   Database, BarChart3, ShoppingCart, Expand, Layers,
-  Clock, Zap,
+  Clock, Zap, ShoppingBag, UtensilsCrossed,
 } from "lucide-react";
 
 const SectionTitle = ({ eyebrow, title, subtitle, center = true }: { eyebrow?: string; title: React.ReactNode; subtitle?: string; center?: boolean }) => (
