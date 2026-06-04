@@ -6,7 +6,10 @@ import { handleNavigateToSection } from "@/lib/section-navigation";
 const go = (sectionId: string) => handleNavigateToSection(sectionId);
 
 export function Footer() {
-  const nav = [
+  const nav: Array<
+    | { id: string; label: string; kind?: "section" }
+    | { id: string; label: string; kind: "route"; to: string }
+  > = [
     { id: "ai-core", label: "AI Core" },
     { id: "capabilities", label: "Возможности" },
     { id: "audience", label: "Для кого" },
@@ -14,6 +17,7 @@ export function Footer() {
     { id: "team", label: "Команда" },
     { id: "process", label: "Этапы" },
     { id: "pricing", label: "Тарифы" },
+    { id: "blog", label: "Блог", kind: "route", to: "/blog" },
     { id: "faq", label: "FAQ" },
   ];
 
@@ -38,13 +42,20 @@ export function Footer() {
             <ul className="mt-4 space-y-2.5">
               {nav.map((n) => (
                 <li key={n.id}>
-                  <button onClick={() => go(n.id)} className="text-sm text-foreground/80 hover:text-foreground transition">
-                    {n.label}
-                  </button>
+                  {n.kind === "route" ? (
+                    <Link to={n.to} className="text-sm text-foreground/80 hover:text-foreground transition">
+                      {n.label}
+                    </Link>
+                  ) : (
+                    <button onClick={() => go(n.id)} className="text-sm text-foreground/80 hover:text-foreground transition">
+                      {n.label}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
+
 
           <div>
             <div className="text-xs uppercase tracking-wider text-muted-foreground">Контакты</div>
