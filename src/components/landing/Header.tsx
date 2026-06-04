@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
-import { useNavigate, useLocation } from "@tanstack/react-router";
+import { Link, useNavigate, useLocation } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { handleNavigateToSection, normalizeSectionId } from "@/lib/section-navigation";
 
-const nav = [
+type NavItem =
+  | { id: string; label: string; kind?: "section" }
+  | { id: string; label: string; kind: "route"; to: string };
+
+const nav: NavItem[] = [
   { id: "ai-core", label: "AI Core" },
   { id: "capabilities", label: "Возможности" },
   { id: "audience", label: "Для кого" },
@@ -12,8 +16,10 @@ const nav = [
   { id: "team", label: "Команда" },
   { id: "process", label: "Этапы" },
   { id: "pricing", label: "Тарифы" },
+  { id: "blog", label: "Блог", kind: "route", to: "/blog" },
   { id: "faq", label: "FAQ" },
 ];
+
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -34,11 +40,12 @@ export function Header() {
       setActiveId("");
       return;
     }
-    const ids = nav.map((n) => n.id);
+    const ids = nav.filter((n) => n.kind !== "route").map((n) => n.id);
     const sections = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => !!el);
     if (sections.length === 0) return;
+
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -77,30 +84,41 @@ export function Header() {
 
         <nav className="hidden lg:flex items-center gap-7">
           {nav.map((n) => {
-            const id = n.id;
-            const isActive = activeId === id;
-            return (
-              <button
-                key={n.id}
-                onClick={() => go(n.id)}
-                className={`relative text-sm transition-colors ${
-                  isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+            const isActive =
+              n.kind === "route"
+                ? location.pathname === n.to || location.pathname.startsWith(n.to + "/")
+                : activeId === n.id;
+            const className = `relative text-sm transition-colors ${
+              isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+            }`;
+            const underline = (
+              <span
+                className={`pointer-events-none absolute left-0 right-0 -bottom-1.5 h-[2px] rounded-full transition-opacity duration-300 ${
+                  isActive ? "opacity-100" : "opacity-0"
                 }`}
-              >
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, oklch(0.75 0.18 220), oklch(0.7 0.2 290), transparent)",
+                }}
+              />
+            );
+            if (n.kind === "route") {
+              return (
+                <Link key={n.id} to={n.to} onClick={() => setOpen(false)} className={className}>
+                  {n.label}
+                  {underline}
+                </Link>
+              );
+            }
+            return (
+              <button key={n.id} onClick={() => go(n.id)} className={className}>
                 {n.label}
-                <span
-                  className={`pointer-events-none absolute left-0 right-0 -bottom-1.5 h-[2px] rounded-full transition-opacity duration-300 ${
-                    isActive ? "opacity-100" : "opacity-0"
-                  }`}
-                  style={{
-                    background:
-                      "linear-gradient(90deg, transparent, oklch(0.75 0.18 220), oklch(0.7 0.2 290), transparent)",
-                  }}
-                />
+                {underline}
               </button>
             );
           })}
         </nav>
+
 
         <div className="hidden lg:flex items-center gap-4">
           <div className="flex items-center gap-2 text-xs leading-tight text-muted-foreground">
@@ -141,22 +159,29 @@ export function Header() {
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
           <div className="px-4 py-4 flex flex-col gap-1">
             {nav.map((n) => {
-              const id = n.id;
-              const isActive = activeId === id;
+              const isActive =
+                n.kind === "route"
+                  ? location.pathname === n.to || location.pathname.startsWith(n.to + "/")
+                  : activeId === n.id;
+              const cls = `text-left px-3 py-3 rounded-lg text-sm transition-colors ${
+                isActive
+                  ? "text-foreground bg-white/5"
+                  : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+              }`;
+              if (n.kind === "route") {
+                return (
+                  <Link key={n.id} to={n.to} onClick={() => setOpen(false)} className={cls}>
+                    {n.label}
+                  </Link>
+                );
+              }
               return (
-                <button
-                  key={n.id}
-                  onClick={() => go(n.id)}
-                  className={`text-left px-3 py-3 rounded-lg text-sm transition-colors ${
-                    isActive
-                      ? "text-foreground bg-white/5"
-                      : "text-muted-foreground hover:text-foreground hover:bg-white/5"
-                  }`}
-                >
+                <button key={n.id} onClick={() => go(n.id)} className={cls}>
                   {n.label}
                 </button>
               );
             })}
+
             <div className="mt-2 px-3 py-3 rounded-lg border border-border/60 bg-white/[0.02]">
               <div className="text-xs text-muted-foreground mb-1.5">Позвонить:</div>
               <div className="flex flex-col gap-1">

@@ -11,9 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CasesRasskazovkaRouteImport } from './routes/cases.rasskazovka'
 import { Route as CasesMakovkaRouteImport } from './routes/cases.makovka'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
@@ -23,6 +25,11 @@ const TermsRoute = TermsRouteImport.update({
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   id: '/privacy-policy',
   path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -40,26 +47,37 @@ const CasesMakovkaRoute = CasesMakovkaRouteImport.update({
   path: '/cases/makovka',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/cases/makovka': typeof CasesMakovkaRoute
   '/cases/rasskazovka': typeof CasesRasskazovkaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/cases/makovka': typeof CasesMakovkaRoute
   '/cases/rasskazovka': typeof CasesRasskazovkaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog': typeof BlogRouteWithChildren
   '/privacy-policy': typeof PrivacyPolicyRoute
   '/terms': typeof TermsRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/cases/makovka': typeof CasesMakovkaRoute
   '/cases/rasskazovka': typeof CasesRasskazovkaRoute
 }
@@ -67,28 +85,35 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/blog'
     | '/privacy-policy'
     | '/terms'
+    | '/blog/$slug'
     | '/cases/makovka'
     | '/cases/rasskazovka'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/blog'
     | '/privacy-policy'
     | '/terms'
+    | '/blog/$slug'
     | '/cases/makovka'
     | '/cases/rasskazovka'
   id:
     | '__root__'
     | '/'
+    | '/blog'
     | '/privacy-policy'
     | '/terms'
+    | '/blog/$slug'
     | '/cases/makovka'
     | '/cases/rasskazovka'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogRoute: typeof BlogRouteWithChildren
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   TermsRoute: typeof TermsRoute
   CasesMakovkaRoute: typeof CasesMakovkaRoute
@@ -109,6 +134,13 @@ declare module '@tanstack/react-router' {
       path: '/privacy-policy'
       fullPath: '/privacy-policy'
       preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -132,11 +164,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CasesMakovkaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
   }
 }
 
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogRoute: BlogRouteWithChildren,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
   TermsRoute: TermsRoute,
   CasesMakovkaRoute: CasesMakovkaRoute,
@@ -145,13 +195,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
