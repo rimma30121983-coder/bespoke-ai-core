@@ -2,7 +2,7 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft, Calendar, Clock, Tag } from "lucide-react";
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
-import { getPostBySlug } from "@/lib/blog-data";
+import { getPostBySlug, type BlogPost } from "@/lib/blog-data";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
@@ -80,8 +80,8 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function BlogArticle() {
-  const post = Route.useLoaderData() as ReturnType<typeof getPostBySlug> & object;
-  if (!post) return null;
+  const post = Route.useLoaderData() as BlogPost;
+
 
 
   return (
