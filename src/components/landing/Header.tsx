@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { useNavigate, useLocation } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { handleNavigateToSection, normalizeSectionId } from "@/lib/section-navigation";
@@ -102,7 +102,24 @@ export function Header() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-4">
+          <div className="flex items-center gap-2 text-xs leading-tight text-muted-foreground">
+            <Phone className="w-4 h-4 shrink-0" />
+            <div className="flex flex-col">
+              <a
+                href="tel:+79166685775"
+                className="transition-colors hover:text-[oklch(0.75_0.18_220)]"
+              >
+                +7 916 668 57 75
+              </a>
+              <a
+                href="tel:+79774386966"
+                className="transition-colors hover:text-[oklch(0.7_0.2_290)]"
+              >
+                +7 977 438 69 66
+              </a>
+            </div>
+          </div>
           <button
             onClick={() => go("#contact")}
             className="btn-primary inline-flex items-center rounded-full px-5 h-10 text-sm font-medium"
@@ -140,6 +157,24 @@ export function Header() {
                 </button>
               );
             })}
+            <div className="mt-2 px-3 py-3 rounded-lg border border-border/60 bg-white/[0.02]">
+              <div className="text-xs text-muted-foreground mb-1.5">Позвонить:</div>
+              <div className="flex flex-col gap-1">
+                <a
+                  href="tel:+79166685775"
+                  className="inline-flex items-center gap-2 text-sm text-foreground/90 transition-colors hover:text-[oklch(0.75_0.18_220)]"
+                >
+                  <Phone className="w-4 h-4" />
+                  +7 916 668 57 75
+                </a>
+                <a
+                  href="tel:+79774386966"
+                  className="inline-flex items-center gap-2 text-sm text-foreground/90 pl-6 transition-colors hover:text-[oklch(0.7_0.2_290)]"
+                >
+                  +7 977 438 69 66
+                </a>
+              </div>
+            </div>
             <button
               onClick={() => go("#contact")}
               className="btn-primary mt-2 inline-flex items-center justify-center rounded-full h-11 text-sm font-medium"
