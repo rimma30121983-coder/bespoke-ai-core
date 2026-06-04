@@ -108,7 +108,7 @@ export function AICore() {
         <div
           ref={wrapRef}
           className="relative mt-14 premium-card ring-gradient p-5 sm:p-8 lg:p-10 overflow-hidden"
-          style={{ minHeight: 520 }}
+          style={{ minHeight: 580 }}
         >
           {/* Ambient glow */}
           <div className="pointer-events-none absolute inset-0">
