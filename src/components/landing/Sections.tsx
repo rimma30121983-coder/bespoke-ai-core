@@ -6,6 +6,7 @@ import {
   Microscope, FileEdit, Code2, RefreshCw,
   TrendingDown, MapPin, CheckCircle2, LayoutDashboard, Sparkles, ArrowRight,
   Database, BarChart3, ShoppingCart, Expand, Layers,
+  Clock, Zap,
 } from "lucide-react";
 
 const SectionTitle = ({ eyebrow, title, subtitle, center = true }: { eyebrow?: string; title: React.ReactNode; subtitle?: string; center?: boolean }) => (
@@ -172,10 +173,43 @@ export function Problems() {
               </p>
             </Card>
           </div>
-          <div className="mt-6 text-center">
-            <p className="inline-block text-[11px] text-muted-foreground bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 max-w-3xl leading-relaxed">
-              Ориентиры по рынку: до 20–35% экономии затрат в релевантных процессах, до 25% экономии рабочего времени в автоматизированных сценариях и до 50–60% сокращения времени отдельных сквозных процессов. Фактический результат зависит от исходных процессов и считается после аудита.
-            </p>
+          {/* Потенциальный эффект */}
+          <div className="mt-14">
+            <div className="text-center max-w-3xl mx-auto">
+              <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] uppercase tracking-[0.12em] text-foreground/70">
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan animate-pulse" />
+                Эффект
+              </div>
+              <h3 className="mt-5 text-xl sm:text-2xl lg:text-[2rem] font-semibold tracking-tight leading-[1.1]">
+                Потенциальный эффект для бизнеса
+              </h3>
+              <p className="mt-3 text-sm sm:text-[15px] text-muted-foreground leading-relaxed">
+                Точные показатели рассчитываются после аудита, но уже на этапе диагностики можно увидеть, где бизнес теряет время, деньги и управляемость.
+              </p>
+            </div>
+
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { pct: "до 25%", title: "экономия на процессах", desc: "за счёт прозрачности задач, сроков, ответственных и управленческой аналитики.", icon: <TrendingDown className="w-5 h-5" /> },
+                { pct: "до 50%", title: "экономия рабочего времени команды", desc: "за счёт сокращения ручных действий, повторяющихся операций и поиска информации.", icon: <Clock className="w-5 h-5" /> },
+                { pct: "до 35%", title: "сокращение рутинных операций", desc: "за счёт AI-автоматизации, уведомлений, подсказок и сценариев обработки данных.", icon: <Zap className="w-5 h-5" /> },
+              ].map((c) => (
+                <div key={c.title} className="premium-card ring-gradient p-6 sm:p-7 flex flex-col items-center text-center group">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl icon-chip shrink-0">
+                    {c.icon}
+                  </div>
+                  <div className="mt-5 text-3xl sm:text-4xl font-bold gradient-text leading-none">{c.pct}</div>
+                  <div className="mt-3 text-[15px] font-semibold leading-snug">{c.title}</div>
+                  <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed">{c.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 text-center">
+              <p className="inline-block text-[11px] text-muted-foreground bg-white/[0.03] border border-white/10 rounded-xl px-4 py-3 max-w-3xl leading-relaxed">
+                Показатели являются рыночными ориентирами и не являются гарантией результата. Фактический эффект зависит от исходных процессов компании и рассчитывается после аудита.
+              </p>
+            </div>
           </div>
         </div>
       </div>
