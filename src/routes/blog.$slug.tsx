@@ -80,7 +80,9 @@ export const Route = createFileRoute("/blog/$slug")({
 });
 
 function BlogArticle() {
-  const post = Route.useLoaderData();
+  const post = Route.useLoaderData() as ReturnType<typeof getPostBySlug> & object;
+  if (!post) return null;
+
 
   return (
     <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
