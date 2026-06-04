@@ -122,7 +122,7 @@ const realCases: RealCase[] = [
   {
     domainIcon: <Store className="w-3.5 h-3.5 text-brand-cyan" />,
     domain: "Сеть пекарен / общепит",
-    title: <>Система управления сетью пекарен <span className="gradient-text">«Маковка»</span></>,
+    title: <>Индивидуальная AI-система управления бизнесом для <span className="gradient-text">«Маковка»</span></>,
     description: "Система управления задачами, поставщиками, сотрудниками и аналитикой сети.",
     tags: ["Дашборд", "Задачи", "Поставщики", "Сотрудники", "Аналитика"],
     result: "Единый центр управления сетью.",
@@ -133,7 +133,7 @@ const realCases: RealCase[] = [
   {
     domainIcon: <Building2 className="w-3.5 h-3.5 text-brand-cyan" />,
     domain: "Операционный контроль",
-    title: <>Control Center для <span className="gradient-text">Rasskazovka</span></>,
+    title: <>Индивидуальная AI-система управления бизнесом для <span className="gradient-text">Rasskazovka</span></>,
     description: "Система управления задачами, клиентами, заявками, сотрудниками и аналитикой.",
     tags: ["Дашборд", "Задачи", "Клиенты", "Заявки", "Аналитика"],
     result: "Контроль ключевых процессов бизнеса.",
