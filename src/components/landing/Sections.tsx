@@ -1,7 +1,7 @@
 import {
   AlertTriangle, EyeOff, ClipboardX, Hand,
   Gauge, Users, ListChecks, Brain, Plug, FileBarChart,
-  Briefcase, Network, Factory, Truck, Wrench, Stethoscope, GraduationCap, Building,
+  Briefcase, Network, Factory, Truck, Wrench, Stethoscope, Building,
   AlertOctagon, Lightbulb, ShieldAlert,
   Microscope, FileEdit, Code2, RefreshCw,
   TrendingDown, MapPin, CheckCircle2, LayoutDashboard, Sparkles, ArrowRight,
@@ -270,8 +270,7 @@ export function Industries() {
     { i: <ShoppingBag className="w-5 h-5" />, t: "Торговля" },
     { i: <UtensilsCrossed className="w-5 h-5" />, t: "Общепит" },
     { i: <Wrench className="w-5 h-5" />, t: "Услуги и сервис" },
-    { i: <Stethoscope className="w-5 h-5" />, t: "Медицина" },
-    { i: <GraduationCap className="w-5 h-5" />, t: "Образование" },
+    { i: <Stethoscope className="w-5 h-5" />, t: "Медицина и образование" },
     { i: <Building className="w-5 h-5" />, t: "Недвижимость" },
   ];
   return (
@@ -281,7 +280,7 @@ export function Industries() {
           eyebrow="Для кого"
           title={<>Системы для <span className="gradient-text">разных сфер бизнеса</span></>}
         />
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3">
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {items.map((it) => (
             <div key={it.t} className="premium-card p-5 flex flex-col items-start gap-3">
               <Icon>{it.i}</Icon>
