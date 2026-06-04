@@ -6,7 +6,7 @@ import {
   Microscope, FileEdit, Code2, RefreshCw,
   TrendingDown, MapPin, CheckCircle2, LayoutDashboard, Sparkles, ArrowRight,
   Database, BarChart3, ShoppingCart, Expand, Layers,
-  Clock, Zap,
+  Clock, Zap, ShoppingBag, UtensilsCrossed,
 } from "lucide-react";
 
 const SectionTitle = ({ eyebrow, title, subtitle, center = true }: { eyebrow?: string; title: React.ReactNode; subtitle?: string; center?: boolean }) => (
@@ -267,6 +267,8 @@ export function Industries() {
     { i: <Briefcase className="w-5 h-5" />, t: "Продажи и B2B" },
     { i: <Network className="w-5 h-5" />, t: "Франшизы и сети" },
     { i: <Factory className="w-5 h-5" />, t: "Производство и логистика" },
+    { i: <ShoppingBag className="w-5 h-5" />, t: "Торговля" },
+    { i: <UtensilsCrossed className="w-5 h-5" />, t: "Общепит" },
     { i: <Wrench className="w-5 h-5" />, t: "Услуги и сервис" },
     { i: <Stethoscope className="w-5 h-5" />, t: "Медицина, образование, недвижимость" },
   ];
@@ -277,7 +279,7 @@ export function Industries() {
           eyebrow="Для кого"
           title={<>Системы для <span className="gradient-text">разных сфер бизнеса</span></>}
         />
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
           {items.map((it) => (
             <div key={it.t} className="premium-card p-5 flex flex-col items-start gap-3">
               <Icon>{it.i}</Icon>
