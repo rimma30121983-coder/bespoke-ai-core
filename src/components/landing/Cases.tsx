@@ -133,7 +133,7 @@ const realCases: RealCase[] = [
   {
     domainIcon: <Building2 className="w-3.5 h-3.5 text-brand-cyan" />,
     domain: "Операционный контроль",
-    title: <>Control Center для <span className="gradient-text">Rasskazovka</span></>,
+    title: <>Индивидуальная AI-система управления бизнесом для <span className="gradient-text">Rasskazovka</span></>,
     description: "Система управления задачами, клиентами, заявками, сотрудниками и аналитикой.",
     tags: ["Дашборд", "Задачи", "Клиенты", "Заявки", "Аналитика"],
     result: "Контроль ключевых процессов бизнеса.",
