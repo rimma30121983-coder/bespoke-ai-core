@@ -72,7 +72,7 @@ export function MiniMockupRasskazovka() {
           <span className="h-1.5 w-1.5 rounded-full bg-yellow-400/70" />
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/70" />
         </div>
-        <span className="text-[9px] uppercase tracking-[0.16em] text-foreground/55">Rasskazovka</span>
+        <span className="text-[9px] uppercase tracking-[0.16em] text-foreground/55">BUSINESS CONTROL</span>
       </div>
       <div className="relative mt-2.5 grid grid-cols-3 gap-1.5">
         {[
@@ -122,7 +122,7 @@ const realCases: RealCase[] = [
   {
     domainIcon: <Store className="w-3.5 h-3.5 text-brand-cyan" />,
     domain: "Сеть пекарен / общепит",
-    title: <>Индивидуальная AI-система управления бизнесом для <span className="gradient-text">«Маковка»</span></>,
+    title: <>Индивидуальная AI-система управления бизнесом для сети пекарен <span className="gradient-text">«Маковка»</span></>,
     description: "Система управления задачами, поставщиками, сотрудниками и аналитикой сети.",
     tags: ["Дашборд", "Задачи", "Поставщики", "Сотрудники", "Аналитика"],
     result: "Единый центр управления сетью.",
@@ -133,7 +133,7 @@ const realCases: RealCase[] = [
   {
     domainIcon: <Building2 className="w-3.5 h-3.5 text-brand-cyan" />,
     domain: "Операционный контроль",
-    title: <>Индивидуальная AI-система управления бизнесом для <span className="gradient-text">Rasskazovka</span></>,
+    title: <>Индивидуальная AI-система управления <span className="gradient-text">серийным бизнесом</span></>,
     description: "Система управления задачами, клиентами, заявками, сотрудниками и аналитикой.",
     tags: ["Дашборд", "Задачи", "Клиенты", "Заявки", "Аналитика"],
     result: "Контроль ключевых процессов бизнеса.",
