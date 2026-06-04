@@ -9,15 +9,18 @@ import { handleNavigateToSection } from "@/lib/section-navigation";
 type ItemDef = { id: string; label: string; icon: React.ReactNode };
 
 const sources: ItemDef[] = [
-  { id: "1c",      label: "1С",          icon: <Building2 className="w-4 h-4" /> },
   { id: "amo",     label: "amoCRM",      icon: <Database className="w-4 h-4" /> },
   { id: "bitrix",  label: "Bitrix24",    icon: <Boxes className="w-4 h-4" /> },
+  { id: "1c",      label: "1С",          icon: <Building2 className="w-4 h-4" /> },
+  { id: "erp",     label: "ERP",         icon: <Boxes className="w-4 h-4" /> },
   { id: "sheets",  label: "Excel / Sheets", icon: <FileSpreadsheet className="w-4 h-4" /> },
   { id: "tg",      label: "Telegram",    icon: <Send className="w-4 h-4" /> },
   { id: "wa",      label: "WhatsApp",    icon: <MessageCircle className="w-4 h-4" /> },
-  { id: "site",    label: "Сайт / формы", icon: <Globe className="w-4 h-4" /> },
   { id: "mail",    label: "Email",       icon: <Mail className="w-4 h-4" /> },
-  { id: "erp",     label: "Склад / ERP", icon: <Boxes className="w-4 h-4" /> },
+  { id: "site",    label: "Сайт / формы", icon: <Globe className="w-4 h-4" /> },
+  { id: "iiko",    label: "iiko",        icon: <Boxes className="w-4 h-4" /> },
+  { id: "rkeeper", label: "r-keeper",    icon: <Database className="w-4 h-4" /> },
+  { id: "wms",     label: "Склад / WMS", icon: <Boxes className="w-4 h-4" /> },
 ];
 
 const outputs: ItemDef[] = [
@@ -105,7 +108,7 @@ export function AICore() {
         <div
           ref={wrapRef}
           className="relative mt-14 premium-card ring-gradient p-5 sm:p-8 lg:p-10 overflow-hidden"
-          style={{ minHeight: 520 }}
+          style={{ minHeight: 580 }}
         >
           {/* Ambient glow */}
           <div className="pointer-events-none absolute inset-0">
