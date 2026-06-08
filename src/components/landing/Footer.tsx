@@ -63,8 +63,8 @@ export function Footer() {
               <li><a href="mailto:aisystems@bk.ru" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Mail className="w-4 h-4 text-brand-cyan" /> aisystems@bk.ru</a></li>
               <li><a href="tel:+79166685775" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Phone className="w-4 h-4 text-brand-cyan" /> +7 916 668 57 75</a></li>
               <li><a href="tel:+79774386966" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2 pl-6">+7 977 438 69 66</a></li>
-              <li><a href="#" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Send className="w-4 h-4 text-brand-cyan" /> Telegram</a></li>
-              <li><a href="#" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><MessageCircle className="w-4 h-4 text-brand-cyan" /> WhatsApp</a></li>
+              <li><a href="https://t.me/+79166685775" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><Send className="w-4 h-4 text-brand-cyan" /> Telegram</a></li>
+              <li><a href="https://wa.me/79774386966" className="text-sm text-foreground/80 hover:text-foreground inline-flex items-center gap-2"><MessageCircle className="w-4 h-4 text-brand-cyan" /> WhatsApp</a></li>
             </ul>
           </div>
         </div>
