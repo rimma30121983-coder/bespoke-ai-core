@@ -56,14 +56,26 @@ export function Team() {
           <h2 className="mt-5 text-3xl sm:text-4xl lg:text-[3.25rem] font-semibold tracking-tight leading-[1.08]">
             Команда, которая создаёт <span className="gradient-text">AI-системы</span> под бизнес
           </h2>
-          <div className="mt-4 inline-flex items-center gap-1.5 rounded-full glass px-3 py-1.5 text-[11px] text-foreground/70 tracking-wide border border-brand-cyan/20">
-            <Shield className="w-3 h-3 text-brand-cyan" />
-            <span className="uppercase tracking-[0.12em]">Резидент IT-парка Сколково</span>
+          <div
+            className="mt-5 inline-flex items-center gap-1.5 text-[11px] sm:text-xs uppercase tracking-[0.14em]"
+            style={{
+              backgroundImage: "linear-gradient(90deg, oklch(0.85 0.14 220), oklch(0.78 0.18 290))",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+              textShadow: "0 0 18px oklch(0.75 0.18 220 / 0.25)",
+            }}
+          >
+            <Shield
+              className="w-3.5 h-3.5 shrink-0"
+              style={{
+                color: "oklch(0.75 0.18 220)",
+                filter: "drop-shadow(0 0 6px oklch(0.75 0.18 220 / 0.5))",
+              }}
+            />
+            <span>Резидент IT-парка Сколково</span>
           </div>
-          <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Проект развивается командой ООО «ИИ Стратегия» — резидента IT-парка Сколково.
-          </p>
-          <p className="mt-5 text-base sm:text-[17px] text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-6 text-base sm:text-[17px] text-muted-foreground leading-relaxed max-w-2xl mx-auto">
             Команда закрывает весь цикл:
           </p>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-2 max-w-2xl mx-auto">
