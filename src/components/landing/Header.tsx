@@ -136,23 +136,6 @@ export function Header() {
 
 
         <div className="hidden lg:flex items-center gap-4">
-          <div className="flex items-center gap-2 text-xs leading-tight text-muted-foreground">
-            <Phone className="w-4 h-4 shrink-0" />
-            <div className="flex flex-col">
-              <a
-                href="tel:+79166685775"
-                className="transition-colors hover:text-[oklch(0.75_0.18_220)]"
-              >
-                +7 916 668 57 75
-              </a>
-              <a
-                href="tel:+79774386966"
-                className="transition-colors hover:text-[oklch(0.7_0.2_290)]"
-              >
-                +7 977 438 69 66
-              </a>
-            </div>
-          </div>
           <button
             onClick={() => go("#contact")}
             className="btn-primary inline-flex items-center rounded-full px-5 h-10 text-sm font-medium"
