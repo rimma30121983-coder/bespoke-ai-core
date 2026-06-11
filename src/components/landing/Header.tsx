@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Shield } from "lucide-react";
 import { Link, useNavigate, useLocation } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { handleNavigateToSection, normalizeSectionId } from "@/lib/section-navigation";
@@ -78,9 +78,19 @@ export function Header() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 lg:h-[88px] flex items-center justify-between gap-4">
-        <button onClick={() => go("#top")} className="group flex items-center shrink-0" aria-label="AI Systems">
-          <Logo compact />
-        </button>
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+          <button onClick={() => go("#top")} className="group flex items-center shrink-0" aria-label="AI Systems">
+            <Logo compact />
+          </button>
+          <div className="hidden lg:inline-flex items-center gap-1.5 rounded-full glass px-2.5 py-1 text-[10px] text-foreground/70 tracking-wide border border-brand-cyan/20">
+            <Shield className="w-3 h-3 text-brand-cyan" />
+            <span className="uppercase tracking-[0.1em]">Резидент IT-парка Сколково</span>
+          </div>
+          <div className="hidden sm:inline-flex lg:hidden items-center gap-1.5 rounded-full glass px-2 py-1 text-[10px] text-foreground/70 tracking-wide border border-brand-cyan/20">
+            <Shield className="w-3 h-3 text-brand-cyan" />
+            <span className="uppercase tracking-[0.1em]">Резидент Сколково</span>
+          </div>
+        </div>
 
         <nav className="hidden lg:flex items-center gap-7">
           {nav.map((n) => {
@@ -158,6 +168,10 @@ export function Header() {
       {open && (
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
           <div className="px-4 py-4 flex flex-col gap-1">
+          <div className="mb-2 px-3 py-2 rounded-lg border border-brand-cyan/20 bg-white/[0.02] inline-flex items-center gap-1.5">
+            <Shield className="w-3 h-3 text-brand-cyan" />
+            <span className="text-[11px] text-foreground/70 uppercase tracking-wide">Резидент IT-парка Сколково</span>
+          </div>
             {nav.map((n) => {
               const isActive =
                 n.kind === "route"

@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, TrendingUp, Bot, Bell, Users, Briefcase, ListChecks, Percent, CheckCircle2, Shield } from "lucide-react";
+import { ArrowRight, Sparkles, TrendingUp, Bot, Bell, Users, Briefcase, ListChecks, Percent, CheckCircle2 } from "lucide-react";
 import { handleNavigateToSection } from "@/lib/section-navigation";
 
 const scrollTo = (id: string) => handleNavigateToSection(id);
@@ -20,10 +20,6 @@ export function Hero() {
             <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] sm:text-xs text-foreground/85 tracking-wide">
               <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan ai-dot" />
               <span className="uppercase tracking-[0.14em]">AI-системы • Автоматизация • Управление бизнесом</span>
-            </div>
-            <div className="mt-2 inline-flex items-center gap-1.5 rounded-full glass px-3 py-1 text-[10px] sm:text-[11px] text-foreground/70 tracking-wide border border-brand-cyan/20">
-              <Shield className="w-3 h-3 text-brand-cyan" />
-              <span className="uppercase tracking-[0.12em]">Резидент IT-парка Сколково</span>
             </div>
 
             <h1 className="mt-6 text-[2rem] sm:text-5xl lg:text-[3.75rem] font-semibold tracking-tight leading-[1.04]">
