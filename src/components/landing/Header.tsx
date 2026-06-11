@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Shield } from "lucide-react";
 import { Link, useNavigate, useLocation } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { handleNavigateToSection, normalizeSectionId } from "@/lib/section-navigation";
