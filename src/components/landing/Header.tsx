@@ -168,6 +168,10 @@ export function Header() {
       {open && (
         <div className="lg:hidden border-t border-border bg-background/95 backdrop-blur-xl">
           <div className="px-4 py-4 flex flex-col gap-1">
+          <div className="mb-2 px-3 py-2 rounded-lg border border-brand-cyan/20 bg-white/[0.02] inline-flex items-center gap-1.5">
+            <Shield className="w-3 h-3 text-brand-cyan" />
+            <span className="text-[11px] text-foreground/70 uppercase tracking-wide">Резидент IT-парка Сколково</span>
+          </div>
             {nav.map((n) => {
               const isActive =
                 n.kind === "route"
