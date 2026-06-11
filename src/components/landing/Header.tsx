@@ -78,17 +78,22 @@ export function Header() {
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 lg:h-[88px] flex items-center justify-between gap-4">
-        <div className="flex items-center gap-2 sm:gap-3 shrink-0">
+        <div className="flex flex-col items-start shrink-0 gap-1">
           <button onClick={() => go("#top")} className="group flex items-center shrink-0" aria-label="AI Systems">
             <Logo compact />
           </button>
-          <div className="hidden lg:inline-flex items-center gap-1.5 rounded-full glass px-2.5 py-1 text-[10px] text-foreground/70 tracking-wide border border-brand-cyan/20">
-            <Shield className="w-3 h-3 text-brand-cyan" />
-            <span className="uppercase tracking-[0.1em]">Резидент IT-парка Сколково</span>
-          </div>
-          <div className="hidden sm:inline-flex lg:hidden items-center gap-1.5 rounded-full glass px-2 py-1 text-[10px] text-foreground/70 tracking-wide border border-brand-cyan/20">
-            <Shield className="w-3 h-3 text-brand-cyan" />
-            <span className="uppercase tracking-[0.1em]">Резидент Сколково</span>
+          <div
+            className="hidden sm:inline-flex items-center gap-1.5 pl-[46px] sm:pl-[56px] lg:pl-[60px] text-[10px] sm:text-[10.5px] tracking-[0.14em] uppercase"
+            style={{
+              backgroundImage: "linear-gradient(90deg, oklch(0.85 0.14 220), oklch(0.78 0.18 290))",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              color: "transparent",
+              textShadow: "0 0 18px oklch(0.75 0.18 220 / 0.25)",
+            }}
+          >
+            <Shield className="w-3 h-3 text-brand-cyan shrink-0" style={{ filter: "drop-shadow(0 0 6px oklch(0.75 0.18 220 / 0.5))" }} />
+            <span>Резидент IT-парка Сколково</span>
           </div>
         </div>
 
@@ -131,23 +136,6 @@ export function Header() {
 
 
         <div className="hidden lg:flex items-center gap-4">
-          <div className="flex items-center gap-2 text-xs leading-tight text-muted-foreground">
-            <Phone className="w-4 h-4 shrink-0" />
-            <div className="flex flex-col">
-              <a
-                href="tel:+79166685775"
-                className="transition-colors hover:text-[oklch(0.75_0.18_220)]"
-              >
-                +7 916 668 57 75
-              </a>
-              <a
-                href="tel:+79774386966"
-                className="transition-colors hover:text-[oklch(0.7_0.2_290)]"
-              >
-                +7 977 438 69 66
-              </a>
-            </div>
-          </div>
           <button
             onClick={() => go("#contact")}
             className="btn-primary inline-flex items-center rounded-full px-5 h-10 text-sm font-medium"
