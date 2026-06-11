@@ -57,7 +57,7 @@ export function Team() {
             Команда, которая создаёт <span className="gradient-text">AI-системы</span> под бизнес
           </h2>
           <div
-            className="mt-5 inline-flex items-center gap-1.5 text-[11px] sm:text-xs uppercase tracking-[0.14em]"
+            className="mt-5 inline-flex items-center gap-1.5 text-[12px] sm:text-[13px] uppercase tracking-[0.14em]"
             style={{
               backgroundImage: "linear-gradient(90deg, oklch(0.85 0.14 220), oklch(0.78 0.18 290))",
               WebkitBackgroundClip: "text",
@@ -67,7 +67,7 @@ export function Team() {
             }}
           >
             <Shield
-              className="w-3.5 h-3.5 shrink-0"
+              className="w-4 h-4 shrink-0"
               style={{
                 color: "oklch(0.75 0.18 220)",
                 filter: "drop-shadow(0 0 6px oklch(0.75 0.18 220 / 0.5))",

@@ -83,7 +83,7 @@ export function Header() {
             <Logo compact />
           </button>
           <div
-            className="hidden sm:inline-flex items-center gap-1.5 pl-[46px] sm:pl-[56px] lg:pl-[60px] text-[10px] sm:text-[10.5px] tracking-[0.14em] uppercase"
+            className="hidden sm:inline-flex items-center gap-1.5 pl-[46px] sm:pl-[56px] lg:pl-[60px] text-[11px] sm:text-xs tracking-[0.14em] uppercase"
             style={{
               backgroundImage: "linear-gradient(90deg, oklch(0.85 0.14 220), oklch(0.78 0.18 290))",
               WebkitBackgroundClip: "text",
@@ -92,7 +92,13 @@ export function Header() {
               textShadow: "0 0 18px oklch(0.75 0.18 220 / 0.25)",
             }}
           >
-            <Shield className="w-3 h-3 text-brand-cyan shrink-0" style={{ filter: "drop-shadow(0 0 6px oklch(0.75 0.18 220 / 0.5))" }} />
+            <Shield
+              className="w-3.5 h-3.5 shrink-0"
+              style={{
+                color: "oklch(0.75 0.18 220)",
+                filter: "drop-shadow(0 0 6px oklch(0.75 0.18 220 / 0.5))",
+              }}
+            />
             <span>Резидент IT-парка Сколково</span>
           </div>
         </div>
