@@ -69,6 +69,13 @@ export function Team() {
               </span>
             ))}
           </div>
+          <div className="mt-4 inline-flex items-center gap-1.5 rounded-full glass px-3 py-1.5 text-[11px] text-foreground/70 tracking-wide border border-brand-cyan/20">
+            <Shield className="w-3 h-3 text-brand-cyan" />
+            <span className="uppercase tracking-[0.12em]">Резидент IT-парка Сколково</span>
+          </div>
+          <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+            Проект развивается командой ООО «ИИ Стратегия» — резидента IT-парка Сколково.
+          </p>
         </div>
 
         {/* Общее фото команды */}
