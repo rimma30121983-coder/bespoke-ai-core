@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, TrendingUp, Bot, Bell, Users, Briefcase, ListChecks, Percent, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Sparkles, TrendingUp, Bot, Bell, Users, Briefcase, ListChecks, Percent, CheckCircle2, Shield } from "lucide-react";
 import { handleNavigateToSection } from "@/lib/section-navigation";
 
 const scrollTo = (id: string) => handleNavigateToSection(id);
