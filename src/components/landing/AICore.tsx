@@ -159,20 +159,16 @@ export function AICore() {
                 <stop offset="100%" stopColor="oklch(0.62 0.24 295)" stopOpacity="0.05" />
               </linearGradient>
             </defs>
-            {lines.map((l) => {
-              const isActive = l.id === activeIn || l.id === activeOut;
-              return (
-                <path
-                  key={l.id}
-                  d={`M ${l.x1} ${l.y1} C ${(l.x1 + l.x2) / 2} ${l.y1}, ${(l.x1 + l.x2) / 2} ${l.y2}, ${l.x2} ${l.y2}`}
-                  stroke={l.side === "in" ? "url(#lineGradIn)" : "url(#lineGradOut)"}
-                  strokeWidth={isActive ? 2.2 : 1.2}
-                  fill="none"
-                  className="ai-core-line"
-                  style={isActive ? { filter: "drop-shadow(0 0 6px oklch(0.78 0.14 210 / 0.9))", opacity: 1 } : undefined}
-                />
-              );
-            })}
+            {lines.map((l) => (
+              <path
+                key={l.id}
+                d={`M ${l.x1} ${l.y1} C ${(l.x1 + l.x2) / 2} ${l.y1}, ${(l.x1 + l.x2) / 2} ${l.y2}, ${l.x2} ${l.y2}`}
+                stroke={l.side === "in" ? "url(#lineGradIn)" : "url(#lineGradOut)"}
+                strokeWidth={1.2}
+                fill="none"
+                className="ai-core-line"
+              />
+            ))}
           </svg>
 
           <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-12 items-center">
