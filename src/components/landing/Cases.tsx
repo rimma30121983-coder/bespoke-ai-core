@@ -148,7 +148,7 @@ function RealCaseCard({ c }: { c: RealCase }) {
   return (
     <div className="relative group h-full">
       <div className="absolute -inset-px rounded-[1.4rem] bg-gradient-to-br from-brand-blue/45 via-brand-violet/30 to-brand-cyan/20 opacity-40 group-hover:opacity-90 blur-[1px] transition-opacity pointer-events-none" />
-      <article className="relative premium-card rounded-[1.35rem] p-5 sm:p-6 overflow-hidden h-full flex flex-col transition-transform duration-300 group-hover:-translate-y-1">
+      <article className="relative premium-card lift-card rounded-[1.35rem] p-5 sm:p-6 overflow-hidden h-full flex flex-col transition-transform duration-300 group-hover:-translate-y-1">
         <div className="absolute -top-20 -right-20 w-[280px] h-[280px] rounded-full bg-[radial-gradient(circle,color-mix(in_oklab,var(--brand-blue)_22%,transparent),transparent_65%)] blur-3xl pointer-events-none" />
 
         <div className="relative flex items-center justify-between gap-2 flex-wrap">
