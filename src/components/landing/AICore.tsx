@@ -76,22 +76,25 @@ export function AICore() {
     };
   }, []);
 
-  // Cycle highlight through one source + one output every ~2.2s
+  // One-time entrance animation when the block becomes visible
   useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
     if (typeof window !== "undefined" &&
         window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let i = 0;
-    const tick = () => {
-      const s = sources[i % sources.length];
-      const o = outputs[i % outputs.length];
-      setActiveIn(s.id);
-      setActiveOut(o.id);
-      i++;
-    };
-    tick();
-    const id = setInterval(tick, 2200);
-    return () => clearInterval(id);
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          setEntering(true);
+          window.setTimeout(() => setEntering(false), 2800);
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
+
 
   const Chip = ({ it, refKey, index = 0, side = "in", active = false }: { it: ItemDef; refKey: string; index?: number; side?: "in" | "out"; active?: boolean }) => (
     <div
