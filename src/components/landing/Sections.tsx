@@ -7,6 +7,7 @@ import {
   TrendingDown, MapPin, CheckCircle2, LayoutDashboard, Sparkles, ArrowRight,
   Database, BarChart3, ShoppingCart, Expand, Layers,
   Clock, Zap, ShoppingBag, UtensilsCrossed,
+  Crown, TrendingUp, Network, Settings2,
 } from "lucide-react";
 import { CountUp } from "./CountUp";
 
