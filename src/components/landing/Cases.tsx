@@ -162,7 +162,7 @@ function RealCaseCard({ c }: { c: RealCase }) {
                 {c.formatTag}
               </span>
             )}
-            <span className="inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10px] uppercase tracking-[0.16em] font-medium bg-gradient-to-r from-brand-blue/25 to-brand-violet/25 border border-brand-blue/40 text-foreground">
+            <span className="badge-glow inline-flex items-center gap-1.5 rounded-full px-2 py-0.5 text-[10px] uppercase tracking-[0.16em] font-medium bg-gradient-to-r from-brand-blue/25 to-brand-violet/25 border border-brand-blue/40 text-foreground">
               <CheckCircle2 className="w-3 h-3 text-brand-cyan" /> Реальный проект
             </span>
           </div>
