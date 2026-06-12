@@ -75,10 +75,14 @@ export function AICore() {
     };
   }, []);
 
-  const Chip = ({ it, refKey }: { it: ItemDef; refKey: string }) => (
+  const Chip = ({ it, refKey, index = 0, side = "in" }: { it: ItemDef; refKey: string; index?: number; side?: "in" | "out" }) => (
     <div
       ref={(el) => { itemRefs.current[refKey] = el; }}
-      className="group inline-flex items-center gap-2 rounded-full glass border border-white/10 px-3 py-1.5 text-xs text-foreground/85 backdrop-blur-md hover:border-brand-cyan/40 transition-colors"
+      className="chip-stagger group inline-flex items-center gap-2 rounded-full glass border border-white/10 px-3 py-1.5 text-xs text-foreground/85 backdrop-blur-md hover:border-brand-cyan/40 transition-colors"
+      style={{
+        animationDelay: `${index * 70}ms`,
+        ...({ "--tx": side === "in" ? "-12px" : "12px" } as Record<string, string>),
+      }}
     >
       <span className="inline-flex items-center justify-center h-6 w-6 rounded-full bg-white/[0.04] text-brand-cyan">
         {it.icon}
@@ -86,6 +90,7 @@ export function AICore() {
       <span className="whitespace-nowrap">{it.label}</span>
     </div>
   );
+
 
   return (
     <section id="ai-core" className="relative py-20 lg:py-28">
