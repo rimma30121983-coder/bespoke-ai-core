@@ -178,7 +178,7 @@ export function AICore() {
                 Источники данных
               </div>
               {sources.map((it, i) => (
-                <Chip key={it.id} it={it} refKey={it.id} index={i} side="in" active={activeIn === it.id} />
+                <Chip key={it.id} it={it} refKey={it.id} index={i} side="in" />
               ))}
 
             </div>
