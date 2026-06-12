@@ -68,7 +68,7 @@ export function Hero() {
               Проектируем и разрабатываем цифровые системы управления и внутренние бизнес-платформы: процессы, задачи, клиенты, сотрудники, аналитика и интеллектуальная автоматизация рутины в одном удобном интерфейсе.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+            <div className="hero-rise hero-rise-4 mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
               <button onClick={() => scrollTo("#contact")} className="btn-primary inline-flex items-center justify-center gap-2 rounded-full h-12 px-6 text-sm font-medium">
                 Обсудить проект <ArrowRight className="w-4 h-4" />
               </button>
