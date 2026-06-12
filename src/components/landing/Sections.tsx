@@ -8,6 +8,8 @@ import {
   Database, BarChart3, ShoppingCart, Expand, Layers,
   Clock, Zap, ShoppingBag, UtensilsCrossed,
 } from "lucide-react";
+import { CountUp } from "./CountUp";
+
 
 const SectionTitle = ({ eyebrow, title, subtitle, center = true }: { eyebrow?: string; title: React.ReactNode; subtitle?: string; center?: boolean }) => (
   <div className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
