@@ -567,7 +567,11 @@ section.reveal.in .stagger-item:nth-child(6) { animation-delay: .40s; }
   .chip-stagger,
   .stagger-item,
   .arrow-glow,
-  .badge-glow {
+  .badge-glow,
+  .core-halo,
+  .chip-active,
+  .number-glow,
+  .animated-border::before {
     animation: none !important;
   }
   .stagger-item { opacity: 1; }
