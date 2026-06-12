@@ -54,8 +54,9 @@ function MiniMockupBakery() {
             </linearGradient>
           </defs>
           {[10, 18, 14, 24, 20, 30, 26, 36, 32, 40, 34, 38].map((h, i) => (
-            <rect key={i} x={6 + i * 16} y={40 - h} width="10" height={h} rx="2" fill="url(#mb)" />
+            <rect key={i} className="chart-bar" style={{ animationDelay: `${i * 60}ms` }} x={6 + i * 16} y={40 - h} width="10" height={h} rx="2" fill="url(#mb)" />
           ))}
+
         </svg>
       </div>
     </div>
@@ -95,11 +96,12 @@ export function MiniMockupRasskazovka() {
               <stop offset="100%" stopColor="oklch(0.78 0.18 200)" />
             </linearGradient>
           </defs>
-          <polyline fill="none" stroke="url(#mr)" strokeWidth="2"
+          <polyline className="chart-line" style={{ ["--dash" as never]: "260" }} fill="none" stroke="url(#mr)" strokeWidth="2"
             points="5,32 25,28 45,30 65,20 85,24 105,14 125,18 145,8 165,12 185,4" />
           {[5,25,45,65,85,105,125,145,165,185].map((x, i) => (
-            <circle key={i} cx={x} cy={[32,28,30,20,24,14,18,8,12,4][i]} r="1.6" fill="oklch(0.78 0.18 200)" />
+            <circle key={i} className="chart-point" style={{ animationDelay: `${600 + i * 70}ms` }} cx={x} cy={[32,28,30,20,24,14,18,8,12,4][i]} r="1.6" fill="oklch(0.78 0.18 200)" />
           ))}
+
         </svg>
       </div>
     </div>

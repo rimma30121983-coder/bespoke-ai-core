@@ -353,3 +353,128 @@
   stroke-dasharray: 4 6;
   animation: line-flow 3.2s linear infinite;
 }
+
+/* ============ Premium motion layer ============ */
+
+/* Card lift on hover (premium feel) */
+.lift-card {
+  transition:
+    transform .35s cubic-bezier(.22,.61,.36,1),
+    box-shadow .35s ease,
+    border-color .35s ease;
+}
+.lift-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 30px 80px -22px oklch(0.62 0.24 295 / 0.45),
+    0 0 40px -10px oklch(0.78 0.14 210 / 0.35),
+    0 2px 0 0 oklch(1 0 0 / 0.06) inset;
+  border-color: oklch(0.78 0.14 210 / 0.45);
+}
+.lift-card .lift-icon {
+  transition: filter .35s ease, transform .35s ease;
+}
+.lift-card:hover .lift-icon {
+  filter: drop-shadow(0 0 10px oklch(0.78 0.14 210 / 0.7));
+  transform: scale(1.06);
+}
+
+/* Premium-card hover stronger lift */
+.premium-card:hover { transform: translateY(-4px); }
+
+/* Hero AI Insight glow pulse */
+@keyframes insight-glow {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.62 0.24 295 / 0); }
+  50% { box-shadow: 0 0 40px -4px oklch(0.62 0.24 295 / 0.55); }
+}
+.insight-glow { animation: insight-glow 4s ease-in-out infinite; }
+
+/* Hero data-flow lines */
+@keyframes flow-dash {
+  to { stroke-dashoffset: -200; }
+}
+.flow-line {
+  stroke-dasharray: 3 8;
+  animation: flow-dash 6s linear infinite;
+}
+
+/* Hero hint reveal */
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+.hero-rise { animation: hero-rise .9s cubic-bezier(.22,.61,.36,1) both; }
+.hero-rise-1 { animation-delay: .05s; }
+.hero-rise-2 { animation-delay: .18s; }
+.hero-rise-3 { animation-delay: .32s; }
+.hero-rise-4 { animation-delay: .46s; }
+
+/* Parallax helper */
+.parallax-target { transition: transform .25s cubic-bezier(.22,.61,.36,1); will-change: transform; }
+
+/* Case mockup chart animations — triggered when section.reveal.in */
+@keyframes bar-rise {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+.chart-bar {
+  transform-origin: bottom;
+  transform: scaleY(0);
+}
+section.reveal.in .chart-bar {
+  animation: bar-rise .8s cubic-bezier(.22,.61,.36,1) both;
+}
+
+@keyframes line-draw {
+  from { stroke-dashoffset: var(--dash, 400); }
+  to   { stroke-dashoffset: 0; }
+}
+.chart-line {
+  stroke-dasharray: var(--dash, 400);
+  stroke-dashoffset: var(--dash, 400);
+}
+section.reveal.in .chart-line {
+  animation: line-draw 1.6s cubic-bezier(.22,.61,.36,1) .15s forwards;
+}
+
+@keyframes fade-pop {
+  from { opacity: 0; transform: scale(.6); }
+  to   { opacity: 1; transform: none; }
+}
+section.reveal.in .chart-point {
+  animation: fade-pop .35s ease-out both;
+  transform-origin: center;
+}
+
+/* AI Core chip stagger fade */
+@keyframes chip-in {
+  from { opacity: 0; transform: translateX(var(--tx, 0)) translateY(4px); }
+  to   { opacity: 1; transform: none; }
+}
+section.reveal.in .chip-stagger {
+  animation: chip-in .55s cubic-bezier(.22,.61,.36,1) both;
+}
+
+/* Reduced motion guard */
+@media (prefers-reduced-motion: reduce) {
+  .ai-core-line,
+  .ai-core-ring,
+  .ai-core-ring-2,
+  .animate-pulse-soft,
+  .animate-float,
+  .animate-pulse-slow,
+  .animate-drift,
+  .animate-scan,
+  .insight-glow,
+  .flow-line,
+  .hero-rise,
+  .chart-bar,
+  .chart-line,
+  .chip-stagger {
+    animation: none !important;
+  }
+  .chart-bar { transform: none; }
+  .chart-line { stroke-dashoffset: 0; }
+  .parallax-target { transform: none !important; }
+}
+

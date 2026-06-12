@@ -1,9 +1,42 @@
 import { ArrowRight, Sparkles, TrendingUp, Bot, Bell, Users, Briefcase, ListChecks, Percent, CheckCircle2 } from "lucide-react";
+import { useEffect, useRef } from "react";
 import { handleNavigateToSection } from "@/lib/section-navigation";
+import { Particles } from "./Particles";
 
 const scrollTo = (id: string) => handleNavigateToSection(id);
 
 export function Hero() {
+  const mockupRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = mockupRef.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(max-width: 1023px)").matches) return;
+
+    let raf = 0;
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+    const onMove = (e: MouseEvent) => {
+      const r = el.getBoundingClientRect();
+      const px = (e.clientX - (r.left + r.width / 2)) / r.width;
+      const py = (e.clientY - (r.top + r.height / 2)) / r.height;
+      tx = Math.max(-1, Math.min(1, px)) * 8;
+      ty = Math.max(-1, Math.min(1, py)) * 6;
+    };
+    const tick = () => {
+      cx += (tx - cx) * 0.08;
+      cy += (ty - cy) * 0.08;
+      el.style.transform = `translate3d(${cx}px, ${cy}px, 0) rotateX(${-cy * 0.3}deg) rotateY(${cx * 0.3}deg)`;
+      raf = requestAnimationFrame(tick);
+    };
+    window.addEventListener("mousemove", onMove);
+    raf = requestAnimationFrame(tick);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <section id="top" className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
       {/* background decorations */}
@@ -12,27 +45,30 @@ export function Hero() {
       <div className="absolute -top-40 -left-40 w-[520px] h-[520px] rounded-full bg-brand-blue/25 blur-[120px] animate-pulse-soft" />
       <div className="absolute top-1/3 -right-40 w-[520px] h-[520px] rounded-full bg-brand-violet/25 blur-[120px] animate-pulse-soft" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] rounded-full bg-brand-violet/10 blur-[140px]" />
+      <Particles className="opacity-70" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
           {/* LEFT */}
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] sm:text-xs text-foreground/85 tracking-wide">
+            <div className="hero-rise hero-rise-1 inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] sm:text-xs text-foreground/85 tracking-wide">
+
               <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan ai-dot" />
               <span className="uppercase tracking-[0.14em]">AI-системы • Автоматизация • Управление бизнесом</span>
             </div>
 
-            <h1 className="mt-6 text-[2rem] sm:text-5xl lg:text-[3.75rem] font-semibold tracking-tight leading-[1.04]">
+            <h1 className="hero-rise hero-rise-2 mt-6 text-[2rem] sm:text-5xl lg:text-[3.75rem] font-semibold tracking-tight leading-[1.04]">
               Индивидуальные{" "}
               <span className="gradient-text whitespace-nowrap">AI-системы</span>,
               <br className="hidden sm:block" /> которые работают под ваш бизнес
             </h1>
 
-            <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
+            <p className="hero-rise hero-rise-3 mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
+
               Проектируем и разрабатываем цифровые системы управления и внутренние бизнес-платформы: процессы, задачи, клиенты, сотрудники, аналитика и интеллектуальная автоматизация рутины в одном удобном интерфейсе.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
+            <div className="hero-rise hero-rise-4 mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
               <button onClick={() => scrollTo("#contact")} className="btn-primary inline-flex items-center justify-center gap-2 rounded-full h-12 px-6 text-sm font-medium">
                 Обсудить проект <ArrowRight className="w-4 h-4" />
               </button>
@@ -60,9 +96,23 @@ export function Hero() {
           </div>
 
           {/* MOCKUP */}
-          <div className="relative w-full max-w-full">
+          <div className="relative w-full max-w-full" style={{ perspective: "1200px" }}>
             <div className="absolute -inset-8 bg-gradient-to-br from-brand-blue/40 via-brand-violet/25 to-transparent blur-3xl rounded-[2rem]" />
-            <div className="relative glass-strong rounded-2xl p-3 sm:p-4 shadow-2xl">
+
+            {/* Data-flow lines */}
+            <svg className="hidden lg:block absolute -left-20 top-1/3 w-24 h-32 pointer-events-none" viewBox="0 0 100 120" aria-hidden>
+              <defs>
+                <linearGradient id="hflow" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0%" stopColor="oklch(0.78 0.14 210)" stopOpacity="0" />
+                  <stop offset="100%" stopColor="oklch(0.78 0.14 210)" stopOpacity="0.7" />
+                </linearGradient>
+              </defs>
+              <path className="flow-line" d="M0 20 C 40 20, 60 60, 100 60" stroke="url(#hflow)" strokeWidth="1.2" fill="none" />
+              <path className="flow-line" d="M0 100 C 40 100, 60 60, 100 60" stroke="url(#hflow)" strokeWidth="1.2" fill="none" style={{ animationDelay: "1.2s" }} />
+            </svg>
+
+            <div ref={mockupRef} className="parallax-target relative glass-strong rounded-2xl p-3 sm:p-4 shadow-2xl">
+
               {/* Window chrome */}
               <div className="flex items-center gap-1.5 px-1 pb-3">
                 <div className="h-2.5 w-2.5 rounded-full bg-white/15" />
@@ -149,7 +199,7 @@ export function Hero() {
                     </ul>
                   </div>
 
-                  <div className="rounded-lg p-3 relative overflow-hidden" style={{ background: "linear-gradient(135deg, oklch(0.65 0.21 265 / 0.22), oklch(0.6 0.24 295 / 0.22))", border: "1px solid oklch(1 0 0 / 0.1)" }}>
+                  <div className="rounded-lg p-3 relative overflow-hidden insight-glow" style={{ background: "linear-gradient(135deg, oklch(0.65 0.21 265 / 0.22), oklch(0.6 0.24 295 / 0.22))", border: "1px solid oklch(1 0 0 / 0.1)" }}>
                     <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-brand-violet/30 blur-2xl" />
                     <div className="relative flex items-center gap-2 text-[11px]">
                       <div className="h-5 w-5 rounded-md bg-gradient-to-br from-brand-blue to-brand-violet flex items-center justify-center">
