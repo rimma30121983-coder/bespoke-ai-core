@@ -42,6 +42,8 @@ export function AICore() {
     Array<{ id: string; x1: number; y1: number; x2: number; y2: number; side: "in" | "out" }>
   >([]);
   const [size, setSize] = useState({ w: 0, h: 0 });
+  const [activeIn, setActiveIn] = useState<string | null>(null);
+  const [activeOut, setActiveOut] = useState<string | null>(null);
 
   useEffect(() => {
     const compute = () => {
@@ -75,10 +77,27 @@ export function AICore() {
     };
   }, []);
 
-  const Chip = ({ it, refKey, index = 0, side = "in" }: { it: ItemDef; refKey: string; index?: number; side?: "in" | "out" }) => (
+  // Cycle highlight through one source + one output every ~2.2s
+  useEffect(() => {
+    if (typeof window !== "undefined" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let i = 0;
+    const tick = () => {
+      const s = sources[i % sources.length];
+      const o = outputs[i % outputs.length];
+      setActiveIn(s.id);
+      setActiveOut(o.id);
+      i++;
+    };
+    tick();
+    const id = setInterval(tick, 2200);
+    return () => clearInterval(id);
+  }, []);
+
+  const Chip = ({ it, refKey, index = 0, side = "in", active = false }: { it: ItemDef; refKey: string; index?: number; side?: "in" | "out"; active?: boolean }) => (
     <div
       ref={(el) => { itemRefs.current[refKey] = el; }}
-      className="chip-stagger group inline-flex items-center gap-2 rounded-full glass border border-white/10 px-3 py-1.5 text-xs text-foreground/85 backdrop-blur-md hover:border-brand-cyan/40 transition-colors"
+      className={`chip-stagger group inline-flex items-center gap-2 rounded-full glass border border-white/10 px-3 py-1.5 text-xs text-foreground/85 backdrop-blur-md hover:border-brand-cyan/40 transition-colors ${active ? "chip-active" : ""}`}
       style={{
         animationDelay: `${index * 70}ms`,
         ...({ "--tx": side === "in" ? "-12px" : "12px" } as Record<string, string>),
