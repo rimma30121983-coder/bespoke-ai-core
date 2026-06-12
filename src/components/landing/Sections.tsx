@@ -7,6 +7,7 @@ import {
   TrendingDown, MapPin, CheckCircle2, LayoutDashboard, Sparkles, ArrowRight,
   Database, BarChart3, ShoppingCart, Expand, Layers,
   Clock, Zap, ShoppingBag, UtensilsCrossed,
+  Crown, TrendingUp, Settings2,
 } from "lucide-react";
 import { CountUp } from "./CountUp";
 
@@ -133,47 +134,107 @@ export function Problems() {
           </div>
         </div>
 
-        {/* История внедрения */}
-        <div className="mt-14">
-          <div className="text-center mb-6">
+        {/* Кто чаще всего приходит за AI-системой */}
+        <div className="mt-16">
+          <div className="text-center mb-8 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1 text-[11px] uppercase tracking-[0.12em] text-foreground/70">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-violet" />
-              История внедрения
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan animate-pulse" />
+              Целевая аудитория
             </div>
-            <h3 className="mt-5 text-xl sm:text-2xl font-semibold tracking-tight">Как система возвращает управляемость</h3>
-            <p className="mt-3 text-sm text-muted-foreground max-w-2xl mx-auto">
-              Показываем эффект честно: без выдуманных обещаний, с расчётом по исходным показателям бизнеса.
+            <h3 className="mt-5 text-2xl sm:text-3xl lg:text-[2.25rem] font-semibold tracking-tight leading-[1.1]">
+              Кто чаще всего приходит <span className="gradient-text">за AI-системой</span>
+            </h3>
+            <p className="mt-4 text-sm sm:text-[15px] text-muted-foreground leading-relaxed">
+              Собственники и руководители, которым уже сложно управлять бизнесом через таблицы, чаты и разрозненные сервисы.
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            <Card className="shine-overlay">
-              <Icon><AlertTriangle className="w-5 h-5" /></Icon>
-              <h4 className="mt-4 text-sm font-semibold">Было</h4>
-              <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed">
-                Руководитель видел задачи, заявки, статусы и отчёты в разных местах: часть данных в таблицах, часть в чатах, часть в отдельных сервисах.
-              </p>
-            </Card>
-            <Card className="shine-overlay">
-              <Icon><Layers className="w-5 h-5" /></Icon>
-              <h4 className="mt-4 text-sm font-semibold">Внедрили</h4>
-              <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed">
-                Собрали ключевые процессы в единую AI-систему: дашборд, задачи, клиенты, статусы, аналитика, уведомления и AI-рекомендации.
-              </p>
-            </Card>
-            <Card className="shine-overlay">
-              <Icon><CheckCircle2 className="w-5 h-5" /></Icon>
-              <h4 className="mt-4 text-sm font-semibold">Стало</h4>
-              <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed">
-                Руководитель получил единый центр контроля, команда — понятные задачи и статусы, а повторяющиеся действия стали прозрачнее.
-              </p>
-            </Card>
-            <Card className="shine-overlay">
-              <Icon><BarChart3 className="w-5 h-5" /></Icon>
-              <h4 className="mt-4 text-sm font-semibold">Потенциальный эффект</h4>
-              <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed">
-                В похожих проектах автоматизация может снижать ручной труд и операционные затраты на десятки процентов. Точный результат рассчитывается после аудита.
-              </p>
-            </Card>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
+            {[
+              {
+                icon: <Crown className="w-7 h-7" />,
+                role: "Собственник растущего бизнеса",
+                pain: "контроль держится на личном участии",
+                need: "видеть процессы, задачи, продажи и сотрудников в одной системе",
+                result: "меньше ручного контроля, больше прозрачности",
+                glow: "from-brand-blue/40 to-brand-violet/25",
+              },
+              {
+                icon: <TrendingUp className="w-7 h-7" />,
+                role: "Руководитель отдела продаж",
+                pain: "заявки теряются, менеджеры работают по-разному",
+                need: "контролировать воронку, задачи, статусы и конверсию",
+                result: "продажи становятся управляемыми",
+                glow: "from-brand-cyan/40 to-brand-blue/25",
+              },
+              {
+                icon: <Network className="w-7 h-7" />,
+                role: "Франшиза / сеть / управляющая компания",
+                pain: "сложно контролировать филиалы, стандарты и отчёты",
+                need: "единый центр управления сетью",
+                result: "прозрачность по точкам и процессам",
+                glow: "from-brand-violet/40 to-brand-blue/25",
+              },
+              {
+                icon: <Settings2 className="w-7 h-7" />,
+                role: "Операционный руководитель",
+                pain: "много ручных проверок, задач и согласований",
+                need: "видеть просрочки, ответственных и узкие места",
+                result: "меньше хаоса, быстрее управление",
+                glow: "from-brand-blue/40 to-brand-cyan/25",
+              },
+            ].map((p) => (
+              <article
+                key={p.role}
+                className="relative group premium-card lift-card rounded-2xl p-5 sm:p-6 overflow-hidden"
+              >
+                <div className={`absolute -top-16 -right-16 w-[220px] h-[220px] rounded-full bg-gradient-to-br ${p.glow} blur-3xl opacity-60 group-hover:opacity-100 transition-opacity pointer-events-none`} />
+
+                <div className="relative flex items-start gap-4">
+                  {/* AI avatar / portrait */}
+                  <div className="relative shrink-0">
+                    <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-brand-blue/50 via-brand-violet/40 to-brand-cyan/30 blur-md opacity-70 group-hover:opacity-100 transition-opacity" />
+                    <div className="relative inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-blue to-brand-violet text-white ring-1 ring-white/20">
+                      {p.icon}
+                    </div>
+                  </div>
+
+                  <div className="min-w-0 flex-1">
+                    <h4 className="text-[15px] sm:text-base font-semibold leading-snug">
+                      {p.role}
+                    </h4>
+                    <div className="mt-1 inline-flex items-center gap-1.5 rounded-full bg-white/[0.04] border border-white/10 px-2 py-0.5 text-[10px] uppercase tracking-[0.12em] text-foreground/60">
+                      <span className="h-1 w-1 rounded-full bg-brand-cyan" />
+                      Портрет клиента
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative mt-5 space-y-2.5">
+                  <div className="flex items-start gap-2.5">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-red-400/80 shrink-0" />
+                    <div className="text-[13px] leading-relaxed">
+                      <span className="text-muted-foreground">Боль: </span>
+                      <span className="text-foreground/90">{p.pain}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-brand-blue shrink-0" />
+                    <div className="text-[13px] leading-relaxed">
+                      <span className="text-muted-foreground">Нужно: </span>
+                      <span className="text-foreground/90">{p.need}</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-brand-cyan shrink-0" />
+                    <div className="text-[13px] leading-relaxed">
+                      <span className="text-muted-foreground">Результат: </span>
+                      <span className="gradient-text font-medium">{p.result}</span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
           {/* Потенциальный эффект */}
           <div className="mt-14">
