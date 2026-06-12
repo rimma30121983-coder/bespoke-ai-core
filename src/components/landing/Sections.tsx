@@ -75,7 +75,7 @@ export function Problems() {
             </div>
             <ul className="mt-5 space-y-3">
               {before.map((it) => (
-                <li key={it.t} className="flex items-start gap-3 rounded-xl bg-white/[0.02] border border-white/5 px-4 py-3">
+                <li key={it.t} className="stagger-item flex items-start gap-3 rounded-xl bg-white/[0.02] border border-white/5 px-4 py-3">
                   <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-destructive/10 text-destructive shrink-0">
                     {it.i}
                   </span>
