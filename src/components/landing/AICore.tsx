@@ -184,9 +184,10 @@ export function AICore() {
               <div className="w-full text-[10px] uppercase tracking-[0.16em] text-muted-foreground lg:text-left mb-1">
                 Что получает бизнес
               </div>
-              {outputs.map((it) => (
-                <Chip key={it.id} it={it} refKey={it.id} />
+              {outputs.map((it, i) => (
+                <Chip key={it.id} it={it} refKey={it.id} index={i} side="out" />
               ))}
+
             </div>
           </div>
         </div>
