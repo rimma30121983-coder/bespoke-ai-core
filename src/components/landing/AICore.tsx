@@ -42,8 +42,7 @@ export function AICore() {
     Array<{ id: string; x1: number; y1: number; x2: number; y2: number; side: "in" | "out" }>
   >([]);
   const [size, setSize] = useState({ w: 0, h: 0 });
-  const [activeIn, setActiveIn] = useState<string | null>(null);
-  const [activeOut, setActiveOut] = useState<string | null>(null);
+  const [entering, setEntering] = useState(false);
 
   useEffect(() => {
     const compute = () => {
