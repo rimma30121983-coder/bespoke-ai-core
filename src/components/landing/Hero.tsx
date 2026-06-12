@@ -1,9 +1,42 @@
 import { ArrowRight, Sparkles, TrendingUp, Bot, Bell, Users, Briefcase, ListChecks, Percent, CheckCircle2 } from "lucide-react";
+import { useEffect, useRef } from "react";
 import { handleNavigateToSection } from "@/lib/section-navigation";
+import { Particles } from "./Particles";
 
 const scrollTo = (id: string) => handleNavigateToSection(id);
 
 export function Hero() {
+  const mockupRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = mockupRef.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(max-width: 1023px)").matches) return;
+
+    let raf = 0;
+    let tx = 0, ty = 0, cx = 0, cy = 0;
+    const onMove = (e: MouseEvent) => {
+      const r = el.getBoundingClientRect();
+      const px = (e.clientX - (r.left + r.width / 2)) / r.width;
+      const py = (e.clientY - (r.top + r.height / 2)) / r.height;
+      tx = Math.max(-1, Math.min(1, px)) * 8;
+      ty = Math.max(-1, Math.min(1, py)) * 6;
+    };
+    const tick = () => {
+      cx += (tx - cx) * 0.08;
+      cy += (ty - cy) * 0.08;
+      el.style.transform = `translate3d(${cx}px, ${cy}px, 0) rotateX(${-cy * 0.3}deg) rotateY(${cx * 0.3}deg)`;
+      raf = requestAnimationFrame(tick);
+    };
+    window.addEventListener("mousemove", onMove);
+    raf = requestAnimationFrame(tick);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, []);
+
   return (
     <section id="top" className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
       {/* background decorations */}
@@ -12,12 +45,14 @@ export function Hero() {
       <div className="absolute -top-40 -left-40 w-[520px] h-[520px] rounded-full bg-brand-blue/25 blur-[120px] animate-pulse-soft" />
       <div className="absolute top-1/3 -right-40 w-[520px] h-[520px] rounded-full bg-brand-violet/25 blur-[120px] animate-pulse-soft" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] rounded-full bg-brand-violet/10 blur-[140px]" />
+      <Particles className="opacity-70" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
           {/* LEFT */}
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] sm:text-xs text-foreground/85 tracking-wide">
+            <div className="hero-rise hero-rise-1 inline-flex items-center gap-2 rounded-full glass px-3.5 py-1.5 text-[11px] sm:text-xs text-foreground/85 tracking-wide">
+
               <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan ai-dot" />
               <span className="uppercase tracking-[0.14em]">AI-системы • Автоматизация • Управление бизнесом</span>
             </div>
