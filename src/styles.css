@@ -507,5 +507,8 @@ section.reveal.in .stagger-item:nth-child(6) { animation-delay: .40s; }
     animation: none !important;
   }
   .stagger-item { opacity: 1; }
+  .chart-bar { transform: none; }
+  .chart-line { stroke-dashoffset: 0; }
+  .parallax-target { transform: none !important; }
 }
 
