@@ -157,16 +157,20 @@ export function AICore() {
                 <stop offset="100%" stopColor="oklch(0.62 0.24 295)" stopOpacity="0.05" />
               </linearGradient>
             </defs>
-            {lines.map((l) => (
-              <path
-                key={l.id}
-                d={`M ${l.x1} ${l.y1} C ${(l.x1 + l.x2) / 2} ${l.y1}, ${(l.x1 + l.x2) / 2} ${l.y2}, ${l.x2} ${l.y2}`}
-                stroke={l.side === "in" ? "url(#lineGradIn)" : "url(#lineGradOut)"}
-                strokeWidth="1"
-                fill="none"
-                className="ai-core-line"
-              />
-            ))}
+            {lines.map((l) => {
+              const isActive = l.id === activeIn || l.id === activeOut;
+              return (
+                <path
+                  key={l.id}
+                  d={`M ${l.x1} ${l.y1} C ${(l.x1 + l.x2) / 2} ${l.y1}, ${(l.x1 + l.x2) / 2} ${l.y2}, ${l.x2} ${l.y2}`}
+                  stroke={l.side === "in" ? "url(#lineGradIn)" : "url(#lineGradOut)"}
+                  strokeWidth={isActive ? 2.2 : 1.2}
+                  fill="none"
+                  className="ai-core-line"
+                  style={isActive ? { filter: "drop-shadow(0 0 6px oklch(0.78 0.14 210 / 0.9))", opacity: 1 } : undefined}
+                />
+              );
+            })}
           </svg>
 
           <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-12 items-center">
@@ -176,7 +180,7 @@ export function AICore() {
                 Источники данных
               </div>
               {sources.map((it, i) => (
-                <Chip key={it.id} it={it} refKey={it.id} index={i} side="in" />
+                <Chip key={it.id} it={it} refKey={it.id} index={i} side="in" active={activeIn === it.id} />
               ))}
 
             </div>
@@ -184,11 +188,13 @@ export function AICore() {
             {/* Core */}
             <div className="order-1 lg:order-2 flex justify-center">
               <div ref={coreRef} className="relative">
-                <div className="absolute -inset-10 rounded-full bg-brand-violet/30 blur-3xl animate-pulse-slow" />
-                <div className="relative h-40 w-40 sm:h-48 sm:w-48 rounded-full gradient-brand flex items-center justify-center shadow-[0_0_80px_-10px_oklch(0.66_0.2_265_/_0.8)]">
-                  <span className="absolute inset-0 rounded-full ring-1 ring-white/20" />
-                  <span className="absolute inset-2 rounded-full border border-white/15 ai-core-ring" />
-                  <span className="absolute -inset-2 rounded-full border border-brand-cyan/25 ai-core-ring-2" />
+                <div className="absolute -inset-12 rounded-full bg-brand-violet/40 blur-3xl animate-pulse-slow" />
+                <div className="absolute -inset-6 rounded-full bg-brand-blue/30 blur-2xl animate-pulse-slow" style={{ animationDelay: "1.2s" }} />
+                <div className="relative h-40 w-40 sm:h-48 sm:w-48 rounded-full gradient-brand core-halo flex items-center justify-center">
+                  <span className="absolute inset-0 rounded-full ring-1 ring-white/25" />
+                  <span className="absolute inset-2 rounded-full border border-white/20 ai-core-ring" />
+                  <span className="absolute -inset-2 rounded-full border border-brand-cyan/40 ai-core-ring-2" />
+                  <span className="absolute -inset-6 rounded-full border border-brand-violet/25 ai-core-ring" style={{ animationDelay: "0.5s" }} />
                   <div className="relative text-center">
                     <Brain className="w-10 h-10 mx-auto text-white" />
                     <div className="mt-2 text-sm font-semibold tracking-wide text-white">AI Core</div>
@@ -204,7 +210,7 @@ export function AICore() {
                 Что получает бизнес
               </div>
               {outputs.map((it, i) => (
-                <Chip key={it.id} it={it} refKey={it.id} index={i} side="out" />
+                <Chip key={it.id} it={it} refKey={it.id} index={i} side="out" active={activeOut === it.id} />
               ))}
 
             </div>
