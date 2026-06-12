@@ -121,8 +121,8 @@ export function Problems() {
           </div>
           <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {pains.map((p) => (
-              <div key={p.t} className="premium-card p-4 flex items-start gap-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg gradient-brand text-white shrink-0">
+              <div key={p.t} className="stagger-item premium-card lift-card p-4 flex items-start gap-3">
+                <span className="lift-icon inline-flex h-9 w-9 items-center justify-center rounded-lg gradient-brand text-white shrink-0">
                   {p.i}
                 </span>
                 <div>
