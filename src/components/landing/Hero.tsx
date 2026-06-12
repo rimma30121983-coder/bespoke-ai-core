@@ -199,7 +199,7 @@ export function Hero() {
                     </ul>
                   </div>
 
-                  <div className="rounded-lg p-3 relative overflow-hidden" style={{ background: "linear-gradient(135deg, oklch(0.65 0.21 265 / 0.22), oklch(0.6 0.24 295 / 0.22))", border: "1px solid oklch(1 0 0 / 0.1)" }}>
+                  <div className="rounded-lg p-3 relative overflow-hidden insight-glow" style={{ background: "linear-gradient(135deg, oklch(0.65 0.21 265 / 0.22), oklch(0.6 0.24 295 / 0.22))", border: "1px solid oklch(1 0 0 / 0.1)" }}>
                     <div className="absolute -top-8 -right-8 w-24 h-24 rounded-full bg-brand-violet/30 blur-2xl" />
                     <div className="relative flex items-center gap-2 text-[11px]">
                       <div className="h-5 w-5 rounded-md bg-gradient-to-br from-brand-blue to-brand-violet flex items-center justify-center">
