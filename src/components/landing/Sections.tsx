@@ -257,11 +257,11 @@ export function Problems() {
                 { num: 50, prefix: "до ", suffix: "%", title: "экономия рабочего времени команды", desc: "за счёт сокращения ручных действий, повторяющихся операций и поиска информации.", icon: <Clock className="w-5 h-5" /> },
                 { num: 35, prefix: "до ", suffix: "%", title: "сокращение рутинных операций", desc: "за счёт AI-автоматизации, уведомлений, подсказок и сценариев обработки данных.", icon: <Zap className="w-5 h-5" /> },
               ].map((c) => (
-                <div key={c.title} className="premium-card lift-card ring-gradient p-6 sm:p-7 flex flex-col items-center text-center group">
+                <div key={c.title} className="premium-card lift-card animated-border p-6 sm:p-7 flex flex-col items-center text-center group">
                   <div className="lift-icon inline-flex h-11 w-11 items-center justify-center rounded-xl icon-chip shrink-0">
                     {c.icon}
                   </div>
-                  <div className="mt-5 text-3xl sm:text-4xl font-bold gradient-text leading-none">
+                  <div className="mt-5 text-3xl sm:text-4xl font-bold gradient-text number-glow leading-none">
                     <CountUp end={c.num} prefix={c.prefix} suffix={c.suffix} />
                   </div>
                   <div className="mt-3 text-[15px] font-semibold leading-snug">{c.title}</div>

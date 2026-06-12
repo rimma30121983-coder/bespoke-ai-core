@@ -325,33 +325,63 @@
 
 /* Pulsing AI dot */
 @keyframes ai-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 oklch(0.78 0.14 210 / 0.55); }
-  50% { box-shadow: 0 0 0 8px oklch(0.78 0.14 210 / 0); }
+  0%, 100% { box-shadow: 0 0 0 0 oklch(0.78 0.14 210 / 0.65); }
+  50% { box-shadow: 0 0 0 10px oklch(0.78 0.14 210 / 0); }
 }
 .ai-dot { animation: ai-pulse 2.2s ease-in-out infinite; }
 
-/* AI Core */
+/* AI Core — stronger, more visible breathing */
 @keyframes pulse-slow {
-  0%, 100% { opacity: .5; transform: scale(1); }
-  50% { opacity: .9; transform: scale(1.08); }
+  0%, 100% { opacity: .55; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.16); }
 }
-.animate-pulse-slow { animation: pulse-slow 5s ease-in-out infinite; }
+.animate-pulse-slow { animation: pulse-slow 3.6s ease-in-out infinite; }
 
 @keyframes core-ring {
-  0% { transform: scale(1); opacity: .6; }
-  100% { transform: scale(1.35); opacity: 0; }
+  0% { transform: scale(1); opacity: .75; }
+  100% { transform: scale(1.55); opacity: 0; }
 }
-.ai-core-ring   { animation: core-ring 3.6s ease-out infinite; }
-.ai-core-ring-2 { animation: core-ring 3.6s ease-out infinite; animation-delay: 1.2s; }
+.ai-core-ring   { animation: core-ring 2.8s ease-out infinite; }
+.ai-core-ring-2 { animation: core-ring 2.8s ease-out infinite; animation-delay: 0.9s; }
+
+/* Extra outer halo on the AI Core orb */
+@keyframes core-halo {
+  0%, 100% { box-shadow:
+      0 0 60px -8px oklch(0.66 0.2 265 / 0.55),
+      0 0 120px -10px oklch(0.62 0.24 295 / 0.45);
+  }
+  50% { box-shadow:
+      0 0 110px -4px oklch(0.66 0.2 265 / 0.85),
+      0 0 200px -10px oklch(0.62 0.24 295 / 0.75);
+  }
+}
+.core-halo { animation: core-halo 3.4s ease-in-out infinite; }
 
 @keyframes line-flow {
-  0%   { stroke-dashoffset: 24; opacity: .45; }
+  0%   { stroke-dashoffset: 36; opacity: .55; }
   50%  { opacity: 1; }
-  100% { stroke-dashoffset: 0; opacity: .45; }
+  100% { stroke-dashoffset: 0; opacity: .55; }
 }
 .ai-core-line {
-  stroke-dasharray: 4 6;
-  animation: line-flow 3.2s linear infinite;
+  stroke-dasharray: 6 8;
+  stroke-width: 1.4;
+  animation: line-flow 1.8s linear infinite;
+}
+
+/* Highlighted chip pulse (active in cycle) */
+@keyframes chip-active {
+  0%, 100% {
+    box-shadow: 0 0 0 0 oklch(0.78 0.14 210 / 0);
+    border-color: oklch(0.78 0.14 210 / 0.7);
+  }
+  50% {
+    box-shadow: 0 0 24px -2px oklch(0.78 0.14 210 / 0.85);
+    border-color: oklch(0.78 0.14 210 / 1);
+  }
+}
+.chip-active {
+  animation: chip-active 1.6s ease-in-out;
+  background: linear-gradient(135deg, oklch(0.78 0.14 210 / 0.18), oklch(0.62 0.24 295 / 0.18));
 }
 
 /* ============ Premium motion layer ============ */
@@ -359,43 +389,77 @@
 /* Card lift on hover (premium feel) */
 .lift-card {
   transition:
-    transform .35s cubic-bezier(.22,.61,.36,1),
-    box-shadow .35s ease,
-    border-color .35s ease;
+    transform .3s cubic-bezier(.22,.61,.36,1),
+    box-shadow .3s ease,
+    border-color .3s ease;
 }
 .lift-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
   box-shadow:
-    0 30px 80px -22px oklch(0.62 0.24 295 / 0.45),
-    0 0 40px -10px oklch(0.78 0.14 210 / 0.35),
-    0 2px 0 0 oklch(1 0 0 / 0.06) inset;
-  border-color: oklch(0.78 0.14 210 / 0.45);
+    0 36px 90px -22px oklch(0.62 0.24 295 / 0.6),
+    0 0 60px -10px oklch(0.78 0.14 210 / 0.55),
+    0 2px 0 0 oklch(1 0 0 / 0.08) inset;
+  border-color: oklch(0.78 0.14 210 / 0.6);
 }
 .lift-card .lift-icon {
-  transition: filter .35s ease, transform .35s ease;
+  transition: filter .3s ease, transform .3s ease;
 }
 .lift-card:hover .lift-icon {
-  filter: drop-shadow(0 0 10px oklch(0.78 0.14 210 / 0.7));
-  transform: scale(1.06);
+  filter: drop-shadow(0 0 14px oklch(0.78 0.14 210 / 0.9));
+  transform: scale(1.1);
 }
 
 /* Premium-card hover stronger lift */
 .premium-card:hover { transform: translateY(-4px); }
 
-/* Hero AI Insight glow pulse */
+/* Hero AI Insight glow pulse — clearly visible */
 @keyframes insight-glow {
-  0%, 100% { box-shadow: 0 0 0 0 oklch(0.62 0.24 295 / 0); }
-  50% { box-shadow: 0 0 40px -4px oklch(0.62 0.24 295 / 0.55); }
+  0%, 100% { box-shadow: 0 0 18px -6px oklch(0.62 0.24 295 / 0.35); }
+  50% { box-shadow: 0 0 60px -2px oklch(0.62 0.24 295 / 0.85), 0 0 100px -10px oklch(0.66 0.2 265 / 0.5); }
 }
-.insight-glow { animation: insight-glow 4s ease-in-out infinite; }
+.insight-glow { animation: insight-glow 2.6s ease-in-out infinite; }
 
-/* Hero data-flow lines */
+/* Hero data-flow lines — more visible motion */
 @keyframes flow-dash {
-  to { stroke-dashoffset: -200; }
+  to { stroke-dashoffset: -240; }
 }
 .flow-line {
-  stroke-dasharray: 3 8;
-  animation: flow-dash 6s linear infinite;
+  stroke-dasharray: 6 10;
+  stroke-width: 1.6;
+  animation: flow-dash 2.4s linear infinite;
+}
+
+/* Animated number glow + gradient border */
+@keyframes number-glow {
+  0%, 100% { text-shadow: 0 0 18px oklch(0.78 0.14 210 / 0.35); }
+  50%      { text-shadow: 0 0 36px oklch(0.62 0.24 295 / 0.7), 0 0 8px oklch(0.78 0.14 210 / 0.5); }
+}
+.number-glow { animation: number-glow 3s ease-in-out infinite; }
+
+@keyframes border-trace {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.animated-border { position: relative; }
+.animated-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(110deg,
+    oklch(0.78 0.14 210) 0%,
+    oklch(0.66 0.2 265) 25%,
+    oklch(0.62 0.24 295) 50%,
+    oklch(0.66 0.2 265) 75%,
+    oklch(0.78 0.14 210) 100%);
+  background-size: 200% 200%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+  animation: border-trace 4.5s linear infinite;
+  opacity: .7;
 }
 
 /* Hero hint reveal */
@@ -503,7 +567,11 @@ section.reveal.in .stagger-item:nth-child(6) { animation-delay: .40s; }
   .chip-stagger,
   .stagger-item,
   .arrow-glow,
-  .badge-glow {
+  .badge-glow,
+  .core-halo,
+  .chip-active,
+  .number-glow,
+  .animated-border::before {
     animation: none !important;
   }
   .stagger-item { opacity: 1; }
