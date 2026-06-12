@@ -96,9 +96,23 @@ export function Hero() {
           </div>
 
           {/* MOCKUP */}
-          <div className="relative w-full max-w-full">
+          <div className="relative w-full max-w-full" style={{ perspective: "1200px" }}>
             <div className="absolute -inset-8 bg-gradient-to-br from-brand-blue/40 via-brand-violet/25 to-transparent blur-3xl rounded-[2rem]" />
-            <div className="relative glass-strong rounded-2xl p-3 sm:p-4 shadow-2xl">
+
+            {/* Data-flow lines */}
+            <svg className="hidden lg:block absolute -left-20 top-1/3 w-24 h-32 pointer-events-none" viewBox="0 0 100 120" aria-hidden>
+              <defs>
+                <linearGradient id="hflow" x1="0" x2="1" y1="0" y2="0">
+                  <stop offset="0%" stopColor="oklch(0.78 0.14 210)" stopOpacity="0" />
+                  <stop offset="100%" stopColor="oklch(0.78 0.14 210)" stopOpacity="0.7" />
+                </linearGradient>
+              </defs>
+              <path className="flow-line" d="M0 20 C 40 20, 60 60, 100 60" stroke="url(#hflow)" strokeWidth="1.2" fill="none" />
+              <path className="flow-line" d="M0 100 C 40 100, 60 60, 100 60" stroke="url(#hflow)" strokeWidth="1.2" fill="none" style={{ animationDelay: "1.2s" }} />
+            </svg>
+
+            <div ref={mockupRef} className="parallax-target relative glass-strong rounded-2xl p-3 sm:p-4 shadow-2xl">
+
               {/* Window chrome */}
               <div className="flex items-center gap-1.5 px-1 pb-3">
                 <div className="h-2.5 w-2.5 rounded-full bg-white/15" />
