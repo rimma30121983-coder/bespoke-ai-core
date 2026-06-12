@@ -208,7 +208,7 @@ export function AICore() {
                 Что получает бизнес
               </div>
               {outputs.map((it, i) => (
-                <Chip key={it.id} it={it} refKey={it.id} index={i} side="out" active={activeOut === it.id} />
+                <Chip key={it.id} it={it} refKey={it.id} index={i} side="out" />
               ))}
 
             </div>
