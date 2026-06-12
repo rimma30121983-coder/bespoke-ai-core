@@ -42,8 +42,7 @@ export function AICore() {
     Array<{ id: string; x1: number; y1: number; x2: number; y2: number; side: "in" | "out" }>
   >([]);
   const [size, setSize] = useState({ w: 0, h: 0 });
-  const [activeIn, setActiveIn] = useState<string | null>(null);
-  const [activeOut, setActiveOut] = useState<string | null>(null);
+  const [entering, setEntering] = useState(false);
 
   useEffect(() => {
     const compute = () => {
@@ -77,27 +76,30 @@ export function AICore() {
     };
   }, []);
 
-  // Cycle highlight through one source + one output every ~2.2s
+  // One-time entrance animation when the block becomes visible
   useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
     if (typeof window !== "undefined" &&
         window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    let i = 0;
-    const tick = () => {
-      const s = sources[i % sources.length];
-      const o = outputs[i % outputs.length];
-      setActiveIn(s.id);
-      setActiveOut(o.id);
-      i++;
-    };
-    tick();
-    const id = setInterval(tick, 2200);
-    return () => clearInterval(id);
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          setEntering(true);
+          window.setTimeout(() => setEntering(false), 2800);
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
 
-  const Chip = ({ it, refKey, index = 0, side = "in", active = false }: { it: ItemDef; refKey: string; index?: number; side?: "in" | "out"; active?: boolean }) => (
+
+  const Chip = ({ it, refKey, index = 0, side = "in" }: { it: ItemDef; refKey: string; index?: number; side?: "in" | "out" }) => (
     <div
       ref={(el) => { itemRefs.current[refKey] = el; }}
-      className={`chip-stagger group inline-flex items-center gap-2 rounded-full glass border border-white/10 px-3 py-1.5 text-xs text-foreground/85 backdrop-blur-md hover:border-brand-cyan/40 transition-colors ${active ? "chip-active" : ""}`}
+      className="chip-stagger group inline-flex items-center gap-2 rounded-full glass border border-white/10 px-3 py-1.5 text-xs text-foreground/85 backdrop-blur-md hover:border-brand-cyan/40 transition-colors"
       style={{
         animationDelay: `${index * 70}ms`,
         ...({ "--tx": side === "in" ? "-12px" : "12px" } as Record<string, string>),
@@ -109,6 +111,7 @@ export function AICore() {
       <span className="whitespace-nowrap">{it.label}</span>
     </div>
   );
+
 
 
   return (
@@ -131,7 +134,7 @@ export function AICore() {
 
         <div
           ref={wrapRef}
-          className="relative mt-14 premium-card ring-gradient p-5 sm:p-8 lg:p-10 overflow-hidden"
+          className={`ai-core-wrap relative mt-14 premium-card ring-gradient p-5 sm:p-8 lg:p-10 overflow-hidden ${entering ? "is-entering" : ""}`}
           style={{ minHeight: 580 }}
         >
           {/* Ambient glow */}
@@ -157,20 +160,16 @@ export function AICore() {
                 <stop offset="100%" stopColor="oklch(0.62 0.24 295)" stopOpacity="0.05" />
               </linearGradient>
             </defs>
-            {lines.map((l) => {
-              const isActive = l.id === activeIn || l.id === activeOut;
-              return (
-                <path
-                  key={l.id}
-                  d={`M ${l.x1} ${l.y1} C ${(l.x1 + l.x2) / 2} ${l.y1}, ${(l.x1 + l.x2) / 2} ${l.y2}, ${l.x2} ${l.y2}`}
-                  stroke={l.side === "in" ? "url(#lineGradIn)" : "url(#lineGradOut)"}
-                  strokeWidth={isActive ? 2.2 : 1.2}
-                  fill="none"
-                  className="ai-core-line"
-                  style={isActive ? { filter: "drop-shadow(0 0 6px oklch(0.78 0.14 210 / 0.9))", opacity: 1 } : undefined}
-                />
-              );
-            })}
+            {lines.map((l) => (
+              <path
+                key={l.id}
+                d={`M ${l.x1} ${l.y1} C ${(l.x1 + l.x2) / 2} ${l.y1}, ${(l.x1 + l.x2) / 2} ${l.y2}, ${l.x2} ${l.y2}`}
+                stroke={l.side === "in" ? "url(#lineGradIn)" : "url(#lineGradOut)"}
+                strokeWidth={1.2}
+                fill="none"
+                className="ai-core-line"
+              />
+            ))}
           </svg>
 
           <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-12 items-center">
@@ -180,7 +179,7 @@ export function AICore() {
                 Источники данных
               </div>
               {sources.map((it, i) => (
-                <Chip key={it.id} it={it} refKey={it.id} index={i} side="in" active={activeIn === it.id} />
+                <Chip key={it.id} it={it} refKey={it.id} index={i} side="in" />
               ))}
 
             </div>
@@ -210,7 +209,7 @@ export function AICore() {
                 Что получает бизнес
               </div>
               {outputs.map((it, i) => (
-                <Chip key={it.id} it={it} refKey={it.id} index={i} side="out" active={activeOut === it.id} />
+                <Chip key={it.id} it={it} refKey={it.id} index={i} side="out" />
               ))}
 
             </div>

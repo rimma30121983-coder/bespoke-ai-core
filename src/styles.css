@@ -330,59 +330,65 @@
 }
 .ai-dot { animation: ai-pulse 2.2s ease-in-out infinite; }
 
-/* AI Core — stronger, more visible breathing */
+/* AI Core — calm by default, gentle motion */
 @keyframes pulse-slow {
   0%, 100% { opacity: .55; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.16); }
+  50% { opacity: .8; transform: scale(1.08); }
 }
-.animate-pulse-slow { animation: pulse-slow 3.6s ease-in-out infinite; }
+.animate-pulse-slow { animation: pulse-slow 7s ease-in-out infinite; }
 
 @keyframes core-ring {
-  0% { transform: scale(1); opacity: .75; }
-  100% { transform: scale(1.55); opacity: 0; }
+  0% { transform: scale(1); opacity: .35; }
+  100% { transform: scale(1.35); opacity: 0; }
 }
-.ai-core-ring   { animation: core-ring 2.8s ease-out infinite; }
-.ai-core-ring-2 { animation: core-ring 2.8s ease-out infinite; animation-delay: 0.9s; }
+/* Rings paused by default; play softly on hover / during entrance */
+.ai-core-ring,
+.ai-core-ring-2 { opacity: 0; }
+.ai-core-wrap:hover .ai-core-ring,
+.ai-core-wrap.is-entering .ai-core-ring {
+  animation: core-ring 5s ease-out infinite;
+  opacity: 1;
+}
+.ai-core-wrap:hover .ai-core-ring-2,
+.ai-core-wrap.is-entering .ai-core-ring-2 {
+  animation: core-ring 5s ease-out infinite;
+  animation-delay: 1.6s;
+  opacity: 1;
+}
 
-/* Extra outer halo on the AI Core orb */
+/* Soft outer halo on the AI Core orb — gentle, always on */
 @keyframes core-halo {
   0%, 100% { box-shadow:
-      0 0 60px -8px oklch(0.66 0.2 265 / 0.55),
-      0 0 120px -10px oklch(0.62 0.24 295 / 0.45);
+      0 0 50px -10px oklch(0.66 0.2 265 / 0.35),
+      0 0 100px -16px oklch(0.62 0.24 295 / 0.28);
   }
   50% { box-shadow:
-      0 0 110px -4px oklch(0.66 0.2 265 / 0.85),
-      0 0 200px -10px oklch(0.62 0.24 295 / 0.75);
+      0 0 70px -8px oklch(0.66 0.2 265 / 0.5),
+      0 0 140px -14px oklch(0.62 0.24 295 / 0.4);
   }
 }
-.core-halo { animation: core-halo 3.4s ease-in-out infinite; }
+.core-halo { animation: core-halo 7s ease-in-out infinite; }
 
+/* Connection lines — static by default, flow only on entrance / hover */
 @keyframes line-flow {
-  0%   { stroke-dashoffset: 36; opacity: .55; }
-  50%  { opacity: 1; }
-  100% { stroke-dashoffset: 0; opacity: .55; }
+  0%   { stroke-dashoffset: 36; opacity: .35; }
+  50%  { opacity: .7; }
+  100% { stroke-dashoffset: 0; opacity: .35; }
 }
 .ai-core-line {
   stroke-dasharray: 6 8;
-  stroke-width: 1.4;
-  animation: line-flow 1.8s linear infinite;
+  stroke-width: 1.2;
+  opacity: .35;
+}
+.ai-core-wrap.is-entering .ai-core-line {
+  animation: line-flow 2.4s linear;
+  animation-iteration-count: 1;
+}
+.ai-core-wrap:hover .ai-core-line {
+  opacity: .6;
+  transition: opacity .4s ease;
 }
 
-/* Highlighted chip pulse (active in cycle) */
-@keyframes chip-active {
-  0%, 100% {
-    box-shadow: 0 0 0 0 oklch(0.78 0.14 210 / 0);
-    border-color: oklch(0.78 0.14 210 / 0.7);
-  }
-  50% {
-    box-shadow: 0 0 24px -2px oklch(0.78 0.14 210 / 0.85);
-    border-color: oklch(0.78 0.14 210 / 1);
-  }
-}
-.chip-active {
-  animation: chip-active 1.6s ease-in-out;
-  background: linear-gradient(135deg, oklch(0.78 0.14 210 / 0.18), oklch(0.62 0.24 295 / 0.18));
-}
 
 /* ============ Premium motion layer ============ */
 
