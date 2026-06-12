@@ -156,9 +156,10 @@ export function AICore() {
               <div className="w-full text-[10px] uppercase tracking-[0.16em] text-muted-foreground lg:text-right mb-1">
                 Источники данных
               </div>
-              {sources.map((it) => (
-                <Chip key={it.id} it={it} refKey={it.id} />
+              {sources.map((it, i) => (
+                <Chip key={it.id} it={it} refKey={it.id} index={i} side="in" />
               ))}
+
             </div>
 
             {/* Core */}
