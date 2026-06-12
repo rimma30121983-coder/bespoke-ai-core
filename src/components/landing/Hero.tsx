@@ -57,13 +57,14 @@ export function Hero() {
               <span className="uppercase tracking-[0.14em]">AI-системы • Автоматизация • Управление бизнесом</span>
             </div>
 
-            <h1 className="mt-6 text-[2rem] sm:text-5xl lg:text-[3.75rem] font-semibold tracking-tight leading-[1.04]">
+            <h1 className="hero-rise hero-rise-2 mt-6 text-[2rem] sm:text-5xl lg:text-[3.75rem] font-semibold tracking-tight leading-[1.04]">
               Индивидуальные{" "}
               <span className="gradient-text whitespace-nowrap">AI-системы</span>,
               <br className="hidden sm:block" /> которые работают под ваш бизнес
             </h1>
 
-            <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
+            <p className="hero-rise hero-rise-3 mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
+
               Проектируем и разрабатываем цифровые системы управления и внутренние бизнес-платформы: процессы, задачи, клиенты, сотрудники, аналитика и интеллектуальная автоматизация рутины в одном удобном интерфейсе.
             </p>
 
