@@ -54,8 +54,9 @@ function MiniMockupBakery() {
             </linearGradient>
           </defs>
           {[10, 18, 14, 24, 20, 30, 26, 36, 32, 40, 34, 38].map((h, i) => (
-            <rect key={i} x={6 + i * 16} y={40 - h} width="10" height={h} rx="2" fill="url(#mb)" />
+            <rect key={i} className="chart-bar" style={{ animationDelay: `${i * 60}ms` }} x={6 + i * 16} y={40 - h} width="10" height={h} rx="2" fill="url(#mb)" />
           ))}
+
         </svg>
       </div>
     </div>
