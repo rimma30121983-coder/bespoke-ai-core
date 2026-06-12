@@ -192,19 +192,22 @@ export function Problems() {
 
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { pct: "до 25%", title: "экономия на процессах", desc: "за счёт прозрачности задач, сроков, ответственных и управленческой аналитики.", icon: <TrendingDown className="w-5 h-5" /> },
-                { pct: "до 50%", title: "экономия рабочего времени команды", desc: "за счёт сокращения ручных действий, повторяющихся операций и поиска информации.", icon: <Clock className="w-5 h-5" /> },
-                { pct: "до 35%", title: "сокращение рутинных операций", desc: "за счёт AI-автоматизации, уведомлений, подсказок и сценариев обработки данных.", icon: <Zap className="w-5 h-5" /> },
+                { num: 25, prefix: "до ", suffix: "%", title: "экономия на процессах", desc: "за счёт прозрачности задач, сроков, ответственных и управленческой аналитики.", icon: <TrendingDown className="w-5 h-5" /> },
+                { num: 50, prefix: "до ", suffix: "%", title: "экономия рабочего времени команды", desc: "за счёт сокращения ручных действий, повторяющихся операций и поиска информации.", icon: <Clock className="w-5 h-5" /> },
+                { num: 35, prefix: "до ", suffix: "%", title: "сокращение рутинных операций", desc: "за счёт AI-автоматизации, уведомлений, подсказок и сценариев обработки данных.", icon: <Zap className="w-5 h-5" /> },
               ].map((c) => (
-                <div key={c.title} className="premium-card ring-gradient p-6 sm:p-7 flex flex-col items-center text-center group">
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl icon-chip shrink-0">
+                <div key={c.title} className="premium-card lift-card ring-gradient p-6 sm:p-7 flex flex-col items-center text-center group">
+                  <div className="lift-icon inline-flex h-11 w-11 items-center justify-center rounded-xl icon-chip shrink-0">
                     {c.icon}
                   </div>
-                  <div className="mt-5 text-3xl sm:text-4xl font-bold gradient-text leading-none">{c.pct}</div>
+                  <div className="mt-5 text-3xl sm:text-4xl font-bold gradient-text leading-none">
+                    <CountUp end={c.num} prefix={c.prefix} suffix={c.suffix} />
+                  </div>
                   <div className="mt-3 text-[15px] font-semibold leading-snug">{c.title}</div>
                   <p className="mt-2 text-[13px] text-muted-foreground leading-relaxed">{c.desc}</p>
                 </div>
               ))}
+
             </div>
 
             <div className="mt-8 text-center">
