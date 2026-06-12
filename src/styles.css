@@ -500,11 +500,12 @@ section.reveal.in .stagger-item:nth-child(6) { animation-delay: .40s; }
   .hero-rise,
   .chart-bar,
   .chart-line,
-  .chip-stagger {
+  .chip-stagger,
+  .stagger-item,
+  .arrow-glow,
+  .badge-glow {
     animation: none !important;
   }
-  .chart-bar { transform: none; }
-  .chart-line { stroke-dashoffset: 0; }
-  .parallax-target { transform: none !important; }
+  .stagger-item { opacity: 1; }
 }
 
