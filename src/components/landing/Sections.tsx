@@ -86,7 +86,7 @@ export function Problems() {
           </div>
 
           <div className="hidden lg:flex items-center justify-center px-2">
-            <div className="h-10 w-10 rounded-full gradient-brand flex items-center justify-center shadow-[0_0_24px_-4px_oklch(0.66_0.2_265_/_0.7)]">
+            <div className="arrow-glow h-10 w-10 rounded-full gradient-brand flex items-center justify-center">
               <ArrowRight className="w-5 h-5 text-white" />
             </div>
           </div>
@@ -100,7 +100,7 @@ export function Problems() {
               </div>
               <ul className="mt-5 space-y-3">
                 {after.map((it) => (
-                  <li key={it.t} className="flex items-start gap-3 rounded-xl bg-white/[0.03] border border-white/10 px-4 py-3">
+                  <li key={it.t} className="stagger-item flex items-start gap-3 rounded-xl bg-white/[0.03] border border-white/10 px-4 py-3">
                     <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg gradient-brand text-white shrink-0">
                       {it.i}
                     </span>
