@@ -140,28 +140,21 @@ export function Header() {
           })}
         </nav>
 
-
-        <div className="hidden lg:flex items-center gap-3 xl:gap-4">
-          <div className="hidden xl:flex flex-col items-end gap-0.5">
+        <div className="hidden lg:inline-flex items-center gap-3 xl:gap-4">
+          <div className="btn-primary inline-flex flex-col items-center justify-center rounded-full px-5 py-2 text-xs font-medium gap-0.5">
             <a
               href="tel:+79166685775"
-              className="text-xs text-foreground/80 hover:text-brand-cyan transition whitespace-nowrap"
+              className="whitespace-nowrap hover:brightness-110 transition"
             >
               +7 916 668 57 75
             </a>
             <a
               href="tel:+79774386966"
-              className="text-xs text-foreground/80 hover:text-brand-violet transition whitespace-nowrap"
+              className="whitespace-nowrap hover:brightness-110 transition"
             >
               +7 977 438 69 66
             </a>
           </div>
-          <button
-            onClick={() => go("#contact")}
-            className="btn-primary inline-flex items-center rounded-full px-5 h-10 text-sm font-medium shrink-0"
-          >
-            Обсудить проект
-          </button>
         </div>
 
         <button
@@ -204,33 +197,26 @@ export function Header() {
               );
             })}
 
-            <div className="mt-2 px-3 py-3 rounded-lg border border-border/60 bg-white/[0.02]">
-              <div className="text-xs text-muted-foreground mb-1.5">Позвонить:</div>
-              <div className="flex flex-col gap-1">
-                <a
-                  href="tel:+79166685775"
-                  className="inline-flex items-center gap-2 text-sm text-foreground/90 transition-colors hover:text-[oklch(0.75_0.18_220)]"
-                >
-                  <Phone className="w-4 h-4" />
-                  +7 916 668 57 75
-                </a>
-                <a
-                  href="tel:+79774386966"
-                  className="inline-flex items-center gap-2 text-sm text-foreground/90 pl-6 transition-colors hover:text-[oklch(0.7_0.2_290)]"
-                >
-                  +7 977 438 69 66
-                </a>
-              </div>
+            <div className="mt-2 btn-primary inline-flex flex-col items-center justify-center rounded-full px-5 py-3 text-sm font-medium gap-1">
+              <a
+                href="tel:+79166685775"
+                className="inline-flex items-center gap-2 whitespace-nowrap"
+              >
+                <Phone className="w-4 h-4" />
+                +7 916 668 57 75
+              </a>
+              <a
+                href="tel:+79774386966"
+                className="inline-flex items-center gap-2 whitespace-nowrap"
+              >
+                <Phone className="w-4 h-4" />
+                +7 977 438 69 66
+              </a>
             </div>
-            <button
-              onClick={() => go("#contact")}
-              className="btn-primary mt-2 inline-flex items-center justify-center rounded-full h-11 text-sm font-medium"
-            >
-              Обсудить проект
-            </button>
           </div>
         </div>
       )}
     </header>
   );
 }
+
