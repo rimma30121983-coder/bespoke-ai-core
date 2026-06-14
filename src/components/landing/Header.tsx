@@ -83,7 +83,7 @@ export function Header() {
             <Logo compact />
           </button>
           <div
-            className="hidden sm:inline-flex items-center gap-1.5 pl-[46px] sm:pl-[56px] lg:pl-[60px] text-[11px] sm:text-xs tracking-[0.14em] uppercase"
+            className="hidden sm:inline-flex items-center gap-1.5 pl-[46px] sm:pl-[56px] lg:pl-[60px] text-[12px] sm:text-[14px] tracking-[0.14em] uppercase"
             style={{
               backgroundImage: "linear-gradient(90deg, oklch(0.85 0.14 220), oklch(0.78 0.18 290))",
               WebkitBackgroundClip: "text",
@@ -93,7 +93,7 @@ export function Header() {
             }}
           >
             <Shield
-              className="w-3.5 h-3.5 shrink-0"
+              className="w-4 h-4 shrink-0"
               style={{
                 color: "oklch(0.75 0.18 220)",
                 filter: "drop-shadow(0 0 6px oklch(0.75 0.18 220 / 0.5))",
@@ -141,10 +141,24 @@ export function Header() {
         </nav>
 
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-3 xl:gap-4">
+          <div className="hidden xl:flex flex-col items-end gap-0.5">
+            <a
+              href="tel:+79166685775"
+              className="text-xs text-foreground/80 hover:text-brand-cyan transition whitespace-nowrap"
+            >
+              +7 916 668 57 75
+            </a>
+            <a
+              href="tel:+79774386966"
+              className="text-xs text-foreground/80 hover:text-brand-violet transition whitespace-nowrap"
+            >
+              +7 977 438 69 66
+            </a>
+          </div>
           <button
             onClick={() => go("#contact")}
-            className="btn-primary inline-flex items-center rounded-full px-5 h-10 text-sm font-medium"
+            className="btn-primary inline-flex items-center rounded-full px-5 h-10 text-sm font-medium shrink-0"
           >
             Обсудить проект
           </button>
