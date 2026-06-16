@@ -586,3 +586,41 @@ section.reveal.in .stagger-item:nth-child(6) { animation-delay: .40s; }
   .parallax-target { transform: none !important; }
 }
 
+/* ============ Mobile / Android performance guard ============
+   On small viewports disable heavy continuous animations and
+   expensive blur/halo effects to prevent jank and white-screen
+   issues on lower-end Android Chrome. */
+@media (max-width: 767px) {
+  .animate-drift,
+  .animate-scan,
+  .animate-float,
+  .animate-pulse-soft,
+  .animate-pulse-slow,
+  .core-halo,
+  .insight-glow,
+  .number-glow,
+  .flow-line,
+  .arrow-glow,
+  .badge-glow,
+  .ai-core-ring,
+  .ai-core-ring-2,
+  .ai-core-line,
+  .animated-border::before {
+    animation: none !important;
+  }
+  .parallax-target { transform: none !important; }
+  /* Lower blur radii — large blurs are extremely expensive on mobile GPUs */
+  .glass,
+  .glass-strong,
+  .premium-card {
+    backdrop-filter: blur(8px) saturate(120%);
+    -webkit-backdrop-filter: blur(8px) saturate(120%);
+  }
+  .ai-core-wrap { --ai-core-min: auto; }
+}
+
+/* Prevent any element from forcing horizontal overflow */
+html, body, #root { overflow-x: hidden; max-width: 100%; }
+img, video { max-width: 100%; height: auto; }
+
+

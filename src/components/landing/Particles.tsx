@@ -13,7 +13,7 @@ export function Particles({ count = 36, className = "" }: Props) {
     if (!canvas) return;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const mobile = window.matchMedia("(max-width: 640px)").matches;
-    const n = reduced ? 0 : mobile ? Math.min(count, 18) : count;
+    const n = reduced || mobile ? 0 : count;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 

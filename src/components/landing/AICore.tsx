@@ -135,7 +135,7 @@ export function AICore() {
         <div
           ref={wrapRef}
           className={`ai-core-wrap relative mt-14 premium-card ring-gradient p-5 sm:p-8 lg:p-10 overflow-hidden ${entering ? "is-entering" : ""}`}
-          style={{ minHeight: 580 }}
+          style={{ minHeight: "var(--ai-core-min, 580px)" }}
         >
           {/* Ambient glow */}
           <div className="pointer-events-none absolute inset-0">
