@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Shield } from "lucide-react";
+import { Menu, X, Phone, Shield, Send, MessageCircle } from "lucide-react";
 import { Link, useNavigate, useLocation } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { handleNavigateToSection, normalizeSectionId } from "@/lib/section-navigation";
@@ -197,20 +197,42 @@ export function Header() {
               );
             })}
 
-            <div className="mt-2 btn-primary inline-flex flex-col items-center justify-center rounded-full px-5 py-3 text-sm font-medium gap-1">
+            <div className="mt-2 btn-primary flex flex-col items-stretch justify-center rounded-2xl px-4 py-3 text-sm font-medium gap-2">
               <a
                 href="tel:+79166685775"
-                className="inline-flex items-center gap-2 whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap"
               >
                 <Phone className="w-4 h-4" />
                 +7 916 668 57 75
               </a>
               <a
                 href="tel:+79774386966"
-                className="inline-flex items-center gap-2 whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap"
               >
                 <Phone className="w-4 h-4" />
                 +7 977 438 69 66
+              </a>
+            </div>
+            <div className="mt-2 grid grid-cols-2 gap-2">
+              <a
+                href="https://t.me/+79166685775"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-sm"
+                onClick={() => setOpen(false)}
+              >
+                <Send className="w-4 h-4 text-brand-cyan" />
+                Telegram
+              </a>
+              <a
+                href="https://wa.me/79774386966"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2.5 text-sm"
+                onClick={() => setOpen(false)}
+              >
+                <MessageCircle className="w-4 h-4 text-brand-cyan" />
+                WhatsApp
               </a>
             </div>
           </div>
