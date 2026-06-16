@@ -615,7 +615,8 @@ section.reveal.in .stagger-item:nth-child(6) { animation-delay: .40s; }
   .premium-card {
     backdrop-filter: blur(8px) saturate(120%);
     -webkit-backdrop-filter: blur(8px) saturate(120%);
-  }
+  .ai-core-wrap { --ai-core-min: auto; }
+}
 }
 
 /* Prevent any element from forcing horizontal overflow */
