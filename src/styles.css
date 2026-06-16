@@ -620,6 +620,6 @@ section.reveal.in .stagger-item:nth-child(6) { animation-delay: .40s; }
 
 /* Prevent any element from forcing horizontal overflow */
 html, body, #root { overflow-x: hidden; max-width: 100%; }
-img, svg, video, canvas { max-width: 100%; height: auto; }
+img, video { max-width: 100%; height: auto; }
 
 
