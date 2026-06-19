@@ -24,13 +24,33 @@ export function FinalCTA() {
 }
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    trackLeadSubmit({ industry: String(fd.get("industry") ?? "") });
-    setSubmitted(true);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
+    const payload = {
+      name: String(fd.get("name") ?? "").trim(),
+      phone: String(fd.get("phone") ?? "").trim(),
+      messenger: String(fd.get("messenger") ?? "").trim(),
+      industry: String(fd.get("industry") ?? "").trim(),
+      goal: String(fd.get("goal") ?? "").trim(),
+    };
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/public/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error("send failed");
+      trackLeadSubmit({ industry: payload.industry });
+      setStatus("success");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
   };
 
   const mini = [
@@ -74,14 +94,14 @@ export function ContactForm() {
             </div>
 
             <div className="glass rounded-2xl p-5 sm:p-7 h-full flex flex-col">
-              {submitted ? (
+              {status === "success" ? (
                 <div className="text-center py-10">
                   <div className="mx-auto h-14 w-14 rounded-full gradient-brand inline-flex items-center justify-center">
                     <CheckCircle2 className="w-7 h-7 text-white" />
                   </div>
                   <h3 className="mt-5 text-xl font-semibold">Спасибо!</h3>
                   <p className="mt-2 text-sm text-muted-foreground max-w-md mx-auto">
-                    Мы свяжемся с вами и обсудим структуру будущей системы.
+                    Заявка отправлена. Мы свяжемся с вами в ближайшее время.
                   </p>
                 </div>
               ) : (
@@ -100,9 +120,18 @@ export function ContactForm() {
                     />
                   </div>
                   <div className="sm:col-span-2">
-                    <button type="submit" className="btn-primary w-full inline-flex items-center justify-center gap-2 rounded-full h-12 px-7 text-sm font-medium">
-                      Отправить заявку <ArrowRight className="w-4 h-4" />
+                    <button
+                      type="submit"
+                      disabled={status === "loading"}
+                      className="btn-primary w-full inline-flex items-center justify-center gap-2 rounded-full h-12 px-7 text-sm font-medium disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                      {status === "loading" ? "Отправляем..." : (<>Отправить заявку <ArrowRight className="w-4 h-4" /></>)}
                     </button>
+                    {status === "error" && (
+                      <p className="mt-3 text-xs text-red-400">
+                        Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в Telegram / WhatsApp.
+                      </p>
+                    )}
                     <ConsentNote className="mt-3" />
                   </div>
                 </form>
