@@ -1,13 +1,9 @@
 import * as React from 'react'
 import { render } from '@react-email/components'
-import { createClient } from '@supabase/supabase-js'
 import { createFileRoute } from '@tanstack/react-router'
 import { z } from 'zod'
 import { TEMPLATES } from '@/lib/email-templates/registry'
 
-const SITE_NAME = 'AI Systems'
-const SENDER_DOMAIN = 'notify.aisystems.company'
-const FROM_DOMAIN = 'notify.aisystems.company'
 const TEMPLATE_NAME = 'contact-lead'
 
 const schema = z.object({
@@ -22,9 +18,16 @@ export const Route = createFileRoute('/api/public/contact')({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-        const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY
-        if (!supabaseUrl || !serviceKey) {
+        // Read SMTP config inside the handler — env is injected at request time
+        const SMTP_HOST = process.env.SMTP_HOST ?? 'smtp.mail.ru'
+        const SMTP_PORT = Number(process.env.SMTP_PORT ?? 465)
+        const SMTP_USER = process.env.SMTP_USER
+        const SMTP_PASS = process.env.SMTP_PASS
+        const MAIL_TO = process.env.MAIL_TO ?? 'aisystems@bk.ru'
+        const MAIL_FROM = process.env.MAIL_FROM ?? SMTP_USER
+
+        if (!SMTP_USER || !SMTP_PASS) {
+          console.error('contact form: SMTP_USER / SMTP_PASS not configured')
           return Response.json({ error: 'Server misconfigured' }, { status: 500 })
         }
 
@@ -42,13 +45,9 @@ export const Route = createFileRoute('/api/public/contact')({
         const data = parsed.data
 
         const template = TEMPLATES[TEMPLATE_NAME]
-        if (!template || !template.to) {
-          return Response.json({ error: 'Template not configured' }, { status: 500 })
+        if (!template) {
+          return Response.json({ error: 'Template missing' }, { status: 500 })
         }
-
-        const supabase = createClient(supabaseUrl, serviceKey)
-        const messageId = crypto.randomUUID()
-        const recipient = template.to
 
         const element = React.createElement(template.component, data)
         const html = await render(element)
@@ -58,39 +57,26 @@ export const Route = createFileRoute('/api/public/contact')({
             ? template.subject(data)
             : template.subject
 
-        await supabase.from('email_send_log').insert({
-          message_id: messageId,
-          template_name: TEMPLATE_NAME,
-          recipient_email: recipient,
-          status: 'pending',
-        })
+        try {
+          // Dynamic import — nodemailer is Node-only; keep it out of the client bundle
+          const nodemailer = (await import('nodemailer')).default
+          const transporter = nodemailer.createTransport({
+            host: SMTP_HOST,
+            port: SMTP_PORT,
+            secure: SMTP_PORT === 465,
+            auth: { user: SMTP_USER, pass: SMTP_PASS },
+          })
 
-        const { error: enqueueError } = await supabase.rpc('enqueue_email', {
-          queue_name: 'transactional_emails',
-          payload: {
-            message_id: messageId,
-            to: recipient,
-            from: `${SITE_NAME} <noreply@${FROM_DOMAIN}>`,
-            sender_domain: SENDER_DOMAIN,
+          await transporter.sendMail({
+            from: MAIL_FROM,
+            to: MAIL_TO,
+            replyTo: MAIL_FROM,
             subject,
             html,
             text,
-            purpose: 'transactional',
-            label: TEMPLATE_NAME,
-            idempotency_key: messageId,
-            queued_at: new Date().toISOString(),
-          },
-        })
-
-        if (enqueueError) {
-          console.error('contact enqueue failed', enqueueError)
-          await supabase.from('email_send_log').insert({
-            message_id: messageId,
-            template_name: TEMPLATE_NAME,
-            recipient_email: recipient,
-            status: 'failed',
-            error_message: 'enqueue failed',
           })
+        } catch (error) {
+          console.error('contact form: SMTP send failed', error)
           return Response.json({ error: 'Send failed' }, { status: 500 })
         }
 
